@@ -23,7 +23,7 @@ Anyone using the BMAD method who wants to:
 - Access science-backed tools and checklists for self-improvement.
 
 ## Author
-[Shafir Ahmad](https://github.com/shafirahmad) with the help of Claude Code and BMAD method
+[Shafir Ahmad](https://github.com/shafirahmad) with the help of Claude Code and [BMAD method](https://github.com/bmad-code-org/BMAD-METHOD)
 
 ---
 

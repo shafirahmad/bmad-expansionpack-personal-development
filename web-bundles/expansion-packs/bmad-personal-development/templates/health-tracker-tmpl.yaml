@@ -1,0 +1,531 @@
+name: health-tracker
+description: Comprehensive health metrics tracking and analysis system
+version: 1.0.0
+author: BMad AI
+category: health
+tags:
+  - health
+  - medical
+  - vitals
+  - symptoms
+  - medications
+
+instructions: |
+  Track vital health metrics, symptoms, medications, and medical appointments.
+  Use this template for detailed health monitoring and pattern identification.
+  Share reports with healthcare providers for better care coordination.
+
+sections:
+  - id: vital_signs
+    title: Vital Signs & Metrics
+    type: measurements
+    frequency: daily
+    fields:
+      - name: date_time
+        type: datetime
+        required: true
+        default: now
+        
+      - name: blood_pressure_systolic
+        type: number
+        label: Blood Pressure (Systolic)
+        unit: mmHg
+        min: 70
+        max: 200
+        normal_range: [90, 120]
+        
+      - name: blood_pressure_diastolic
+        type: number
+        label: Blood Pressure (Diastolic)
+        unit: mmHg
+        min: 40
+        max: 130
+        normal_range: [60, 80]
+        
+      - name: heart_rate
+        type: number
+        label: Heart Rate
+        unit: bpm
+        min: 40
+        max: 200
+        normal_range: [60, 100]
+        
+      - name: temperature
+        type: number
+        label: Body Temperature
+        unit: °F
+        min: 95
+        max: 105
+        decimal: 1
+        normal_range: [97.0, 99.0]
+        
+      - name: weight
+        type: number
+        label: Weight
+        unit: lbs
+        min: 50
+        max: 500
+        decimal: 1
+        
+      - name: blood_sugar
+        type: number
+        label: Blood Sugar
+        unit: mg/dL
+        min: 20
+        max: 600
+        normal_range_fasting: [70, 100]
+        
+      - name: oxygen_saturation
+        type: number
+        label: Oxygen Saturation
+        unit: "%"
+        min: 70
+        max: 100
+        normal_range: [95, 100]
+
+  - id: symptoms_tracking
+    title: Symptoms & Conditions
+    type: assessment
+    fields:
+      - name: pain_areas
+        type: body_map
+        label: Pain Locations
+        intensity_scale: 1-10
+        
+      - name: pain_level
+        type: rating
+        label: Overall Pain Level
+        min: 0
+        max: 10
+        description: "0 = No pain, 10 = Worst pain"
+        
+      - name: symptoms_present
+        type: checkbox_list
+        label: Current Symptoms
+        options:
+          - headache
+          - fatigue
+          - nausea
+          - dizziness
+          - shortness_of_breath
+          - chest_pain
+          - congestion
+          - cough
+          - fever
+          - chills
+          - joint_pain
+          - muscle_aches
+          - rash
+          - swelling
+          - anxiety
+          - depression
+          - insomnia
+          - digestive_issues
+          - other
+          
+      - name: symptom_details
+        type: textarea
+        label: Symptom Description
+        placeholder: Describe symptoms in detail
+        
+      - name: symptom_triggers
+        type: text_list
+        label: Potential Triggers
+        placeholder: What might have caused symptoms?
+        
+      - name: symptom_duration
+        type: select
+        label: Duration
+        options:
+          - just_started
+          - hours
+          - days
+          - weeks
+          - months
+          - chronic
+
+  - id: medications
+    title: Medications & Supplements
+    type: tracking
+    fields:
+      - name: medication_name
+        type: text
+        label: Medication/Supplement
+        required: true
+        
+      - name: dosage
+        type: text
+        label: Dosage
+        placeholder: e.g., 500mg
+        
+      - name: frequency
+        type: select
+        label: Frequency
+        options:
+          - as_needed
+          - once_daily
+          - twice_daily
+          - three_times_daily
+          - four_times_daily
+          - weekly
+          - monthly
+          
+      - name: time_taken
+        type: time
+        label: Time Taken
+        
+      - name: taken_with_food
+        type: boolean
+        label: Taken with Food
+        
+      - name: side_effects
+        type: text_list
+        label: Side Effects Noticed
+        
+      - name: effectiveness
+        type: rating
+        label: Effectiveness
+        min: 1
+        max: 10
+        description: How well is it working?
+        
+      - name: adherence
+        type: percentage
+        label: Adherence Rate
+        description: Percentage of doses taken as prescribed
+
+  - id: lifestyle_factors
+    title: Lifestyle & Behaviors
+    type: daily_log
+    fields:
+      - name: sleep_quality
+        type: rating
+        label: Sleep Quality
+        min: 1
+        max: 10
+        
+      - name: sleep_hours
+        type: number
+        label: Hours of Sleep
+        min: 0
+        max: 24
+        decimal: 1
+        
+      - name: exercise_type
+        type: text
+        label: Exercise Type
+        placeholder: e.g., walking, swimming
+        
+      - name: exercise_duration
+        type: number
+        label: Exercise Duration
+        unit: minutes
+        min: 0
+        
+      - name: exercise_intensity
+        type: select
+        label: Exercise Intensity
+        options:
+          - none
+          - light
+          - moderate
+          - vigorous
+          
+      - name: diet_quality
+        type: rating
+        label: Diet Quality
+        min: 1
+        max: 10
+        
+      - name: water_intake
+        type: number
+        label: Water Intake
+        unit: ounces
+        min: 0
+        
+      - name: alcohol_units
+        type: number
+        label: Alcohol Units
+        min: 0
+        description: Standard drinks consumed
+        
+      - name: smoking
+        type: number
+        label: Cigarettes
+        min: 0
+        description: Number smoked today
+        
+      - name: stress_level
+        type: rating
+        label: Stress Level
+        min: 1
+        max: 10
+
+  - id: medical_appointments
+    title: Medical Appointments
+    type: calendar
+    fields:
+      - name: appointment_date
+        type: date
+        label: Date
+        required: true
+        
+      - name: appointment_time
+        type: time
+        label: Time
+        
+      - name: provider_name
+        type: text
+        label: Healthcare Provider
+        
+      - name: provider_type
+        type: select
+        label: Provider Type
+        options:
+          - primary_care
+          - specialist
+          - dentist
+          - therapist
+          - physical_therapy
+          - lab_test
+          - imaging
+          - surgery
+          - emergency
+          - other
+          
+      - name: reason_for_visit
+        type: text
+        label: Reason for Visit
+        
+      - name: notes_to_discuss
+        type: text_list
+        label: Topics to Discuss
+        placeholder: Questions or concerns for provider
+        
+      - name: visit_notes
+        type: textarea
+        label: Visit Summary
+        placeholder: Key points from appointment
+        
+      - name: follow_up_needed
+        type: boolean
+        label: Follow-up Required
+        
+      - name: next_appointment
+        type: date
+        label: Next Appointment
+
+  - id: lab_results
+    title: Lab Results & Tests
+    type: records
+    fields:
+      - name: test_date
+        type: date
+        label: Test Date
+        required: true
+        
+      - name: test_type
+        type: text
+        label: Test Type
+        placeholder: e.g., Blood work, X-ray
+        
+      - name: test_results
+        type: key_value_list
+        label: Results
+        placeholder: "Test name: Result value"
+        
+      - name: normal_ranges
+        type: key_value_list
+        label: Normal Ranges
+        placeholder: "Test name: Normal range"
+        
+      - name: abnormal_findings
+        type: text_list
+        label: Abnormal Findings
+        
+      - name: provider_notes
+        type: textarea
+        label: Provider Interpretation
+        
+      - name: follow_up_actions
+        type: text_list
+        label: Follow-up Actions
+        placeholder: Recommended next steps
+
+  - id: emergency_info
+    title: Emergency Information
+    type: static_info
+    fields:
+      - name: emergency_contact
+        type: text
+        label: Emergency Contact
+        placeholder: Name and phone number
+        
+      - name: blood_type
+        type: select
+        label: Blood Type
+        options:
+          - unknown
+          - A_positive
+          - A_negative
+          - B_positive
+          - B_negative
+          - AB_positive
+          - AB_negative
+          - O_positive
+          - O_negative
+          
+      - name: allergies
+        type: text_list
+        label: Allergies
+        important: true
+        
+      - name: current_conditions
+        type: text_list
+        label: Medical Conditions
+        
+      - name: current_medications
+        type: text_list
+        label: Current Medications
+        
+      - name: medical_directives
+        type: textarea
+        label: Medical Directives
+        placeholder: Advanced directives or special instructions
+
+outputs:
+  - id: health_summary
+    title: Health Summary Report
+    format: markdown
+    template: |
+      # Health Summary - {{date}}
+      
+      ## Vital Signs
+      - **Blood Pressure**: {{blood_pressure_systolic}}/{{blood_pressure_diastolic}} mmHg
+      - **Heart Rate**: {{heart_rate}} bpm
+      - **Temperature**: {{temperature}}°F
+      - **Weight**: {{weight}} lbs
+      - **O2 Saturation**: {{oxygen_saturation}}%
+      
+      ## Current Symptoms
+      {{#if symptoms_present}}
+      - Pain Level: {{pain_level}}/10
+      - Symptoms: {{symptoms_present | join}}
+      - Duration: {{symptom_duration}}
+      {{else}}
+      No symptoms reported
+      {{/if}}
+      
+      ## Medications Taken
+      {{#each medications}}
+      - {{medication_name}} ({{dosage}}) - {{time_taken}}
+      {{/each}}
+      
+      ## Lifestyle Factors
+      - Sleep: {{sleep_hours}} hours (Quality: {{sleep_quality}}/10)
+      - Exercise: {{exercise_duration}} min of {{exercise_type}}
+      - Water: {{water_intake}} oz
+      - Stress: {{stress_level}}/10
+
+  - id: provider_report
+    title: Healthcare Provider Report
+    format: pdf
+    includes:
+      - vital_signs_chart
+      - symptom_timeline
+      - medication_adherence
+      - lab_results_table
+      - lifestyle_trends
+      
+  - id: trends_analysis
+    title: Health Trends Analysis
+    format: dashboard
+    charts:
+      - type: line_chart
+        title: Vital Signs Trends
+        data:
+          - blood_pressure_systolic
+          - blood_pressure_diastolic
+          - heart_rate
+          - weight
+          
+      - type: heatmap
+        title: Symptom Patterns
+        data: symptoms_present
+        time_period: 30_days
+        
+      - type: bar_chart
+        title: Medication Effectiveness
+        data: medication_effectiveness
+        
+      - type: correlation_matrix
+        title: Factor Correlations
+        variables:
+          - sleep_quality
+          - exercise_duration
+          - stress_level
+          - pain_level
+
+automation:
+  reminders:
+    - type: medication
+      based_on: medication_schedule
+      advance_notice: 15_minutes
+      
+    - type: vital_signs
+      time: "09:00"
+      message: "Time for morning vital signs check"
+      
+    - type: appointment
+      advance_notice: 1_day
+      message: "Appointment tomorrow with {{provider_name}}"
+      
+  alerts:
+    - condition: blood_pressure_systolic > 140 OR blood_pressure_diastolic > 90
+      severity: high
+      message: "High blood pressure reading. Consider contacting provider."
+      
+    - condition: heart_rate > 100 OR heart_rate < 60
+      severity: medium
+      message: "Heart rate outside normal range."
+      
+    - condition: pain_level >= 7
+      severity: high
+      message: "High pain level reported. Consider pain management options."
+      
+    - condition: medication_adherence < 80
+      severity: medium
+      message: "Medication adherence below target. Review medication schedule."
+
+integrations:
+  - type: wearables
+    devices:
+      - fitness_trackers
+      - smart_watches
+      - blood_pressure_monitors
+      - glucose_meters
+    sync: automatic
+    
+  - type: health_apps
+    platforms:
+      - apple_health
+      - google_fit
+      - myfitnesspal
+    data_import:
+      - steps
+      - heart_rate
+      - sleep
+      - nutrition
+      
+  - type: medical_records
+    systems:
+      - epic
+      - cerner
+      - allscripts
+    permissions: read_write
+    
+  - type: pharmacy
+    features:
+      - refill_reminders
+      - drug_interactions
+      - cost_comparison

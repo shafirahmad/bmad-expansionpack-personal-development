@@ -1,0 +1,334 @@
+# Sprint Plan Template
+# Purpose: Create focused personal sprint plans for intensive goal achievement
+# Agent: Goal Strategist
+
+template_id: sprint-plan
+template_name: "Personal Sprint Plan Template"
+version: "1.0.0"
+description: "Agile-inspired template for planning focused work sprints with clear deliverables and daily actions"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's create a focused sprint plan to help you make significant progress on your goals using agile methodology adapted for personal achievement."
+  
+  sections:
+    - name: sprint_setup
+      title: "Sprint Configuration"
+      questions:
+        - prompt: "What will be the main focus or theme of this sprint?"
+          field: sprint_theme
+          type: text
+          validation: max_words:10
+          
+        - prompt: "How long will this sprint last?"
+          field: sprint_duration
+          type: choice
+          options:
+            - "1 week"
+            - "2 weeks"
+            - "3 weeks"
+            - "4 weeks"
+            
+        - prompt: "What is the sprint goal? (What will be accomplished by the end?)"
+          field: sprint_goal
+          type: text_long
+          validation: min_words:10, max_words:30
+          
+        - prompt: "Why is this sprint important right now?"
+          field: sprint_importance
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What are the 3-5 key deliverables for this sprint?"
+          field: key_deliverables
+          type: list
+          min_items: 3
+          max_items: 5
+
+    - name: capacity_planning
+      title: "Capacity Assessment"
+      questions:
+        - prompt: "How many hours can you dedicate to this sprint work each day?"
+          field: daily_hours
+          type: number
+          validation: min:1, max:12
+          
+        - prompt: "Which days of the week will you work on sprint tasks?"
+          field: work_days
+          type: multi_choice
+          options:
+            - "Monday"
+            - "Tuesday"
+            - "Wednesday"
+            - "Thursday"
+            - "Friday"
+            - "Saturday"
+            - "Sunday"
+            
+        - prompt: "What time blocks work best for sprint work?"
+          field: time_blocks
+          type: multi_choice
+          options:
+            - "Early morning (5-8am)"
+            - "Morning (8-12pm)"
+            - "Afternoon (12-5pm)"
+            - "Evening (5-9pm)"
+            - "Night (9pm-12am)"
+            
+        - prompt: "What percentage of capacity should be reserved for buffer/unexpected?"
+          field: buffer_percentage
+          type: choice
+          options:
+            - "10%"
+            - "20%"
+            - "30%"
+            - "40%"
+
+    - name: backlog_creation
+      title: "Sprint Backlog"
+      questions:
+        - prompt: "List all tasks needed to achieve your sprint goal (we'll prioritize next):"
+          field: all_tasks
+          type: task_list
+          min_items: 5
+          max_items: 20
+          structure:
+            - task_name: "Task description"
+            - estimated_hours: "Hours needed"
+            - complexity: "Simple/Medium/Complex"
+            
+        - prompt: "Which tasks are absolutely essential (must-do)?"
+          field: must_do_tasks
+          type: list
+          min_items: 3
+          
+        - prompt: "Which tasks would be nice to complete if time allows (could-do)?"
+          field: could_do_tasks
+          type: list
+          min_items: 2
+          
+        - prompt: "Are there any task dependencies? (Task X must be done before Task Y)"
+          field: task_dependencies
+          type: text_long
+
+    - name: daily_planning
+      title: "Daily Execution Plan"
+      questions:
+        - prompt: "What will be your daily standup routine? (Time and format)"
+          field: standup_routine
+          type: text
+          example: "8am, 5-minute review of yesterday/today/blockers"
+          
+        - prompt: "What's your preferred task sequence for maximum energy?"
+          field: task_sequence_strategy
+          type: choice
+          options:
+            - "Hardest tasks first (eat the frog)"
+            - "Quick wins first (build momentum)"
+            - "Creative first, admin later"
+            - "Alternating difficulty"
+            - "Energy-based scheduling"
+            
+        - prompt: "How will you track daily progress?"
+          field: tracking_method
+          type: multi_choice
+          options:
+            - "Physical task board"
+            - "Digital kanban (Trello, etc.)"
+            - "Spreadsheet"
+            - "Journal"
+            - "App (specify in notes)"
+            
+        - prompt: "What's your end-of-day review process?"
+          field: daily_review_process
+          type: text_long
+
+    - name: sprint_rituals
+      title: "Sprint Ceremonies"
+      questions:
+        - prompt: "When will you conduct your sprint planning session?"
+          field: planning_session_time
+          type: text
+          example: "Sunday evening, 1 hour"
+          
+        - prompt: "When and how will you do your sprint review?"
+          field: review_session_plan
+          type: text_long
+          
+        - prompt: "When will you do your retrospective?"
+          field: retrospective_plan
+          type: text_long
+          
+        - prompt: "Will you have any mid-sprint check-ins?"
+          field: mid_sprint_checkpoints
+          type: text
+
+    - name: success_factors
+      title: "Success Enablers"
+      questions:
+        - prompt: "What could block or derail this sprint?"
+          field: potential_blockers
+          type: list
+          min_items: 3
+          
+        - prompt: "How will you handle interruptions and protect sprint time?"
+          field: interruption_strategy
+          type: text_long
+          
+        - prompt: "What support do you need from others during this sprint?"
+          field: support_needed
+          type: list
+          min_items: 1
+          
+        - prompt: "How will you maintain energy and avoid burnout?"
+          field: energy_management
+          type: text_long
+          
+        - prompt: "How will you celebrate sprint completion?"
+          field: celebration_plan
+          type: text
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Sprint Plan: {{sprint_theme}}"
+    sections:
+      - header: "Sprint Overview"
+        content:
+          - "**Sprint Duration**: {{sprint_duration}}"
+          - "**Sprint Goal**: {{sprint_goal}}"
+          - "**Why Now**: {{sprint_importance}}"
+          - "**Key Deliverables**:"
+          - "{{key_deliverables|numbered}}"
+          
+      - header: "Capacity Plan"
+        content:
+          - "**Daily Commitment**: {{daily_hours}} hours"
+          - "**Work Days**: {{work_days|list}}"
+          - "**Prime Time Blocks**: {{time_blocks|list}}"
+          - "**Total Sprint Capacity**: {{calculated_capacity}} hours"
+          - "**Buffer Reserved**: {{buffer_percentage}}"
+          - "**Available for Tasks**: {{available_hours}} hours"
+          
+      - header: "Sprint Backlog"
+        subsections:
+          - title: "Committed (Must-Do)"
+            content:
+              - "{{must_do_tasks|task_table}}"
+              - "**Total Points**: {{must_do_points}}"
+              
+          - title: "Stretch (Could-Do)"
+            content:
+              - "{{could_do_tasks|task_list}}"
+              - "**Additional Points**: {{could_do_points}}"
+              
+          - title: "Dependencies"
+            content:
+              - "{{task_dependencies}}"
+              
+      - header: "Daily Execution Plan"
+        content:
+          - "**Standup Time**: {{standup_routine}}"
+          - "**Task Strategy**: {{task_sequence_strategy}}"
+          - "**Tracking Method**: {{tracking_method|list}}"
+          - "**Daily Review**: {{daily_review_process}}"
+          
+      - header: "Sprint Schedule"
+        content:
+          - "{{sprint_calendar|weekly_view}}"
+          
+      - header: "Sprint Ceremonies"
+        content:
+          - "**Planning Session**: {{planning_session_time}}"
+          - "**Mid-Sprint Check**: {{mid_sprint_checkpoints}}"
+          - "**Sprint Review**: {{review_session_plan}}"
+          - "**Retrospective**: {{retrospective_plan}}"
+          
+      - header: "Risk Management"
+        content:
+          - "**Potential Blockers**:"
+          - "{{potential_blockers|risk_list}}"
+          - "**Interruption Strategy**: {{interruption_strategy}}"
+          - "**Support Needed**: {{support_needed|bullets}}"
+          
+      - header: "Success Strategies"
+        content:
+          - "**Energy Management**: {{energy_management}}"
+          - "**Celebration Plan**: {{celebration_plan}}"
+          
+      - header: "Sprint Commitment"
+        content:
+          - "I commit to:"
+          - "- Daily standups at {{standup_routine}}"
+          - "- {{daily_hours}} hours per day of focused work"
+          - "- Completing all must-do tasks"
+          - "- Protecting sprint time from non-essential interruptions"
+          - "- Conducting review and retrospective"
+          
+      - header: "Day 1 Action Plan"
+        content:
+          - "Morning:"
+          - "- [ ] Conduct standup"
+          - "- [ ] {{first_task}}"
+          - "Afternoon:"
+          - "- [ ] {{second_task}}"
+          - "Evening:"
+          - "- [ ] Daily review"
+          - "- [ ] Prep for tomorrow"
+
+# Validation Rules
+validation:
+  required_fields:
+    - sprint_theme
+    - sprint_duration
+    - sprint_goal
+    - key_deliverables
+    - daily_hours
+    - must_do_tasks
+    
+  capacity_check:
+    rule: "Total task hours should not exceed available capacity"
+    
+  dependency_check:
+    rule: "Dependent tasks must be properly sequenced"
+
+# Processing Instructions
+processing:
+  - step: calculate_capacity
+    formula: "work_days * daily_hours * sprint_weeks * (1 - buffer_percentage)"
+    
+  - step: assign_story_points
+    description: "Convert hour estimates to story points"
+    
+  - step: create_burndown
+    description: "Generate ideal burndown chart"
+    
+  - step: optimize_schedule
+    description: "Arrange tasks for optimal flow"
+
+# Sprint Metrics
+metrics:
+  - velocity: "Story points per sprint"
+  - completion_rate: "Completed tasks / Committed tasks"
+  - quality_score: "Based on definition of done"
+  - consistency: "Daily execution rate"
+
+# Follow-up Templates
+follow_up:
+  - template_id: daily-standup
+    trigger: "Each day during sprint"
+    
+  - template_id: sprint-review
+    trigger: "End of sprint"
+    
+  - template_id: sprint-retrospective
+    trigger: "After sprint review"
+
+# Research Foundation
+research_base:
+  - "Scrum Guide: Schwaber & Sutherland"
+  - "Personal Kanban: Benson & Barry"
+  - "Sprint: Jake Knapp (Google Ventures)"
+  - "Agile for One: Personal productivity adaptation"
+  - "Timeboxing: Parkinson's Law application"

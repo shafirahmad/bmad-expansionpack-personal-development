@@ -1,0 +1,358 @@
+workflow:
+  id: wellness-journey
+  name: Holistic Wellness Optimization Journey
+  version: 1.0
+  description: Comprehensive wellness transformation program addressing physical, mental, emotional, and spiritual dimensions
+  duration: 8-12 weeks intensive + ongoing maintenance
+  difficulty: Intermediate
+
+overview: |
+  This workflow guides users through a holistic wellness transformation addressing all dimensions 
+  of well-being. It combines assessment, strategic planning, habit formation, and lifestyle 
+  optimization to create sustainable wellness improvements that ripple across all life areas.
+
+prerequisites:
+  - Basic stability in life (not in acute crisis)
+  - Commitment to wellness as priority
+  - 3-4 hours per week for wellness activities
+  - Openness to exploring multiple wellness dimensions
+  - Support system or accountability partner
+
+phases:
+  - phase: 1
+    name: Comprehensive Wellness Assessment
+    duration: 1 week
+    objective: Complete multi-dimensional wellness evaluation and establish baseline
+    agents:
+      primary: wellness-advisor
+      supporting: [life-coach]
+    tasks:
+      - wellness-wheel-assessment
+      - energy-management-design
+      - stress-analysis-protocol
+    deliverables:
+      - Complete wellness assessment report
+      - Energy patterns analysis
+      - Stress factors identification
+    success_criteria:
+      - All wellness dimensions evaluated (1-10 scale)
+      - Top 3 priority areas identified
+      - Baseline metrics established
+
+  - phase: 2
+    name: Physical Foundation
+    duration: 2 weeks
+    objective: Establish fundamental physical wellness practices
+    agents:
+      primary: wellness-advisor
+      supporting: [habit-engineer]
+    tasks:
+      - sleep-optimization
+      - nutrition-planning
+      - movement-prescription
+    deliverables:
+      - Sleep hygiene protocol
+      - Basic nutrition guidelines
+      - Movement/exercise plan
+    success_criteria:
+      - Sleep routine established
+      - Nutrition awareness increased
+      - Regular movement initiated
+
+  - phase: 3
+    name: Mental & Emotional Wellness
+    duration: 2 weeks
+    objective: Develop mental health practices and emotional regulation
+    agents:
+      primary: wellness-advisor
+      supporting: [mindset-mentor]
+    tasks:
+      - stress-management-protocol
+      - mindfulness-program
+      - emotional-intelligence-training
+    deliverables:
+      - Stress management toolkit
+      - Daily mindfulness practice
+      - Emotional regulation strategies
+    success_criteria:
+      - Daily stress management practice
+      - Mindfulness habit established
+      - Improved emotional awareness
+
+  - phase: 4
+    name: Lifestyle Integration
+    duration: 2 weeks
+    objective: Integrate wellness practices into sustainable lifestyle
+    agents:
+      primary: wellness-advisor
+      supporting: [habit-engineer, life-coach]
+    tasks:
+      - balance-engineering
+      - self-care-design
+      - routine-optimization
+    deliverables:
+      - Work-life balance plan
+      - Personalized self-care rituals
+      - Optimized daily routines
+    success_criteria:
+      - Sustainable routines established
+      - Self-care practices integrated
+      - Balance improvements visible
+
+  - phase: 5
+    name: Social & Environmental Wellness
+    duration: 1 week
+    objective: Optimize social connections and physical environment
+    agents:
+      primary: wellness-advisor
+      supporting: [life-coach]
+    tasks:
+      - relationship-wellness-assessment
+      - environment-architecture
+      - community-connection-planning
+    deliverables:
+      - Relationship wellness plan
+      - Environment optimization strategy
+      - Social connection activities
+    success_criteria:
+      - Key relationships identified for nurturing
+      - Environment modifications completed
+      - Social activities scheduled
+
+  - phase: 6
+    name: Recovery & Resilience Building
+    duration: 2 weeks
+    objective: Develop recovery practices and build resilience
+    agents:
+      primary: wellness-advisor
+      supporting: [mindset-mentor]
+    tasks:
+      - recovery-planning
+      - resilience-building
+      - obstacle-preparation
+    deliverables:
+      - Recovery protocol design
+      - Resilience practices
+      - Obstacle response strategies
+    success_criteria:
+      - Recovery routines established
+      - Resilience practices integrated
+      - Prepared for common obstacles
+
+  - phase: 7
+    name: Advanced Optimization
+    duration: 2 weeks
+    objective: Fine-tune and optimize all wellness systems
+    agents:
+      primary: wellness-advisor
+      supporting: [goal-strategist, habit-engineer]
+    tasks:
+      - advanced-wellness-optimization
+      - biohacking-exploration
+      - performance-enhancement
+    deliverables:
+      - Advanced optimization strategies
+      - Personalized biohacking experiments
+      - Performance enhancement protocols
+    success_criteria:
+      - Measurable improvements in key metrics
+      - Advanced practices integrated
+      - Peak performance periods identified
+
+  - phase: 8
+    name: Sustainability & Maintenance
+    duration: Ongoing
+    objective: Create long-term sustainable wellness lifestyle
+    agents:
+      primary: wellness-advisor
+      supporting: [life-coach]
+    tasks:
+      - maintenance-protocol-design
+      - seasonal-adjustment-planning
+      - continuous-improvement-system
+    deliverables:
+      - Long-term maintenance plan
+      - Seasonal wellness adjustments
+      - Progress tracking system
+    success_criteria:
+      - Sustainable practices established
+      - Self-regulation capabilities developed
+      - Continuous improvement mindset
+
+wellness_dimensions:
+  physical:
+    - Sleep quality and quantity
+    - Nutrition and hydration
+    - Movement and exercise
+    - Energy management
+    - Medical care and prevention
+
+  mental:
+    - Stress management
+    - Cognitive function
+    - Focus and concentration
+    - Learning and growth
+    - Mental stimulation
+
+  emotional:
+    - Emotional regulation
+    - Mood stability
+    - Self-awareness
+    - Emotional expression
+    - Relationship quality
+
+  spiritual:
+    - Purpose and meaning
+    - Values alignment
+    - Connection to something greater
+    - Inner peace
+    - Gratitude practice
+
+  social:
+    - Relationship quality
+    - Social support
+    - Community connection
+    - Communication skills
+    - Boundaries
+
+  environmental:
+    - Physical space optimization
+    - Digital environment
+    - Nature connection
+    - Toxin reduction
+    - Resource sustainability
+
+  occupational:
+    - Work-life balance
+    - Career satisfaction
+    - Professional growth
+    - Workplace wellness
+    - Purpose in work
+
+execution_framework:
+  daily_practices:
+    morning:
+      - Hydration and nutrition
+      - Movement or stretching
+      - Mindfulness practice
+      - Intention setting
+
+    midday:
+      - Stress check-in
+      - Movement break
+      - Mindful eating
+      - Energy assessment
+
+    evening:
+      - Recovery practices
+      - Reflection time
+      - Relaxation routine
+      - Sleep preparation
+
+  weekly_rhythm:
+    - Weekly wellness review
+    - Progress tracking
+    - Practice adjustments
+    - Planning for upcoming week
+    - Celebration of wins
+
+  monthly_optimization:
+    - Comprehensive assessment
+    - Strategy adjustments
+    - New practice integration
+    - Obstacle analysis
+    - Support system review
+
+success_metrics:
+  quantitative:
+    - Sleep hours and quality score
+    - Exercise frequency and duration
+    - Stress levels (1-10 daily)
+    - Energy levels (1-10 daily)
+    - Wellness dimension scores
+
+  qualitative:
+    - Overall life satisfaction
+    - Sense of vitality
+    - Emotional stability
+    - Relationship quality
+    - Work performance
+
+  behavioral:
+    - Consistency of practices
+    - Recovery time from stress
+    - Health behavior choices
+    - Self-care prioritization
+    - Boundary maintenance
+
+common_obstacles:
+  time_constraints:
+    - Solution: Micro-practices and habit stacking
+    - Focus on high-impact activities
+    - Integration with existing routines
+
+  motivation_fluctuations:
+    - Solution: Small wins and progress tracking
+    - Accountability partnerships
+    - Regular purpose reconnection
+
+  life_disruptions:
+    - Solution: Minimum viable practices
+    - Flexibility in approach
+    - Quick recovery protocols
+
+  resource_limitations:
+    - Solution: Free and low-cost options
+    - Community resources
+    - DIY approaches
+
+support_requirements:
+  professional:
+    - Healthcare provider consultation
+    - Wellness coaching support
+    - Specialist referrals as needed
+    - Mental health support availability
+
+  personal:
+    - Accountability partner
+    - Family support and understanding
+    - Friend encouragement
+    - Community connections
+
+  environmental:
+    - Safe exercise space
+    - Healthy food access
+    - Quiet spaces for practice
+    - Nature access when possible
+
+customization_options:
+  focus_areas:
+    stress_recovery: For high-stress individuals
+    energy_optimization: For chronic fatigue
+    weight_management: For body composition goals
+    mental_clarity: For cognitive enhancement
+    emotional_balance: For mood management
+
+  intensity_levels:
+    gentle: Gradual, low-impact approach
+    moderate: Balanced progression
+    intensive: Accelerated transformation
+    maintenance: Sustaining current wellness
+
+  time_availability:
+    minimal: 15-30 minutes daily
+    moderate: 30-60 minutes daily
+    comprehensive: 60+ minutes daily
+
+long_term_vision:
+  year_1: Foundation and habit establishment
+  year_2: Optimization and advancement
+  year_3: Mastery and mentorship
+  ongoing: Continuous evolution and adaptation
+
+integration_with_life_goals:
+  - Wellness as foundation for all achievements
+  - Energy optimization for goal pursuit
+  - Resilience for obstacle management
+  - Balance for sustainable success
+  - Vitality for life enjoyment

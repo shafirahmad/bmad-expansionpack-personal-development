@@ -1,0 +1,345 @@
+# 30-Day Challenge Template
+# Purpose: Design and execute focused 30-day habit challenges for rapid behavior change
+# Agent: Habit Engineer
+
+template_id: 30-day-challenge
+template_name: "30-Day Habit Challenge Template"
+version: "1.0.0"
+description: "Comprehensive template for creating engaging 30-day challenges that build lasting habits through daily practice and progressive development"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's design a powerful 30-day challenge that will help you establish a new habit or break an old one through consistent daily action and progressive development."
+  
+  sections:
+    - name: challenge_definition
+      title: "Challenge Setup"
+      questions:
+        - prompt: "What habit do you want to build or break in 30 days?"
+          field: target_habit
+          type: text
+          validation: max_words:10
+          examples:
+            - "Daily meditation"
+            - "No social media"
+            - "Exercise every day"
+            - "Write 500 words"
+            
+        - prompt: "Why is this challenge important to you right now?"
+          field: challenge_why
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What specific outcome do you want after 30 days?"
+          field: desired_outcome
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What type of challenge is this?"
+          field: challenge_type
+          type: choice
+          options:
+            - "Build new habit"
+            - "Break bad habit"
+            - "Replace habit"
+            - "Skill development"
+            - "Physical challenge"
+            - "Mental challenge"
+
+    - name: challenge_parameters
+      title: "Challenge Rules"
+      questions:
+        - prompt: "What's the minimum daily requirement?"
+          field: minimum_daily
+          type: text
+          instruction: "Be specific (e.g., 10 minutes, 20 pushups, 500 words)"
+          
+        - prompt: "Will you have progressive levels?"
+          field: progression_plan
+          type: choice
+          options:
+            - "Same every day"
+            - "Weekly progression"
+            - "Gradual daily increase"
+            - "Alternating intensity"
+            
+        - prompt: "What time of day will you do this?"
+          field: scheduled_time
+          type: choice
+          options:
+            - "First thing morning"
+            - "Morning"
+            - "Lunch time"
+            - "Afternoon"
+            - "Evening"
+            - "Before bed"
+            - "Flexible"
+            
+        - prompt: "Are there any rest days or exceptions?"
+          field: exceptions
+          type: text
+          instruction: "Be clear about rules (e.g., Sundays off, travel days modified)"
+
+    - name: success_factors
+      title: "Success Setup"
+      questions:
+        - prompt: "What might make this challenge difficult?"
+          field: anticipated_obstacles
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "How will you overcome these obstacles?"
+          field: obstacle_solutions
+          type: list
+          min_items: 3
+          instruction: "One solution for each obstacle"
+          
+        - prompt: "What will you do if you miss a day?"
+          field: miss_protocol
+          type: text_long
+          
+        - prompt: "Who will hold you accountable?"
+          field: accountability_system
+          type: text
+          instruction: "Person, group, or system"
+
+    - name: motivation_rewards
+      title: "Motivation & Rewards"
+      questions:
+        - prompt: "How will you track progress?"
+          field: tracking_method
+          type: multi_choice
+          options:
+            - "Physical calendar"
+            - "Habit app"
+            - "Journal"
+            - "Spreadsheet"
+            - "Social media"
+            - "Photo evidence"
+            
+        - prompt: "What milestones will you celebrate?"
+          field: milestone_rewards
+          type: milestone_list
+          structure:
+            - day: "Day number"
+            - reward: "Celebration/reward"
+          defaults:
+            - day: "7"
+              reward: "Week 1 complete"
+            - day: "14"
+              reward: "Halfway there"
+            - day: "21"
+              reward: "Habit forming"
+            - day: "30"
+              reward: "Challenge complete!"
+              
+        - prompt: "What's your big reward for completing 30 days?"
+          field: final_reward
+          type: text
+          
+        - prompt: "What will keep you motivated on hard days?"
+          field: motivation_anchors
+          type: list
+          min_items: 3
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "30-Day {{target_habit}} Challenge"
+    sections:
+      - header: "Challenge Declaration"
+        content:
+          - "## I commit to: {{target_habit}}"
+          - "**Start Date**: _______"
+          - "**End Date**: _______"
+          - ""
+          - "### The Why"
+          - "{{challenge_why}}"
+          - ""
+          - "### The Outcome"
+          - "After 30 days: {{desired_outcome}}"
+          
+      - header: "Challenge Rules"
+        content:
+          - "### Daily Commitment"
+          - "**Minimum Requirement**: {{minimum_daily}}"
+          - "**When**: {{scheduled_time}}"
+          - "**Progression**: {{progression_plan}}"
+          - "**Exceptions**: {{exceptions}}"
+          - ""
+          - "### Non-Negotiables"
+          - "1. Do it every day (unless exception applies)"
+          - "2. Track immediately after completion"
+          - "3. Share progress weekly"
+          - "4. No making up missed days"
+          - "5. Focus on consistency over perfection"
+          
+      - header: "30-Day Calendar"
+        content:
+          - "### Week 1: Foundation"
+          - "| Day | Date | Target | Done | Notes |"
+          - "|-----|------|--------|------|-------|"
+          - "| 1 | ___ | {{minimum_daily}} | □ | Start strong! |"
+          - "| 2 | ___ | {{minimum_daily}} | □ | Building momentum |"
+          - "| 3 | ___ | {{minimum_daily}} | □ | Feeling good |"
+          - "| 4 | ___ | {{minimum_daily}} | □ | Getting easier |"
+          - "| 5 | ___ | {{minimum_daily}} | □ | Almost a week! |"
+          - "| 6 | ___ | {{minimum_daily}} | □ | Stay strong |"
+          - "| 7 | ___ | {{minimum_daily}} | □ | Week 1 complete! 🎉 |"
+          - ""
+          - "### Week 2: Building"
+          - "| Day | Date | Target | Done | Notes |"
+          - "|-----|------|--------|------|-------|"
+          - "| 8-14 | ___ | {{progression_adjusted}} | □ | [Continue pattern] |"
+          - ""
+          - "### Week 3: Strengthening"
+          - "| Day | Date | Target | Done | Notes |"
+          - "|-----|------|--------|------|-------|"
+          - "| 15-21 | ___ | {{progression_adjusted}} | □ | Habit forming! |"
+          - ""
+          - "### Week 4: Mastery"
+          - "| Day | Date | Target | Done | Notes |"
+          - "|-----|------|--------|------|-------|"
+          - "| 22-28 | ___ | {{progression_adjusted}} | □ | Final push! |"
+          - ""
+          - "### Days 29-30: Victory"
+          - "| Day | Date | Target | Done | Notes |"
+          - "|-----|------|--------|------|-------|"
+          - "| 29 | ___ | {{minimum_daily}} | □ | Almost there! |"
+          - "| 30 | ___ | {{minimum_daily}} | □ | CHAMPION! 🏆 |"
+          
+      - header: "Obstacle Planning"
+        content:
+          - "### Anticipated Challenges"
+          - "{{anticipated_obstacles|numbered}}"
+          - ""
+          - "### Solution Strategies"
+          - "{{obstacle_solutions|numbered}}"
+          - ""
+          - "### If I Miss a Day"
+          - "{{miss_protocol}}"
+          - ""
+          - "**Remember**: One miss doesn't ruin the challenge. Get back on track immediately!"
+          
+      - header: "Daily Execution Plan"
+        content:
+          - "### Daily Ritual"
+          - "1. **Trigger**: {{scheduled_time}}"
+          - "2. **Preparation**: [Get ready routine]"
+          - "3. **Execution**: {{minimum_daily}}"
+          - "4. **Tracking**: Mark calendar immediately"
+          - "5. **Celebration**: [Small reward/acknowledgment]"
+          - ""
+          - "### Time Breakdown"
+          - "- Preparation: ___ minutes"
+          - "- Activity: {{minimum_daily}}"
+          - "- Cool down: ___ minutes"
+          - "- Tracking: 1 minute"
+          - "**Total Time**: ___ minutes"
+          
+      - header: "Motivation System"
+        content:
+          - "### Progress Tracking"
+          - "**Method**: {{tracking_method|list}}"
+          - ""
+          - "### Milestone Celebrations"
+          - "{{milestone_rewards|milestone_table}}"
+          - ""
+          - "### 30-Day Victory Reward"
+          - "🏆 {{final_reward}}"
+          - ""
+          - "### Daily Motivation Anchors"
+          - "When it gets hard, remember:"
+          - "{{motivation_anchors|numbered}}"
+          
+      - header: "Accountability Structure"
+        content:
+          - "### Accountability System"
+          - "{{accountability_system}}"
+          - ""
+          - "### Check-in Schedule"
+          - "- **Daily**: Mark calendar, quick photo"
+          - "- **Weekly**: Share progress update"
+          - "- **Day 15**: Mid-point celebration post"
+          - "- **Day 30**: Victory announcement!"
+          - ""
+          - "### Public Declaration"
+          - "\"I'm starting a 30-day {{target_habit}} challenge!"
+          - "Follow my journey and hold me accountable."
+          - "#30DayChallenge #{{target_habit|hashtag}}\""
+          
+      - header: "Weekly Reviews"
+        content:
+          - "### Week 1 Review"
+          - "- Days completed: ___/7"
+          - "- Easiest day: _______"
+          - "- Hardest day: _______"
+          - "- Key learning: _______"
+          - "- Week 2 adjustment: _______"
+          - ""
+          - "### Week 2 Review"
+          - "- Days completed: ___/7"
+          - "- Total days: ___/14"
+          - "- Momentum level: _______"
+          - "- Surprise benefit: _______"
+          - ""
+          - "### Week 3 Review"
+          - "- Days completed: ___/7"
+          - "- Total days: ___/21"
+          - "- Habit strength: _______"
+          - "- Identity shift: _______"
+          - ""
+          - "### Week 4+ Review"
+          - "- Days completed: ___/9"
+          - "- Total days: ___/30"
+          - "- Transformation: _______"
+          - "- Next steps: _______"
+          
+      - header: "Success Strategies"
+        content:
+          - "### Keys to Success"
+          - "1. **Never miss twice** - If you miss, next day is crucial"
+          - "2. **Lower the bar** - On hard days, do minimum"
+          - "3. **Stack it** - Attach to existing habit"
+          - "4. **Prep night before** - Remove morning friction"
+          - "5. **Track immediately** - Don't rely on memory"
+          - ""
+          - "### Energy Management"
+          - "- High energy days: Exceed minimum"
+          - "- Low energy days: Just do minimum"
+          - "- Sick days: Modified version"
+          - "- Travel days: Adapted approach"
+          
+      - header: "Challenge Completion"
+        content:
+          - "### Day 30 Reflection"
+          - "**Total Days Completed**: ___/30"
+          - "**Success Rate**: ___%"
+          - "**Biggest Win**: _______"
+          - "**Hardest Moment**: _______"
+          - "**Surprise Discovery**: _______"
+          - "**Identity Shift**: _______"
+          - ""
+          - "### Next Steps"
+          - "- [ ] Continue habit daily"
+          - "- [ ] Modify to sustainable level"
+          - "- [ ] Start new 30-day challenge"
+          - "- [ ] Teach someone else"
+          - ""
+          - "### Lessons Learned"
+          - "1. _______"
+          - "2. _______"
+          - "3. _______"
+          - ""
+          - "### Advice for Others"
+          - "_______"
+
+# Research Foundation
+research_base:
+  - "30-Day Challenge research"
+  - "Matt Cutts: Try something new for 30 days"
+  - "21/66 day habit formation studies"
+  - "Commitment device psychology"
+  - "Social accountability research"

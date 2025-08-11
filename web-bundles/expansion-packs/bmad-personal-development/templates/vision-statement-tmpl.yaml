@@ -1,0 +1,106 @@
+template:
+  id: vision-statement-template
+  name: Personal Vision Statement
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/vision-statement.md
+    title: "Personal Vision Statement"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: introduction
+    title: Introduction
+    instruction: |
+      Create an inspiring introduction that captures the essence of who you are becoming and why this vision matters. This should be 2-3 paragraphs that energize and inspire you when you read them.
+
+  - id: core-values
+    title: Core Values
+    instruction: |
+      List 5-7 core values that guide your decisions and define who you are. For each value, provide a brief description of what it means to you and how it shows up in your life.
+    elicit: true
+    sections:
+      - id: value
+        title: "Value {{number}}: {{value_name}}"
+        repeatable: true
+        template: |
+          **{{value_name}}**: {{description}}
+          
+          How it guides me: {{guidance}}
+
+  - id: life-areas-vision
+    title: Vision by Life Area
+    instruction: |
+      Create a vivid, inspiring vision for each major area of your life. Write in present tense as if you're already living this reality. Be specific and sensory-rich.
+    elicit: true
+    sections:
+      - id: career-professional
+        title: Career & Professional Life
+        instruction: Describe your ideal professional life, impact, and contribution
+      - id: relationships-family
+        title: Relationships & Family
+        instruction: Describe your ideal relationships and family dynamics
+      - id: health-wellness
+        title: Health & Wellness
+        instruction: Describe your ideal state of physical and mental health
+      - id: personal-growth
+        title: Personal Growth & Learning
+        instruction: Describe your continuous growth and development
+      - id: financial-abundance
+        title: Financial Abundance
+        instruction: Describe your ideal financial situation and relationship with money
+      - id: fun-recreation
+        title: Fun & Recreation
+        instruction: Describe how you play, relax, and enjoy life
+      - id: contribution-legacy
+        title: Contribution & Legacy
+        instruction: Describe the impact and legacy you're creating
+
+  - id: identity-statement
+    title: Identity Statement
+    instruction: |
+      Write a powerful "I am" statement that captures who you are becoming. This should be 1-2 paragraphs written in first person, present tense, capturing the essence of your highest self.
+    elicit: true
+    template: |
+      I am {{identity_description}}
+
+  - id: daily-experience
+    title: A Day in My Ideal Life
+    instruction: |
+      Describe a typical day living your vision. Walk through from morning to evening, including how you feel, what you do, who you interact with, and what you accomplish. Make it vivid and inspiring.
+    elicit: true
+
+  - id: key-milestones
+    title: Key Milestones
+    instruction: |
+      List 5-10 major milestones that will indicate you're living your vision. These should be specific, meaningful achievements or states of being.
+    sections:
+      - id: milestone
+        title: "Milestone {{number}}"
+        repeatable: true
+        template: |
+          - {{milestone_description}} (Target: {{timeframe}})
+
+  - id: affirmations
+    title: Vision Affirmations
+    instruction: |
+      Create 5-7 powerful affirmations that reinforce your vision. These should be positive, present-tense statements that you can repeat daily.
+    sections:
+      - id: affirmation
+        title: "Affirmation {{number}}"
+        repeatable: true
+        template: "{{affirmation_text}}"
+
+  - id: commitment-statement
+    title: Commitment Statement
+    instruction: |
+      Write a personal commitment statement declaring your dedication to this vision. This should feel like a sacred promise to yourself.
+    template: |
+      I commit to {{commitment_details}}
+      
+      Signed with intention and dedication,
+      {{signature}}
+      Date: {{date}}

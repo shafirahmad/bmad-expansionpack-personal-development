@@ -1,0 +1,265 @@
+template:
+  id: wellness-plan-template
+  name: Holistic Wellness Plan
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/wellness-plan.md
+    title: "Personal Wellness Plan"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: wellness-vision
+    title: Wellness Vision
+    instruction: |
+      Create an inspiring vision of your optimal wellness state. What does thriving health and wellbeing look like for you personally?
+    template: |
+      **My Wellness Vision**: {{wellness_vision}}
+      **Why This Matters**: {{personal_motivation}}
+      **Success Indicators**: {{thriving_signs}}
+      **Timeline**: {{achievement_timeline}}
+
+  - id: current-assessment
+    title: Current Wellness Assessment
+    instruction: |
+      Honestly assess your current state across all wellness dimensions. Rate each area 1-10 and identify strengths and growth areas.
+    elicit: true
+    sections:
+      - id: physical-health
+        title: Physical Health & Fitness
+        template: |
+          **Current Rating**: {{rating}}/10
+          **Strengths**: {{physical_strengths}}
+          **Growth Areas**: {{physical_challenges}}
+          **Energy Level**: {{energy_assessment}}
+      - id: mental-health
+        title: Mental & Emotional Health
+        template: |
+          **Current Rating**: {{rating}}/10
+          **Strengths**: {{mental_strengths}}
+          **Growth Areas**: {{mental_challenges}}
+          **Stress Level**: {{stress_assessment}}
+      - id: spiritual-wellness
+        title: Spiritual & Purpose Wellness
+        template: |
+          **Current Rating**: {{rating}}/10
+          **Strengths**: {{spiritual_strengths}}
+          **Growth Areas**: {{spiritual_challenges}}
+          **Connection Level**: {{purpose_assessment}}
+      - id: social-wellness
+        title: Social & Relationship Wellness
+        template: |
+          **Current Rating**: {{rating}}/10
+          **Strengths**: {{social_strengths}}
+          **Growth Areas**: {{social_challenges}}
+          **Connection Quality**: {{relationship_assessment}}
+      - id: environmental-wellness
+        title: Environmental & Life Balance
+        template: |
+          **Current Rating**: {{rating}}/10
+          **Strengths**: {{environmental_strengths}}
+          **Growth Areas**: {{environmental_challenges}}
+          **Balance Assessment**: {{balance_evaluation}}
+
+  - id: wellness-priorities
+    title: Wellness Priorities
+    instruction: |
+      Based on your assessment, identify the top 3-5 wellness areas that would have the greatest positive impact on your overall wellbeing.
+    elicit: true
+    sections:
+      - id: priority
+        title: "Priority {{number}}: {{priority_area}}"
+        repeatable: true
+        template: |
+          **Focus Area**: {{area_description}}
+          **Why This Matters Most**: {{priority_rationale}}
+          **Target Improvement**: {{improvement_goal}}
+          **Success Metrics**: {{measurement_criteria}}
+
+  - id: physical-wellness-plan
+    title: Physical Wellness Plan
+    instruction: |
+      Create a comprehensive plan for optimizing your physical health including movement, nutrition, sleep, and recovery.
+    elicit: true
+    sections:
+      - id: movement-fitness
+        title: Movement & Fitness
+        template: |
+          **Current Activity**: {{current_exercise}}
+          **Fitness Goals**: {{fitness_objectives}}
+          **Weekly Schedule**: {{exercise_schedule}}
+          **Activity Types**: {{preferred_activities}}
+          **Progress Tracking**: {{fitness_tracking}}
+      - id: nutrition-plan
+        title: Nutrition & Hydration
+        template: |
+          **Current Eating Patterns**: {{current_nutrition}}
+          **Nutrition Goals**: {{nutrition_objectives}}
+          **Meal Planning Approach**: {{meal_strategy}}
+          **Hydration Target**: {{water_intake_goal}}
+          **Progress Tracking**: {{nutrition_tracking}}
+      - id: sleep-recovery
+        title: Sleep & Recovery
+        template: |
+          **Current Sleep Pattern**: {{current_sleep}}
+          **Sleep Goals**: {{sleep_objectives}}
+          **Bedtime Routine**: {{evening_routine}}
+          **Recovery Practices**: {{recovery_methods}}
+          **Sleep Tracking**: {{sleep_monitoring}}
+
+  - id: mental-wellness-plan
+    title: Mental & Emotional Wellness Plan
+    instruction: |
+      Design strategies for maintaining and improving mental health, stress management, and emotional intelligence.
+    elicit: true
+    sections:
+      - id: stress-management
+        title: Stress Management
+        template: |
+          **Stress Triggers**: {{stress_sources}}
+          **Management Techniques**: {{stress_strategies}}
+          **Daily Practices**: {{daily_stress_relief}}
+          **Emergency Protocols**: {{crisis_management}}
+      - id: mindfulness-practice
+        title: Mindfulness & Mental Training
+        template: |
+          **Current Practices**: {{current_mindfulness}}
+          **Meditation Goals**: {{mindfulness_objectives}}
+          **Daily Practice**: {{daily_mindfulness}}
+          **Learning Resources**: {{mindfulness_resources}}
+      - id: emotional-intelligence
+        title: Emotional Intelligence
+        template: |
+          **Self-Awareness Goals**: {{emotional_awareness}}
+          **Regulation Strategies**: {{emotion_regulation}}
+          **Social Skills Focus**: {{social_emotional_skills}}
+          **Practice Methods**: {{ei_development}}
+
+  - id: lifestyle-balance
+    title: Lifestyle & Balance Plan
+    instruction: |
+      Create strategies for work-life integration, boundary setting, and sustainable lifestyle choices.
+    template: |
+      **Work-Life Integration**: {{balance_strategy}}
+      **Boundary Setting**: {{boundary_plan}}
+      **Time Management**: {{time_priorities}}
+      **Energy Management**: {{energy_optimization}}
+      **Sabbath/Rest Practices**: {{rest_planning}}
+      **Life Transitions**: {{change_management}}
+
+  - id: social-wellness-plan
+    title: Social & Relationship Wellness
+    instruction: |
+      Plan for nurturing relationships, building community, and maintaining healthy social connections.
+    template: |
+      **Relationship Priorities**: {{relationship_focus}}
+      **Community Building**: {{community_strategy}}
+      **Social Activities**: {{social_planning}}
+      **Communication Skills**: {{communication_development}}
+      **Support System**: {{support_network}}
+      **Boundary Management**: {{social_boundaries}}
+
+  - id: environmental-wellness
+    title: Environmental & Space Wellness
+    instruction: |
+      Design your physical and digital environments to support optimal wellness and reduce stress.
+    template: |
+      **Home Environment**: {{home_optimization}}
+      **Work Environment**: {{work_space_design}}
+      **Digital Environment**: {{digital_wellness}}
+      **Nature Connection**: {{nature_integration}}
+      **Decluttering Plan**: {{organization_strategy}}
+
+  - id: implementation-strategy
+    title: Implementation Strategy
+    instruction: |
+      Create a realistic plan for implementing your wellness improvements without overwhelming yourself.
+    elicit: true
+    template: |
+      **Phase 1 (First 30 Days)**: {{phase_1_focus}}
+      **Phase 2 (Days 31-90)**: {{phase_2_focus}}
+      **Phase 3 (Days 91-180)**: {{phase_3_focus}}
+      **Habit Stacking**: {{habit_integration}}
+      **Accountability System**: {{accountability_plan}}
+
+  - id: tracking-measurement
+    title: Wellness Tracking & Measurement
+    instruction: |
+      Define how you'll track progress across all wellness dimensions and maintain motivation.
+    template: |
+      **Daily Tracking**: {{daily_metrics}}
+      **Weekly Assessment**: {{weekly_review}}
+      **Monthly Evaluation**: {{monthly_assessment}}
+      **Tracking Tools**: {{measurement_tools}}
+      **Progress Celebration**: {{celebration_plan}}
+
+  - id: support-resources
+    title: Support System & Resources
+    instruction: |
+      Identify the people, professionals, and resources that will support your wellness journey.
+    template: |
+      **Healthcare Team**: {{medical_support}}
+      **Wellness Professionals**: {{wellness_experts}}
+      **Accountability Partners**: {{support_people}}
+      **Learning Resources**: {{educational_materials}}
+      **Community Resources**: {{local_resources}}
+      **Emergency Support**: {{crisis_contacts}}
+
+  - id: obstacle-management
+    title: Challenge & Obstacle Management
+    instruction: |
+      Anticipate common wellness challenges and create strategies to overcome them.
+    sections:
+      - id: challenge
+        title: "Challenge {{number}}: {{challenge_name}}"
+        repeatable: true
+        template: |
+          **Challenge Description**: {{challenge_detail}}
+          **Likelihood**: {{probability}}
+          **Prevention Strategy**: {{prevention}}
+          **Response Plan**: {{response_strategy}}
+          **Recovery Protocol**: {{recovery_plan}}
+
+  - id: seasonal-adjustments
+    title: Seasonal & Life Stage Adjustments
+    instruction: |
+      Plan how your wellness approach will adapt to different seasons, life stages, and changing circumstances.
+    template: |
+      **Seasonal Variations**: {{seasonal_changes}}
+      **Life Stage Considerations**: {{life_stage_factors}}
+      **Travel Adaptations**: {{travel_wellness}}
+      **Busy Period Modifications**: {{high_stress_adaptations}}
+      **Flexibility Principles**: {{adaptation_strategies}}
+
+  - id: long-term-vision
+    title: Long-term Wellness Vision
+    instruction: |
+      Connect your current wellness plan to your long-term vision of health and vitality throughout your life.
+    template: |
+      **5-Year Wellness Vision**: {{long_term_vision}}
+      **Aging Gracefully Plan**: {{longevity_strategy}}
+      **Legacy Health**: {{health_legacy}}
+      **Continuous Learning**: {{ongoing_development}}
+      **Evolution Strategy**: {{adaptation_planning}}
+
+  - id: commitment-statement
+    title: Wellness Commitment
+    instruction: |
+      Create a personal commitment statement that reinforces your dedication to your wellness journey.
+    template: |
+      I commit to honoring my body, mind, and spirit by {{commitment_description}}
+      
+      I will prioritize my wellness by {{priority_actions}}
+      
+      When I face challenges, I will {{challenge_response}}
+      
+      I will maintain consistency by {{consistency_strategy}}
+      
+      My wellness matters because {{deeper_purpose}}
+      
+      **Signature**: {{signature}}
+      **Date**: {{date}}
+      **Review Date**: {{review_date}}

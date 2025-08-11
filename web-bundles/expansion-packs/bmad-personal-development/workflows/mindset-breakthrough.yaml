@@ -1,0 +1,384 @@
+workflow:
+  id: mindset-breakthrough
+  name: Mindset & Belief Breakthrough Program
+  version: 1.0
+  description: Intensive program for transforming limiting beliefs, building unshakeable confidence, and developing a growth-oriented mindset
+  duration: 6-8 weeks intensive + integration period
+  difficulty: Advanced
+
+overview: |
+  This workflow focuses on deep psychological work to identify and transform limiting beliefs,
+  build authentic confidence, and develop mental resilience. It combines cognitive restructuring,
+  identity work, and practical mindset training for lasting transformation.
+
+prerequisites:
+  - Emotional stability (not in acute mental health crisis)
+  - Willingness to examine deep beliefs and patterns
+  - Commitment to challenging personal growth work
+  - 2-3 hours per week for exercises and reflection
+  - Support system for processing insights
+
+phases:
+  - phase: 1
+    name: Mindset Assessment & Awareness
+    duration: 1 week
+    objective: Comprehensive evaluation of current mindset patterns and beliefs
+    agents:
+      primary: mindset-mentor
+      supporting: [life-coach]
+    tasks:
+      - mindset-evaluation
+      - belief-inventory-assessment
+      - cognitive-pattern-analysis
+    deliverables:
+      - Current mindset profile
+      - Limiting belief inventory
+      - Cognitive pattern map
+    success_criteria:
+      - Core limiting beliefs identified
+      - Mindset patterns recognized
+      - Baseline confidence assessed
+
+  - phase: 2
+    name: Limiting Belief Excavation
+    duration: 2 weeks
+    objective: Deep exploration and understanding of limiting belief origins
+    agents:
+      primary: mindset-mentor
+      supporting: []
+    tasks:
+      - belief-transformation
+      - root-cause-analysis
+      - belief-impact-assessment
+    deliverables:
+      - Belief origin stories
+      - Impact analysis report
+      - Transformation targets
+    success_criteria:
+      - Top 5 limiting beliefs fully explored
+      - Origins and triggers understood
+      - Ready for transformation work
+
+  - phase: 3
+    name: Cognitive Restructuring
+    duration: 2 weeks
+    objective: Systematically replace limiting beliefs with empowering ones
+    agents:
+      primary: mindset-mentor
+      supporting: [life-coach]
+    tasks:
+      - cognitive-reframing
+      - evidence-gathering
+      - new-belief-installation
+    deliverables:
+      - Reframed belief statements
+      - Evidence journals
+      - New belief affirmations
+    success_criteria:
+      - Limiting beliefs challenged with evidence
+      - New empowering beliefs drafted
+      - Daily practice established
+
+  - phase: 4
+    name: Confidence Building
+    duration: 2 weeks
+    objective: Build authentic, evidence-based confidence
+    agents:
+      primary: mindset-mentor
+      supporting: [goal-strategist]
+    tasks:
+      - confidence-protocol
+      - success-inventory-creation
+      - confidence-challenges
+    deliverables:
+      - Confidence building plan
+      - Success evidence bank
+      - Challenge completion log
+    success_criteria:
+      - Daily confidence practices active
+      - Success evidence documented
+      - Comfort zone expanded
+
+  - phase: 5
+    name: Growth Mindset Development
+    duration: 1 week
+    objective: Establish growth-oriented thinking patterns
+    agents:
+      primary: mindset-mentor
+      supporting: []
+    tasks:
+      - growth-mindset-development
+      - failure-reframing
+      - learning-orientation
+    deliverables:
+      - Growth mindset practices
+      - Failure learning log
+      - Challenge-seeking plan
+    success_criteria:
+      - Growth language adopted
+      - Failures reframed as learning
+      - Challenge-seeking behavior evident
+
+  - phase: 6
+    name: Mental Resilience Training
+    duration: 1 week
+    objective: Build psychological resilience and mental toughness
+    agents:
+      primary: mindset-mentor
+      supporting: [wellness-advisor]
+    tasks:
+      - resilience-building
+      - stress-inoculation
+      - bounce-back-protocols
+    deliverables:
+      - Resilience toolkit
+      - Stress management system
+      - Recovery protocols
+    success_criteria:
+      - Resilience practices integrated
+      - Faster recovery from setbacks
+      - Increased stress tolerance
+
+  - phase: 7
+    name: Identity Integration
+    duration: 1 week
+    objective: Integrate new mindset into core identity
+    agents:
+      primary: mindset-mentor
+      supporting: [life-coach]
+    tasks:
+      - identity-reconstruction
+      - future-self-visualization
+      - behavior-identity-alignment
+    deliverables:
+      - New identity statement
+      - Future self visualization
+      - Aligned behavior plan
+    success_criteria:
+      - New identity articulated
+      - Behaviors align with identity
+      - Old patterns recognized and released
+
+  - phase: 8
+    name: Real-World Application
+    duration: 2 weeks
+    objective: Apply new mindset in challenging real situations
+    agents:
+      primary: mindset-mentor
+      supporting: [life-coach, goal-strategist]
+    tasks:
+      - real-world-challenges
+      - mindset-testing
+      - integration-tracking
+    deliverables:
+      - Challenge completion reports
+      - Application journal
+      - Success stories
+    success_criteria:
+      - New mindset applied in real situations
+      - Evidence of transformation
+      - Sustained behavior change
+
+breakthrough_techniques:
+  cognitive_methods:
+    - Cognitive Behavioral Therapy (CBT) techniques
+    - Rational Emotive Behavior Therapy (REBT)
+    - Thought stopping and replacement
+    - Evidence-based challenging
+    - Socratic questioning
+
+  somatic_approaches:
+    - Body-based belief work
+    - Emotional Freedom Technique (EFT)
+    - Breathing for state change
+    - Power posing for confidence
+    - Somatic experiencing
+
+  visualization_practices:
+    - Future self visualization
+    - Mental rehearsal
+    - Success visualization
+    - Outcome imaging
+    - Identity projection
+
+  behavioral_experiments:
+    - Comfort zone challenges
+    - Fear facing exercises
+    - Success experiences design
+    - Behavioral activation
+    - Exposure therapy principles
+
+common_limiting_beliefs:
+  self_worth:
+    - "I'm not good enough"
+    - "I don't deserve success"
+    - "I'm not worthy of love"
+    - "I'm fundamentally flawed"
+
+  capability:
+    - "I'm not smart enough"
+    - "I can't change"
+    - "I always fail"
+    - "I'm not capable"
+
+  safety:
+    - "The world is dangerous"
+    - "I can't trust others"
+    - "Success is risky"
+    - "It's safer to stay small"
+
+  identity:
+    - "This is just who I am"
+    - "People like me don't succeed"
+    - "I'm too old/young to change"
+    - "I'm not that kind of person"
+
+transformation_process:
+  awareness_stage:
+    - Recognize limiting belief
+    - Identify triggers and patterns
+    - Understand impact on life
+    - Accept need for change
+
+  challenging_stage:
+    - Question belief validity
+    - Gather contrary evidence
+    - Examine belief origins
+    - Consider alternatives
+
+  replacement_stage:
+    - Create empowering belief
+    - Find supporting evidence
+    - Practice new thinking
+    - Reinforce with action
+
+  integration_stage:
+    - Embody new belief
+    - Align behaviors
+    - Create supporting habits
+    - Maintain vigilance
+
+resistance_management:
+  common_resistance:
+    - Fear of change
+    - Identity threat
+    - Secondary gains from old beliefs
+    - Social pressure
+    - Comfort with familiar
+
+  overcoming_strategies:
+    - Gradual exposure
+    - Safety building
+    - Support system activation
+    - Small wins accumulation
+    - Compassionate approach
+
+support_protocols:
+  self_support:
+    - Daily affirmations
+    - Journaling practice
+    - Self-compassion exercises
+    - Progress celebration
+    - Regular self-check-ins
+
+  external_support:
+    - Accountability partner
+    - Support group
+    - Professional therapy (if needed)
+    - Mentor or coach
+    - Trusted friends
+
+  emergency_support:
+    - Crisis protocols
+    - Grounding techniques
+    - Support hotlines
+    - Professional resources
+    - Safety planning
+
+measurement_framework:
+  mindset_metrics:
+    - Growth mindset score
+    - Fixed mindset indicators
+    - Belief flexibility rating
+    - Challenge acceptance rate
+
+  confidence_metrics:
+    - Self-efficacy scale
+    - Confidence in specific areas
+    - Risk-taking behavior
+    - Self-advocacy frequency
+
+  resilience_metrics:
+    - Recovery time from setbacks
+    - Stress management effectiveness
+    - Adaptability score
+    - Persistence rating
+
+  behavioral_metrics:
+    - Action despite fear
+    - Goal pursuit consistency
+    - Challenge-seeking behavior
+    - Comfort zone expansion
+
+integration_activities:
+  daily_practices:
+    - Morning mindset check-in
+    - Affirmation practice
+    - Evidence journaling
+    - Evening reflection
+    - Gratitude for growth
+
+  weekly_challenges:
+    - Comfort zone expansion
+    - Belief testing experiment
+    - Success creation
+    - Fear facing activity
+    - Identity reinforcement
+
+  monthly_reviews:
+    - Belief transformation progress
+    - Confidence assessment
+    - Resilience evaluation
+    - Identity evolution
+    - Next growth edges
+
+long_term_maintenance:
+  vigilance_practices:
+    - Regular belief audits
+    - Pattern monitoring
+    - Trigger awareness
+    - Support system maintenance
+
+  continuous_growth:
+    - New challenge seeking
+    - Deeper belief work
+    - Advanced techniques
+    - Mentoring others
+
+  relapse_prevention:
+    - Early warning signs
+    - Quick intervention protocols
+    - Support activation
+    - Compassionate recovery
+
+success_indicators:
+  internal_changes:
+    - Increased self-trust
+    - Natural confidence
+    - Growth excitement
+    - Resilient responses
+    - Positive self-talk
+
+  external_changes:
+    - Bold actions taken
+    - New opportunities pursued
+    - Improved relationships
+    - Greater achievements
+    - Inspiring others
+
+transformation_levels:
+  level_1: Surface belief modification
+  level_2: Deep belief restructuring
+  level_3: Identity transformation
+  level_4: Worldview evolution
+  level_5: Self-actualization

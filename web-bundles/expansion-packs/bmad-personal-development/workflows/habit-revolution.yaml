@@ -1,0 +1,349 @@
+workflow:
+  id: habit-revolution
+  name: 30-Day Habit Revolution
+  version: 1.0
+  description: Intensive 30-day program for establishing keystone habits that transform daily life
+  duration: 30 days intensive + 60 days integration
+  difficulty: Intermediate to Advanced
+
+overview: |
+  This workflow focuses on building 1-3 keystone habits that create positive ripple effects across
+  multiple life areas. It combines behavioral science, environmental design, and accountability
+  systems for maximum habit formation success.
+
+prerequisites:
+  - Completion of habit readiness assessment (score 80+)
+  - Clear identification of desired keystone habit(s)
+  - Commitment to daily practice for 30 days minimum
+  - Environmental setup completed
+  - Accountability partner identified
+
+phases:
+  - phase: 1
+    name: Habit Foundation
+    duration: 3-5 days
+    objective: Complete comprehensive habit assessment and design
+    agents:
+      primary: habit-engineer
+      supporting: [wellness-advisor]
+    tasks:
+      - habit-audit
+      - keystone-habit-analysis
+      - habit-readiness-checklist
+    deliverables:
+      - Current habit inventory and analysis
+      - Keystone habit identification
+      - Readiness assessment and gap closure plan
+    success_criteria:
+      - Clear understanding of current habit ecosystem
+      - 1-3 keystone habits identified and prioritized
+      - Readiness score 85+ for target habits
+
+  - phase: 2
+    name: Habit Architecture Design
+    duration: 2-3 days
+    objective: Design complete habit system with cues, routines, and rewards
+    agents:
+      primary: habit-engineer
+      supporting: []
+    tasks:
+      - design-habit
+      - environment-architecture
+      - tracking-system-design
+    deliverables:
+      - Detailed habit design for each target habit
+      - Environmental modification plan
+      - Tracking and measurement system
+    success_criteria:
+      - Habit loop clearly defined (cue-routine-reward)
+      - Environment optimized for success
+      - Simple tracking system established
+
+  - phase: 3
+    name: Integration Planning
+    duration: 1-2 days
+    objective: Integrate new habits with existing routines and systems
+    agents:
+      primary: habit-engineer
+      supporting: [wellness-advisor]
+    tasks:
+      - habit-stacking-design
+      - routine-engineering
+      - trigger-analysis
+    deliverables:
+      - Habit stack sequences
+      - Optimized daily routine
+      - Trigger and cue optimization plan
+    success_criteria:
+      - New habits stacked onto existing routines
+      - Daily routine optimized for habit success
+      - Strong environmental cues in place
+
+  - phase: 4
+    name: Obstacle Preparation
+    duration: 1-2 days
+    objective: Anticipate and prepare for habit formation challenges
+    agents:
+      primary: habit-engineer
+      supporting: [mindset-mentor]
+    tasks:
+      - obstacle-analysis
+      - habit-debugging
+      - create-doc (with habit-challenge-protocol)
+    deliverables:
+      - Obstacle identification and response strategies
+      - Emergency protocols for maintaining habits
+      - Mindset preparation for challenges
+    success_criteria:
+      - Top 5 obstacles identified with specific responses
+      - Recovery protocols established
+      - Mindset preparation completed
+
+  - phase: 5
+    name: Launch Preparation
+    duration: 1 day
+    objective: Final preparation and launch readiness confirmation
+    agents:
+      primary: habit-engineer
+      supporting: [life-coach]
+    tasks:
+      - environment-audit-checklist
+      - habit-readiness-checklist
+      - 30-day-challenge (setup)
+    deliverables:
+      - Environment audit confirmation
+      - Final readiness confirmation
+      - 30-day challenge structure
+    success_criteria:
+      - Environment fully prepared
+      - All systems and supports in place
+      - High confidence in success
+
+  - phase: 6
+    name: Daily Execution (Days 1-30)
+    duration: 30 days
+    objective: Consistent daily habit execution with support and optimization
+    agents:
+      primary: habit-engineer
+      supporting: [life-coach, mindset-mentor]
+    tasks:
+      - Daily habit execution
+      - weekly-review (habit-focused)
+      - habit-troubleshooting (as needed)
+    deliverables:
+      - Daily habit tracking data
+      - Weekly optimization adjustments
+      - Obstacle encounter logs and solutions
+    success_criteria:
+      - 80%+ consistency rate across 30 days
+      - Successful navigation of major obstacles
+      - Habit feeling more automatic by day 30
+
+  - phase: 7
+    name: Integration & Mastery (Days 31-90)
+    duration: 60 days
+    objective: Solidify habits and integrate into permanent lifestyle
+    agents:
+      primary: habit-engineer
+      supporting: [wellness-advisor]
+    tasks:
+      - habit-optimization
+      - habit-evolution-planning
+      - routine-integration
+    deliverables:
+      - Habit optimization adjustments
+      - Long-term sustainability plan
+      - Advanced habit variations
+    success_criteria:
+      - Habits feel natural and automatic
+      - Positive ripple effects visible in other life areas
+      - Plans for continued growth and development
+
+daily_execution_framework:
+  morning_ritual:
+    - Environment check (cues in place)
+    - Intention setting for habit practice
+    - Execute morning habit stack
+    - Log completion and quality
+
+  midday_checkpoint:
+    - Progress assessment on daily habits
+    - Obstacle identification and response
+    - Motivation renewal if needed
+    - Adjustment for evening habits
+
+  evening_review:
+    - Complete habit tracking
+    - Reflect on what worked well
+    - Identify improvements for tomorrow
+    - Set up environment for next day
+
+weekly_optimization_cycle:
+  week_1: Foundation and consistency focus
+  week_2: Quality improvement and obstacle management
+  week_3: Integration and routine refinement
+  week_4: Mastery and preparation for sustainability
+
+tracking_and_measurement:
+  daily_metrics:
+    - Habit completion (binary yes/no)
+    - Quality rating (1-10 scale)
+    - Energy before/after habit
+    - Context notes (location, mood, obstacles)
+
+  weekly_assessments:
+    - Consistency percentage
+    - Average quality scores
+    - Obstacle frequency and types
+    - Environmental effectiveness
+    - Motivation and engagement levels
+
+  milestone_celebrations:
+    - Day 7: First week completion
+    - Day 14: Two-week streak
+    - Day 21: Three-week milestone (neural pathway formation)
+    - Day 30: Full month achievement
+    - Day 66: Research-based habit formation milestone
+    - Day 90: Full integration milestone
+
+support_system_activation:
+  accountability_partner:
+    - Daily check-ins (first week)
+    - Weekly progress reports
+    - Monthly celebration meetings
+    - Emergency support when struggling
+
+  community_support:
+    - Join habit formation groups/communities
+    - Share progress and challenges
+    - Learn from others' experiences
+    - Mutual encouragement and celebration
+
+  professional_support:
+    - Regular coaching check-ins
+    - Obstacle troubleshooting sessions
+    - Habit optimization consultations
+    - Long-term sustainability planning
+
+habit_revolution_principles:
+  start_ridiculous_small:
+    - Begin with minimum viable habit
+    - Focus on consistency over intensity
+    - Build confidence through small wins
+    - Scale up only after consistency established
+
+  environment_is_king:
+    - Design environment for automatic success
+    - Remove friction for desired habits
+    - Add friction for competing behaviors
+    - Use visual cues and reminders strategically
+
+  stack_for_success:
+    - Attach new habits to established routines
+    - Create logical sequence of behaviors
+    - Use existing habits as triggers
+    - Build cohesive habit ecosystems
+
+  track_and_optimize:
+    - Measure what matters most
+    - Use data to identify improvement opportunities
+    - Make small adjustments based on evidence
+    - Celebrate progress and wins
+
+common_challenges_by_week:
+  week_1:
+    challenge: Remembering to do the habit
+    solution: Strong environmental cues and reminders
+    
+  week_2:
+    challenge: Motivation declining after initial enthusiasm
+    solution: Reconnect with deeper purpose and celebrate small wins
+    
+  week_3:
+    challenge: Habit feels boring or routine
+    solution: Add variety within structure, find ways to make it enjoyable
+    
+  week_4:
+    challenge: Questioning if it's worth the effort
+    solution: Review progress made and positive impacts, adjust if needed
+
+emergency_protocols:
+  missed_day_recovery:
+    1. No self-judgment or shame
+    2. Immediate recommitment for next day
+    3. Identify what caused the miss
+    4. Adjust system to prevent future misses
+    5. Get back to habit within 24 hours
+
+  multiple_missed_days:
+    1. Pause and reassess commitment level
+    2. Identify root cause of pattern
+    3. Reduce habit complexity if needed
+    4. Reconnect with motivation and purpose
+    5. Get accountability partner support
+    6. Restart with adjusted approach
+
+  life_disruption_management:
+    1. Maintain minimum viable version of habit
+    2. Adapt to new circumstances temporarily
+    3. Use disruption as opportunity to strengthen habit
+    4. Resume full practice as soon as possible
+    5. Learn from disruption for future resilience
+
+success_indicators:
+  behavioral_changes:
+    - Habit becomes automatic and requires less willpower
+    - Positive ripple effects in related life areas
+    - Increased confidence and self-efficacy
+    - Better decision-making in related areas
+
+  psychological_changes:
+    - Identity shift toward desired self-concept
+    - Increased sense of control and agency
+    - Greater overall life satisfaction
+    - Reduced stress and increased well-being
+
+  systems_improvements:
+    - More effective daily routines
+    - Better environmental design for success
+    - Stronger self-regulation capabilities
+    - Enhanced ability to build future habits
+
+graduation_criteria:
+  30_day_completion:
+    - 24+ days of successful habit execution (80% minimum)
+    - Habit feels increasingly automatic
+    - Positive impacts visible in daily life
+    - Confidence in ability to maintain long-term
+
+  90_day_mastery:
+    - Habit fully integrated into lifestyle
+    - Automatic execution without conscious effort
+    - Clear positive impacts across multiple life areas
+    - Readiness to build additional habits
+
+next_level_opportunities:
+  habit_expansion:
+    - Increase intensity or duration of established habit
+    - Add complementary habits to create habit stack
+    - Develop advanced variations of core habit
+    - Become mentor to others building similar habits
+
+  keystone_multiplication:
+    - Apply same process to build second keystone habit
+    - Create integrated habit ecosystem
+    - Develop multiple habit stacks for different contexts
+    - Build comprehensive life optimization system
+
+habit_revolution_legacy:
+  personal_transformation:
+    - Demonstrated ability to change through discipline
+    - Increased self-trust and confidence
+    - Better understanding of personal change process
+    - Foundation for continuous improvement
+
+  ripple_effects:
+    - Positive influence on family and friends
+    - Modeling successful habit formation
+    - Contributing to community of healthy habits
+    - Teaching others the principles and process

@@ -1,0 +1,316 @@
+# Habit Tracker Template
+# Purpose: Create comprehensive habit tracking systems with analytics and insights
+# Agent: Habit Engineer
+
+template_id: habit-tracker
+template_name: "Habit Tracking System Template"
+version: "1.0.0"
+description: "Template for designing personalized habit tracking systems with metrics, streaks, and behavioral insights"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's create a personalized habit tracking system that will help you build consistency, maintain motivation, and gain insights into your behavioral patterns."
+  
+  sections:
+    - name: habit_selection
+      title: "Habits to Track"
+      questions:
+        - prompt: "List the habits you want to track (3-7 recommended)"
+          field: target_habits
+          type: habit_list
+          min_items: 3
+          max_items: 7
+          structure:
+            - habit_name: "Name of habit"
+            - frequency: "Daily/Weekly/X times per week"
+            - time_required: "Minutes per session"
+            - category: "Health/Productivity/Learning/Social/Other"
+            
+        - prompt: "What's your primary goal with these habits?"
+          field: tracking_goal
+          type: choice
+          options:
+            - "Build new positive habits"
+            - "Break negative habits"
+            - "Increase consistency"
+            - "Understand patterns"
+            - "All of the above"
+            
+        - prompt: "How long do you want to track these habits?"
+          field: tracking_duration
+          type: choice
+          options:
+            - "30 days"
+            - "66 days (habit formation)"
+            - "90 days (quarter)"
+            - "6 months"
+            - "1 year"
+            - "Ongoing"
+
+    - name: tracking_preferences
+      title: "Tracking Style"
+      questions:
+        - prompt: "How do you prefer to track habits?"
+          field: tracking_method
+          type: multi_choice
+          options:
+            - "Simple checkboxes"
+            - "Quantity tracking (reps, minutes)"
+            - "Quality rating (1-10)"
+            - "Time tracking"
+            - "Notes/journal"
+            - "Photo evidence"
+            
+        - prompt: "When will you update your tracker?"
+          field: update_timing
+          type: choice
+          options:
+            - "Real-time (as I complete)"
+            - "End of day"
+            - "Morning (previous day)"
+            - "Weekly batch"
+            
+        - prompt: "What motivates you most?"
+          field: motivation_style
+          type: multi_choice
+          options:
+            - "Streaks (consecutive days)"
+            - "Percentages (completion rate)"
+            - "Visual progress (charts/graphs)"
+            - "Milestones (7, 30, 100 days)"
+            - "Social accountability"
+            - "Rewards/celebrations"
+
+    - name: accountability
+      title: "Accountability & Rewards"
+      questions:
+        - prompt: "Who will you share your progress with?"
+          field: accountability_partners
+          type: list
+          min_items: 0
+          max_items: 3
+          instruction: "Leave empty if tracking privately"
+          
+        - prompt: "How will you reward milestones?"
+          field: reward_system
+          type: milestone_rewards
+          structure:
+            - milestone: "Achievement level"
+            - reward: "How you'll celebrate"
+          examples:
+            - milestone: "7-day streak"
+              reward: "Favorite coffee"
+            - milestone: "30 days"
+              reward: "New book"
+              
+        - prompt: "What happens if you miss a day?"
+          field: miss_protocol
+          type: text_long
+          instruction: "Be compassionate but clear"
+
+    - name: analysis_preferences
+      title: "Insights & Analysis"
+      questions:
+        - prompt: "What patterns do you want to uncover?"
+          field: pattern_interests
+          type: multi_choice
+          options:
+            - "Best time of day"
+            - "Day of week patterns"
+            - "Energy correlations"
+            - "Mood impacts"
+            - "Weather effects"
+            - "Social influences"
+            - "Stress relationships"
+            
+        - prompt: "How often do you want to review progress?"
+          field: review_frequency
+          type: choice
+          options:
+            - "Daily"
+            - "Weekly"
+            - "Bi-weekly"
+            - "Monthly"
+            - "Quarterly"
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Personal Habit Tracking System"
+    sections:
+      - header: "Habit Portfolio"
+        content:
+          - "**Tracking Period**: {{tracking_duration}}"
+          - "**Primary Goal**: {{tracking_goal}}"
+          - ""
+          - "### Habits to Track"
+          - "{{target_habits|habit_table}}"
+          
+      - header: "Daily Tracking Sheet"
+        content:
+          - "### Date: _______  Day #: _______"
+          - ""
+          - "**Morning Intention**: _______"
+          - ""
+          - "#### Habit Checklist"
+          - "{{target_habits|daily_tracker}}"
+          - ""
+          - "**Daily Score**: ___/{{target_habits|count}}"
+          - "**Completion Rate**: ___%"
+          - ""
+          - "**Energy Level**: ⚡⚡⚡⚡⚡"
+          - "**Mood**: 😊😊😊😊😊"
+          - "**Notes**: _______"
+          
+      - header: "Weekly Tracker Grid"
+        content:
+          - "### Week of: _______"
+          - ""
+          - "| Habit | Mon | Tue | Wed | Thu | Fri | Sat | Sun | Total | Rate |"
+          - "|-------|-----|-----|-----|-----|-----|-----|-----|-------|------|"
+          - "{{target_habits|weekly_grid}}"
+          - ""
+          - "**Weekly Completion Rate**: ___%"
+          - "**Best Day**: _______"
+          - "**Challenging Day**: _______"
+          
+      - header: "Streak Tracker"
+        content:
+          - "### Current Streaks"
+          - "{{target_habits|streak_tracker}}"
+          - ""
+          - "### Milestone Achievements"
+          - "- [ ] First Day Complete"
+          - "- [ ] 3-Day Streak"
+          - "- [ ] 7-Day Streak (1 week)"
+          - "- [ ] 14-Day Streak (2 weeks)"
+          - "- [ ] 21-Day Streak (3 weeks)"
+          - "- [ ] 30-Day Streak (1 month)"
+          - "- [ ] 66-Day Streak (habit formed)"
+          - "- [ ] 90-Day Streak (1 quarter)"
+          - "- [ ] 365-Day Streak (1 year)"
+          
+      - header: "Monthly Overview"
+        content:
+          - "### Month: _______ Year: _______"
+          - ""
+          - "{{calendar_view}}"
+          - ""
+          - "### Monthly Statistics"
+          - "| Habit | Days Completed | Completion % | Longest Streak | Trend |"
+          - "|-------|---------------|--------------|----------------|-------|"
+          - "{{target_habits|monthly_stats}}"
+          - ""
+          - "**Overall Completion**: ___%"
+          - "**Total Habits Tracked**: {{target_habits|count}}"
+          - "**Perfect Days**: ___"
+          
+      - header: "Pattern Analysis"
+        content:
+          - "### Tracking Insights"
+          - ""
+          - "#### Time Patterns"
+          - "**Most Successful Time**: _______"
+          - "**Most Challenging Time**: _______"
+          - ""
+          - "#### Day Patterns"
+          - "**Best Day of Week**: _______"
+          - "**Hardest Day**: _______"
+          - ""
+          - "#### Correlation Observations"
+          - "**Energy & Habits**: _______"
+          - "**Mood & Completion**: _______"
+          - "**Weather Impact**: _______"
+          - ""
+          - "#### Habit Interactions"
+          - "**Habits That Support Each Other**: _______"
+          - "**Habits That Compete**: _______"
+          
+      - header: "Progress Analytics"
+        content:
+          - "### Performance Metrics"
+          - ""
+          - "#### Completion Rates"
+          - "- Week 1: ___%"
+          - "- Week 2: ___%"
+          - "- Week 3: ___%"
+          - "- Week 4: ___%"
+          - ""
+          - "#### Improvement Trends"
+          - "- Starting Rate: ___%"
+          - "- Current Rate: ___%"
+          - "- Improvement: +___%"
+          - ""
+          - "#### Consistency Score"
+          - "- Never Missed: [Habits]"
+          - "- Missed 1-2 Times: [Habits]"
+          - "- Needs Attention: [Habits]"
+          
+      - header: "Accountability System"
+        content:
+          - "### Accountability Partners"
+          - "{{accountability_partners|contact_list}}"
+          - ""
+          - "### Check-in Schedule"
+          - "- Daily: [Photo of tracker]"
+          - "- Weekly: [Progress summary]"
+          - "- Monthly: [Full review]"
+          - ""
+          - "### Miss Protocol"
+          - "{{miss_protocol}}"
+          - ""
+          - "**Never Miss Twice Rule**: If you miss once, make it the priority tomorrow"
+          
+      - header: "Reward System"
+        content:
+          - "### Milestone Rewards"
+          - "{{reward_system|reward_table}}"
+          - ""
+          - "### Earned Rewards"
+          - "- [ ] [Milestone]: [Reward] - Date: _____"
+          - "- [ ] [Milestone]: [Reward] - Date: _____"
+          - ""
+          - "### Celebration Ideas"
+          - "- Share success on social media"
+          - "- Treat yourself to [reward]"
+          - "- Take progress photos"
+          - "- Write success story"
+          
+      - header: "Review & Adjust"
+        content:
+          - "### {{review_frequency}} Review Questions"
+          - ""
+          - "#### What's Working?"
+          - "- [Successful strategy]"
+          - "- [Helpful tool/technique]"
+          - "- [Supportive element]"
+          - ""
+          - "#### What's Challenging?"
+          - "- [Difficult habit]"
+          - "- [Timing issue]"
+          - "- [Environmental obstacle]"
+          - ""
+          - "#### Adjustments to Make"
+          - "- [ ] [Specific change]"
+          - "- [ ] [Timing adjustment]"
+          - "- [ ] [Environment modification]"
+          - ""
+          - "#### Habits to Add/Remove"
+          - "- Add: [New habit spotted]"
+          - "- Remove: [Habit not serving]"
+          - "- Modify: [Habit needing change]"
+
+# Validation Rules
+validation:
+  max_habits_recommended: 7
+  min_habits_required: 1
+  tracking_duration_minimum: 21
+
+# Research Foundation
+research_base:
+  - "BJ Fogg: Tiny Habits tracking"
+  - "James Clear: Habit tracking systems"
+  - "Gretchen Rubin: Four Tendencies"
+  - "Jerry Seinfeld: Don't break the chain"
+  - "Behavioral Psychology: Measurement and feedback"

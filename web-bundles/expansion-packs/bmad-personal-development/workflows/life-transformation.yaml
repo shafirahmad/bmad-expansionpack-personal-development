@@ -1,0 +1,299 @@
+workflow:
+  id: life-transformation
+  name: Complete Life Transformation Journey
+  version: 1.0
+  description: Comprehensive personal development workflow that guides users through a complete life assessment and transformation process
+  duration: 12-16 weeks
+  difficulty: Advanced
+  
+overview: |
+  This workflow provides a systematic approach to life transformation through deep self-discovery, 
+  strategic planning, and sustainable implementation. It combines life coaching, goal strategy, 
+  habit engineering, wellness optimization, and mindset transformation into an integrated journey.
+
+prerequisites:
+  - Commitment to 12-16 weeks of focused development work
+  - Willingness to engage in deep self-reflection
+  - 2-3 hours per week for structured activities
+  - Support system or accountability partner identified
+  - Basic stability in life (not in major crisis or transition)
+
+phases:
+  - phase: 1
+    name: Foundation Assessment
+    duration: 2-3 weeks
+    objective: Complete comprehensive life assessment and establish baseline
+    agents:
+      primary: life-coach
+      supporting: [wellness-advisor]
+    tasks:
+      - life-wheel-assessment
+      - values-exploration
+      - breakthrough-coaching (if needed)
+    deliverables:
+      - Life assessment report
+      - Core values identification
+      - Priority improvement areas
+    success_criteria:
+      - Clear picture of current life satisfaction across all areas
+      - Top 3-5 priority areas for improvement identified
+      - Core values clarified and prioritized
+
+  - phase: 2
+    name: Vision Creation
+    duration: 1-2 weeks  
+    objective: Create inspiring vision for transformed life
+    agents:
+      primary: life-coach
+      supporting: []
+    tasks:
+      - create-vision
+    deliverables:
+      - Personal vision statement
+      - Life area visions
+      - Identity statement
+    success_criteria:
+      - Compelling vision that energizes and motivates
+      - Clear picture of desired future state
+      - Strong emotional connection to vision
+
+  - phase: 3
+    name: Strategic Planning
+    duration: 2-3 weeks
+    objective: Develop strategic approach to achieving vision
+    agents:
+      primary: goal-strategist
+      supporting: [life-coach]
+    tasks:
+      - create-goals
+      - strategy-map
+      - milestone-planning
+    deliverables:
+      - Strategic goals framework
+      - Implementation roadmap
+      - Milestone map with timelines
+    success_criteria:
+      - Clear 12-month goals aligned with vision
+      - Strategic roadmap with phases and milestones
+      - Specific success metrics identified
+
+  - phase: 4
+    name: Habit Architecture
+    duration: 2-3 weeks
+    objective: Design sustainable habit systems to support goals
+    agents:
+      primary: habit-engineer
+      supporting: [wellness-advisor]
+    tasks:
+      - habit-assessment
+      - design-habit (for keystone habits)
+      - routine-optimization
+    deliverables:
+      - Habit audit report
+      - Keystone habit designs
+      - Optimized daily/weekly routines
+    success_criteria:
+      - Current habits assessed and categorized
+      - 2-3 keystone habits designed for implementation
+      - Daily routine optimized for success
+
+  - phase: 5
+    name: Wellness Foundation
+    duration: 2-3 weeks
+    objective: Establish wellness practices that support transformation
+    agents:
+      primary: wellness-advisor
+      supporting: [habit-engineer]
+    tasks:
+      - wellness-wheel-assessment
+      - create-wellness-plan
+      - energy-optimization
+    deliverables:
+      - Wellness assessment report
+      - Comprehensive wellness plan
+      - Energy management strategy
+    success_criteria:
+      - Wellness baseline established
+      - Integrated wellness plan created
+      - Energy optimization strategies identified
+
+  - phase: 6
+    name: Mindset Transformation
+    duration: 2-3 weeks
+    objective: Transform limiting beliefs and build empowering mindset
+    agents:
+      primary: mindset-mentor
+      supporting: [life-coach]
+    tasks:
+      - mindset-evaluation
+      - limiting-beliefs
+      - confidence-building
+    deliverables:
+      - Mindset assessment report
+      - Belief transformation plan
+      - Confidence building strategy
+    success_criteria:
+      - Key limiting beliefs identified and addressed
+      - Empowering belief systems established
+      - Increased confidence and self-efficacy
+
+  - phase: 7
+    name: Integration & Launch
+    duration: 1-2 weeks
+    objective: Integrate all elements and launch transformation plan
+    agents:
+      primary: bmad-orchestrator
+      supporting: [life-coach, goal-strategist, habit-engineer]
+    tasks:
+      - integration
+      - plan
+      - action-plan
+    deliverables:
+      - Integrated transformation plan
+      - 90-day implementation roadmap
+      - Accountability and support systems
+    success_criteria:
+      - All elements integrated into coherent plan
+      - Clear next steps for first 90 days
+      - Support systems activated
+
+  - phase: 8
+    name: Implementation & Optimization
+    duration: Ongoing
+    objective: Execute plan with regular review and optimization
+    agents:
+      primary: life-coach
+      supporting: [all agents as needed]
+    tasks:
+      - weekly-review
+      - progress-analysis
+      - obstacle-analysis
+    deliverables:
+      - Weekly review reports
+      - Monthly progress assessments
+      - Quarterly plan optimizations
+    success_criteria:
+      - Consistent execution of key habits and actions
+      - Regular progress toward goals
+      - Continuous learning and adaptation
+
+agent_coordination:
+  orchestrator_role: |
+    The BMad Orchestrator guides users through workflow selection, coordinates handoffs between 
+    specialists, maintains overall progress tracking, and ensures integration of insights across agents.
+    
+  handoff_protocols:
+    - Each phase concludes with summary and recommendations for next phase
+    - Insights and assessments carry forward to subsequent agents
+    - Integration sessions every 2-3 phases to ensure coherence
+    - Final integration phase brings together all specialist work
+
+  collaboration_patterns:
+    - Cross-agent consultation during complex decisions
+    - Joint sessions for overlapping domains (habits + wellness, goals + coaching)
+    - Regular progress sharing between agents
+    - Unified tracking and measurement approach
+
+success_metrics:
+  leading_indicators:
+    - Completion of phase deliverables
+    - Engagement level and session quality
+    - Implementation of recommended actions
+    - Progress on weekly commitments
+
+  lagging_indicators:
+    - Life satisfaction scores improvement
+    - Goal achievement rates
+    - Habit consistency rates
+    - Overall life area ratings improvement
+
+  milestone_reviews:
+    - Week 4: Foundation assessment complete
+    - Week 8: Strategic framework established
+    - Week 12: Implementation systems designed
+    - Week 16: Transformation plan launched
+
+support_requirements:
+  accountability:
+    - Weekly check-ins with accountability partner
+    - Monthly progress reviews with chosen agent
+    - Quarterly comprehensive assessments
+    - Community support group participation (optional)
+
+  resources:
+    - Dedicated journal for reflection and planning
+    - Calendar blocks for weekly planning and review
+    - Tracking tools for habits and goals
+    - Access to educational resources and materials
+
+  time_commitment:
+    - 2-3 hours per week for structured activities
+    - Daily 15-30 minutes for habits and reflection
+    - Weekly 60-90 minute review sessions
+    - Monthly 2-3 hour comprehensive reviews
+
+risk_mitigation:
+  common_obstacles:
+    - Overwhelm from comprehensive scope
+    - Inconsistent engagement over time
+    - Life disruptions during process
+    - Resistance to deep self-examination
+
+  mitigation_strategies:
+    - Flexible pacing based on individual capacity
+    - Strong support system and accountability
+    - Crisis management protocols
+    - Regular motivation and purpose reconnection
+
+  success_factors:
+    - Genuine commitment to transformation
+    - Willingness to be vulnerable and honest
+    - Strong support system
+    - Consistent engagement with process
+    - Integration of learnings into daily life
+
+customization_options:
+  focus_areas:
+    - Career-focused transformation
+    - Relationship-centered development
+    - Health and wellness prioritized
+    - Spiritual and meaning-centered
+    - Creative and artistic development
+
+  intensity_levels:
+    - intensive: 12-week accelerated program
+    - standard: 16-week comprehensive program
+    - extended: 24-week gradual transformation
+    - maintenance: Ongoing optimization focus
+
+  delivery_modes:
+    - Individual self-guided journey
+    - Partner-based mutual support
+    - Small group cohort experience
+    - Professional coach-supported process
+
+workflow_exit_criteria:
+  successful_completion:
+    - All phase deliverables completed
+    - Implementation plan launched
+    - Support systems established
+    - Tracking and review processes in place
+
+  early_exit_options:
+    - Life circumstances require pause
+    - Resistance or low engagement persists
+    - Major life disruption occurs
+    - Achieves sufficient transformation for current needs
+
+next_steps:
+  immediate_follow_up:
+    - 90-day implementation focus
+    - Monthly optimization reviews
+    - Quarterly strategic assessments
+    - Annual vision and goal refresh
+
+  advanced_development:
+    - Leadership development focus
+    - Advanced skill specialization
+    - Mentorship and teaching others
+    - Community building and contribution

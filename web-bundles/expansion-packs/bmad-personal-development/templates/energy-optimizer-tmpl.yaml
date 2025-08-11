@@ -1,0 +1,582 @@
+name: energy-optimizer
+description: Daily energy management and optimization system
+version: 1.0.0
+author: BMad AI
+category: wellness
+tags:
+  - energy
+  - productivity
+  - performance
+  - vitality
+  - optimization
+
+instructions: |
+  Optimize your energy levels throughout the day by tracking patterns, 
+  identifying drains and boosters, and implementing strategic interventions.
+  Complete morning and evening assessments for best results.
+
+sections:
+  - id: energy_baseline
+    title: Energy Baseline Assessment
+    type: assessment
+    frequency: weekly
+    fields:
+      - name: assessment_date
+        type: date
+        required: true
+        default: today
+        
+      - name: baseline_energy
+        type: rating
+        label: Average Energy Level (Past Week)
+        min: 1
+        max: 10
+        description: Your typical energy over the past week
+        
+      - name: energy_goals
+        type: text_list
+        label: Energy Goals
+        max_items: 3
+        placeholder: What energy improvements do you want?
+        
+      - name: biggest_drains
+        type: text_list
+        label: Top Energy Drains
+        max_items: 5
+        placeholder: What depletes your energy most?
+        
+      - name: best_boosters
+        type: text_list
+        label: Top Energy Boosters
+        max_items: 5
+        placeholder: What gives you energy?
+
+  - id: morning_assessment
+    title: Morning Energy Check
+    type: daily_check
+    time: morning
+    fields:
+      - name: wake_time
+        type: time
+        label: Wake Time
+        required: true
+        
+      - name: sleep_hours
+        type: number
+        label: Hours Slept
+        min: 0
+        max: 24
+        decimal: 1
+        
+      - name: sleep_quality
+        type: rating
+        label: Sleep Quality
+        min: 1
+        max: 10
+        
+      - name: morning_energy
+        type: rating
+        label: Morning Energy Level
+        min: 1
+        max: 10
+        description: How energized do you feel?
+        
+      - name: morning_mood
+        type: select
+        label: Morning Mood
+        options:
+          - excited
+          - positive
+          - neutral
+          - sluggish
+          - stressed
+          - anxious
+          
+      - name: energy_forecast
+        type: select
+        label: Expected Energy Today
+        options:
+          - high_all_day
+          - good_most_day
+          - normal_patterns
+          - low_energy_expected
+          - very_challenging
+          
+      - name: planned_boosters
+        type: checkbox_list
+        label: Planned Energy Boosters
+        options:
+          - morning_exercise
+          - healthy_breakfast
+          - meditation
+          - sunlight_exposure
+          - caffeine_strategic
+          - power_nap
+          - music_playlist
+          - social_interaction
+
+  - id: hourly_tracking
+    title: Energy Throughout Day
+    type: hourly_log
+    fields:
+      - name: hour
+        type: time
+        label: Time
+        required: true
+        
+      - name: energy_level
+        type: rating
+        label: Energy Level
+        min: 1
+        max: 10
+        quick_entry: true
+        
+      - name: activity
+        type: text
+        label: Current Activity
+        placeholder: What are you doing?
+        
+      - name: energy_impact
+        type: select
+        label: Activity Impact
+        options:
+          - energizing
+          - neutral
+          - draining
+          
+      - name: intervention_taken
+        type: text
+        label: Energy Intervention
+        placeholder: Any action taken to manage energy?
+
+  - id: energy_nutrition
+    title: Nutrition & Hydration
+    type: intake_log
+    fields:
+      - name: meal_time
+        type: time
+        label: Meal/Snack Time
+        
+      - name: meal_type
+        type: select
+        label: Type
+        options:
+          - breakfast
+          - morning_snack
+          - lunch
+          - afternoon_snack
+          - dinner
+          - evening_snack
+          
+      - name: food_quality
+        type: select
+        label: Food Quality
+        options:
+          - very_nutritious
+          - mostly_healthy
+          - mixed
+          - mostly_processed
+          - junk_food
+          
+      - name: portion_size
+        type: select
+        label: Portion Size
+        options:
+          - too_small
+          - just_right
+          - slightly_large
+          - too_large
+          
+      - name: energy_after_eating
+        type: select
+        label: Energy 30min After
+        options:
+          - energized
+          - sustained
+          - no_change
+          - slight_dip
+          - crashed
+          
+      - name: water_intake
+        type: number
+        label: Water (oz)
+        min: 0
+        cumulative: true
+        
+      - name: caffeine_intake
+        type: select
+        label: Caffeine
+        options:
+          - none
+          - 1_serving
+          - 2_servings
+          - 3_servings
+          - 4_plus_servings
+
+  - id: movement_energy
+    title: Movement & Exercise
+    type: activity_log
+    fields:
+      - name: movement_type
+        type: select
+        label: Activity Type
+        options:
+          - morning_stretch
+          - walk
+          - cardio
+          - strength
+          - yoga
+          - sports
+          - dance
+          - other_active
+          
+      - name: duration
+        type: number
+        label: Duration (minutes)
+        min: 0
+        
+      - name: intensity
+        type: select
+        label: Intensity
+        options:
+          - gentle
+          - light
+          - moderate
+          - vigorous
+          - maximum
+          
+      - name: energy_before
+        type: rating
+        label: Energy Before
+        min: 1
+        max: 10
+        
+      - name: energy_after
+        type: rating
+        label: Energy After
+        min: 1
+        max: 10
+        
+      - name: recovery_time
+        type: select
+        label: Recovery Needed
+        options:
+          - none
+          - 15_minutes
+          - 30_minutes
+          - 1_hour
+          - several_hours
+
+  - id: energy_breaks
+    title: Rest & Recovery
+    type: break_log
+    fields:
+      - name: break_time
+        type: time
+        label: Break Time
+        
+      - name: break_type
+        type: select
+        label: Break Type
+        options:
+          - micro_break
+          - stretching
+          - breathing
+          - meditation
+          - power_nap
+          - walk
+          - social
+          - creative
+          - complete_rest
+          
+      - name: break_duration
+        type: select
+        label: Duration
+        options:
+          - 1_minute
+          - 5_minutes
+          - 10_minutes
+          - 15_minutes
+          - 20_minutes
+          - 30_minutes
+          - longer
+          
+      - name: effectiveness
+        type: rating
+        label: Effectiveness
+        min: 1
+        max: 10
+        description: How refreshed do you feel?
+
+  - id: evening_review
+    title: Evening Energy Review
+    type: daily_review
+    time: evening
+    fields:
+      - name: end_day_energy
+        type: rating
+        label: End of Day Energy
+        min: 1
+        max: 10
+        
+      - name: energy_pattern
+        type: select
+        label: Today's Energy Pattern
+        options:
+          - steady_high
+          - steady_moderate
+          - gradual_decline
+          - peaks_and_valleys
+          - crashed_early
+          - second_wind
+          
+      - name: peak_energy_time
+        type: time
+        label: Peak Energy Time
+        description: When did you feel most energized?
+        
+      - name: lowest_energy_time
+        type: time
+        label: Lowest Energy Time
+        description: When did you feel most depleted?
+        
+      - name: effective_strategies
+        type: text_list
+        label: What Worked Today
+        max_items: 3
+        placeholder: Strategies that boosted energy
+        
+      - name: ineffective_strategies
+        type: text_list
+        label: What Didn't Work
+        max_items: 3
+        placeholder: Things that didn't help
+        
+      - name: tomorrow_plan
+        type: text_list
+        label: Tomorrow's Energy Plan
+        max_items: 3
+        placeholder: Key strategies for tomorrow
+
+  - id: weekly_analysis
+    title: Weekly Energy Analysis
+    type: weekly_review
+    day: sunday
+    fields:
+      - name: week_average
+        type: rating
+        label: Average Energy This Week
+        min: 1
+        max: 10
+        
+      - name: best_day
+        type: select
+        label: Highest Energy Day
+        options:
+          - monday
+          - tuesday
+          - wednesday
+          - thursday
+          - friday
+          - saturday
+          - sunday
+          
+      - name: worst_day
+        type: select
+        label: Lowest Energy Day
+        options:
+          - monday
+          - tuesday
+          - wednesday
+          - thursday
+          - friday
+          - saturday
+          - sunday
+          
+      - name: key_insights
+        type: text_list
+        label: Key Energy Insights
+        max_items: 5
+        placeholder: What patterns did you notice?
+        
+      - name: next_week_focus
+        type: text_list
+        label: Next Week's Focus
+        max_items: 3
+        placeholder: Energy optimization priorities
+
+outputs:
+  - id: daily_energy_report
+    title: Daily Energy Report
+    format: markdown
+    template: |
+      # Energy Report - {{date}}
+      
+      ## Energy Overview
+      - **Morning**: {{morning_energy}}/10
+      - **Peak**: {{peak_energy_time}}
+      - **Lowest**: {{lowest_energy_time}}
+      - **Evening**: {{end_day_energy}}/10
+      - **Pattern**: {{energy_pattern}}
+      
+      ## Energy Management
+      
+      ### What Worked
+      {{#each effective_strategies}}
+      - {{this}}
+      {{/each}}
+      
+      ### What Didn't Work
+      {{#each ineffective_strategies}}
+      - {{this}}
+      {{/each}}
+      
+      ## Key Factors
+      - **Sleep**: {{sleep_hours}} hours (Quality: {{sleep_quality}}/10)
+      - **Nutrition**: Impacted energy {{energy_after_eating}}
+      - **Movement**: {{movement_type}} for {{duration}} minutes
+      - **Hydration**: {{water_intake}} oz
+      
+      ## Tomorrow's Plan
+      {{#each tomorrow_plan}}
+      - {{this}}
+      {{/each}}
+
+  - id: energy_patterns
+    title: Energy Pattern Analysis
+    format: dashboard
+    charts:
+      - type: line_chart
+        title: Daily Energy Curve
+        x_axis: time
+        y_axis: energy_level
+        show_average: true
+        
+      - type: heatmap
+        title: Weekly Energy Heatmap
+        rows: days
+        columns: hours
+        intensity: energy_level
+        
+      - type: bar_chart
+        title: Energy by Activity
+        categories: activity_types
+        values: average_energy_impact
+        
+      - type: correlation_chart
+        title: Energy Factors
+        variables:
+          - sleep_quality
+          - nutrition_quality
+          - exercise
+          - stress
+          - hydration
+
+  - id: optimization_recommendations
+    title: Energy Optimization Plan
+    format: actionable_list
+    based_on: weekly_analysis
+    generates:
+      - personalized_schedule
+      - nutrition_timing
+      - exercise_recommendations
+      - break_schedule
+      - sleep_optimization
+
+automation:
+  reminders:
+    - time: wake_time
+      message: "Good morning! Rate your morning energy."
+      
+    - time: "10:00"
+      message: "Mid-morning energy check"
+      
+    - time: "14:00"
+      message: "Afternoon energy assessment"
+      
+    - time: "16:00"
+      message: "Late afternoon - time for an energy boost?"
+      
+    - time: "20:00"
+      message: "Evening energy review time"
+      
+  smart_alerts:
+    - condition: energy_level < 4
+      action: suggest_intervention
+      options:
+        - take_walk
+        - hydrate
+        - healthy_snack
+        - power_nap
+        - breathing_exercise
+        
+    - condition: caffeine_intake > 3 AND time > "14:00"
+      message: "Consider limiting caffeine to protect sleep"
+      
+    - condition: water_intake < expected_by_time
+      message: "Hydration reminder: You're behind on water intake"
+      
+    - condition: no_movement > 2_hours
+      message: "Time to move! Take a quick energy break"
+
+interventions:
+  low_energy_protocols:
+    - level: 1-3
+      immediate:
+        - cold_water_splash
+        - deep_breathing
+        - stand_and_stretch
+        - hydrate
+      sustained:
+        - 10_minute_walk
+        - healthy_snack
+        - power_nap
+        - sunlight_exposure
+        
+    - level: 4-6
+      immediate:
+        - change_environment
+        - energizing_music
+        - light_movement
+      sustained:
+        - proper_meal
+        - social_interaction
+        - creative_break
+        
+  energy_optimization_tips:
+    morning:
+      - consistent_wake_time
+      - immediate_light_exposure
+      - protein_breakfast
+      - morning_movement
+      
+    afternoon:
+      - strategic_lunch_timing
+      - post_lunch_walk
+      - power_nap_option
+      - limit_heavy_foods
+      
+    evening:
+      - wind_down_routine
+      - limit_screens
+      - prepare_tomorrow
+      - gratitude_practice
+
+integrations:
+  - type: wearables
+    metrics:
+      - heart_rate_variability
+      - activity_levels
+      - sleep_tracking
+      
+  - type: calendar
+    features:
+      - energy_based_scheduling
+      - break_reminders
+      - high_energy_task_timing
+      
+  - type: nutrition_apps
+    sync:
+      - meal_timing
+      - food_quality
+      - caffeine_tracking

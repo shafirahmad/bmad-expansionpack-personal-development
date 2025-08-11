@@ -1,0 +1,173 @@
+template:
+  id: goals-framework-template
+  name: Comprehensive Goals Framework
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/goals-framework.md
+    title: "Strategic Goals Framework"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: executive-summary
+    title: Executive Summary
+    instruction: |
+      Create a compelling executive summary that captures the essence of your goals for this period. Include the overarching theme, key focus areas, and what success looks like.
+
+  - id: vision-alignment
+    title: Vision Alignment
+    instruction: |
+      Explain how these goals align with and advance your personal vision. Reference specific aspects of your vision statement and show the connection.
+    elicit: true
+
+  - id: annual-goals
+    title: Annual Goals
+    instruction: |
+      Define 3-5 major annual goals that will significantly move you toward your vision. These should be ambitious yet achievable within the year.
+    elicit: true
+    sections:
+      - id: annual-goal
+        title: "Annual Goal {{number}}: {{goal_title}}"
+        repeatable: true
+        template: |
+          **Goal**: {{goal_statement}}
+          
+          **Why This Matters**: {{importance}}
+          
+          **Success Metrics**:
+          - {{metric_1}}
+          - {{metric_2}}
+          - {{metric_3}}
+          
+          **Key Milestones**:
+          - Q1: {{q1_milestone}}
+          - Q2: {{q2_milestone}}
+          - Q3: {{q3_milestone}}
+          - Q4: {{q4_milestone}}
+
+  - id: quarterly-objectives
+    title: Quarterly Objectives (Next 90 Days)
+    instruction: |
+      Break down your annual goals into specific quarterly objectives using the OKR framework. Focus on what you'll achieve in the next 90 days.
+    elicit: true
+    sections:
+      - id: objective
+        title: "Objective {{number}}: {{objective_title}}"
+        repeatable: true
+        template: |
+          **Objective**: {{objective_statement}}
+          
+          **Key Results**:
+          1. {{kr1}} (Target: {{kr1_target}})
+          2. {{kr2}} (Target: {{kr2_target}})
+          3. {{kr3}} (Target: {{kr3_target}})
+          
+          **Priority**: {{priority_level}}
+          **Owner**: {{responsible_person}}
+          **Resources Needed**: {{resources}}
+
+  - id: monthly-targets
+    title: Monthly Targets
+    instruction: |
+      Define specific targets for each month of the quarter. These should be concrete actions or achievements that ladder up to your quarterly objectives.
+    sections:
+      - id: month
+        title: "Month {{month_number}} Targets"
+        repeatable: true
+        template: |
+          **Focus Theme**: {{monthly_theme}}
+          
+          **Key Targets**:
+          - [ ] {{target_1}}
+          - [ ] {{target_2}}
+          - [ ] {{target_3}}
+          - [ ] {{target_4}}
+          - [ ] {{target_5}}
+
+  - id: weekly-commitments
+    title: Weekly Commitments Framework
+    instruction: |
+      Design a framework for weekly commitments that ensure consistent progress. This should be a repeatable structure you can use each week.
+    template: |
+      **Weekly Planning Process**:
+      {{planning_process}}
+      
+      **Non-Negotiable Weekly Actions**:
+      - {{action_1}}
+      - {{action_2}}
+      - {{action_3}}
+      
+      **Weekly Review Questions**:
+      - {{review_question_1}}
+      - {{review_question_2}}
+      - {{review_question_3}}
+
+  - id: success-metrics
+    title: Success Metrics & KPIs
+    instruction: |
+      Define clear, measurable success metrics for tracking progress. Include both leading indicators (actions) and lagging indicators (outcomes).
+    elicit: true
+    sections:
+      - id: leading-indicators
+        title: Leading Indicators
+        template: |
+          - {{indicator}}: Target {{target}} | Frequency: {{frequency}}
+        repeatable: true
+      - id: lagging-indicators
+        title: Lagging Indicators
+        template: |
+          - {{indicator}}: Target {{target}} | Measurement: {{measurement_method}}
+        repeatable: true
+
+  - id: obstacle-mitigation
+    title: Obstacle Anticipation & Mitigation
+    instruction: |
+      Identify potential obstacles that could derail your goals and create mitigation strategies for each.
+    sections:
+      - id: obstacle
+        title: "Obstacle {{number}}"
+        repeatable: true
+        template: |
+          **Potential Obstacle**: {{obstacle_description}}
+          **Likelihood**: {{likelihood_level}}
+          **Impact**: {{impact_level}}
+          **Mitigation Strategy**: {{mitigation}}
+          **Contingency Plan**: {{contingency}}
+
+  - id: accountability-system
+    title: Accountability System
+    instruction: |
+      Design your accountability system including self-accountability measures and external support structures.
+    template: |
+      **Self-Accountability**:
+      - Daily: {{daily_accountability}}
+      - Weekly: {{weekly_accountability}}
+      - Monthly: {{monthly_accountability}}
+      
+      **External Accountability**:
+      - Accountability Partner: {{partner_details}}
+      - Check-in Frequency: {{checkin_frequency}}
+      - Reporting Method: {{reporting_method}}
+      
+      **Consequences & Rewards**:
+      - Achievement Rewards: {{rewards}}
+      - Missed Target Consequences: {{consequences}}
+
+  - id: review-adjustment
+    title: Review & Adjustment Protocol
+    instruction: |
+      Define how and when you'll review progress and make adjustments to your goals.
+    template: |
+      **Review Schedule**:
+      - Weekly Review: {{weekly_review_day}} at {{weekly_review_time}}
+      - Monthly Review: {{monthly_review_date}}
+      - Quarterly Review: {{quarterly_review_date}}
+      
+      **Review Process**:
+      {{review_process_description}}
+      
+      **Adjustment Criteria**:
+      {{adjustment_criteria}}

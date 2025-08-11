@@ -1,0 +1,336 @@
+template:
+  id: challenge-template
+  name: Personal Challenge Design
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/{{challenge_name}}-challenge.md
+    title: "{{challenge_name}} Challenge"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: challenge-overview
+    title: Challenge Overview
+    instruction: |
+      Define the challenge including its purpose, duration, and what success looks like. Make it inspiring and specific.
+    template: |
+      # {{challenge_name}} Challenge
+      
+      **Duration**: {{challenge_duration}}
+      **Start Date**: {{start_date}}
+      **End Date**: {{end_date}}
+      **Challenge Type**: {{challenge_category}}
+      
+      ## Purpose & Why
+      {{challenge_purpose}}
+      
+      ## Success Vision
+      {{success_description}}
+
+  - id: challenge-rules
+    title: Challenge Rules & Parameters
+    instruction: |
+      Define the specific rules, requirements, and parameters of the challenge. Be clear about what counts and what doesn't.
+    elicit: true
+    template: |
+      ## Challenge Rules
+      
+      ### Daily Requirements
+      - {{daily_requirement_1}}
+      - {{daily_requirement_2}}
+      - {{daily_requirement_3}}
+      
+      ### What Counts as Success
+      {{success_criteria}}
+      
+      ### What Doesn't Count
+      {{exclusion_criteria}}
+      
+      ### Flexibility Guidelines
+      {{flexibility_rules}}
+      
+      ### Minimum Standards
+      {{minimum_requirements}}
+
+  - id: motivation-anchoring
+    title: Motivation & Purpose Anchoring
+    instruction: |
+      Connect the challenge to deeper motivations, values, and long-term goals to maintain commitment during difficult times.
+    elicit: true
+    template: |
+      ## Why This Challenge Matters
+      
+      ### Personal Values Connection
+      This challenge honors my values of: {{values_connection}}
+      
+      ### Long-term Goal Alignment
+      This challenge advances my goal of: {{goal_connection}}
+      
+      ### Identity Development
+      Through this challenge, I am becoming: {{identity_evolution}}
+      
+      ### Benefits I Expect
+      - {{benefit_1}}
+      - {{benefit_2}}
+      - {{benefit_3}}
+      - {{benefit_4}}
+      
+      ### What I'll Prove to Myself
+      {{self_proof_statement}}
+
+  - id: daily-structure
+    title: Daily Structure & Routine
+    instruction: |
+      Design the daily routine and structure that will support successful completion of the challenge.
+    template: |
+      ## Daily Challenge Structure
+      
+      ### Morning Routine Integration
+      {{morning_integration}}
+      
+      ### Midday Check-in
+      {{midday_process}}
+      
+      ### Evening Completion
+      {{evening_completion}}
+      
+      ### Daily Tracking Method
+      {{daily_tracking}}
+      
+      ### Daily Reflection Questions
+      1. {{reflection_q1}}
+      2. {{reflection_q2}}
+      3. {{reflection_q3}}
+
+  - id: weekly-milestones
+    title: Weekly Milestones & Progression
+    instruction: |
+      Break the challenge into weekly milestones to maintain momentum and track progress.
+    sections:
+      - id: week
+        title: "Week {{week_number}}"
+        repeatable: true
+        template: |
+          **Week {{week_number}} Focus**: {{weekly_focus}}
+          **Milestone Target**: {{weekly_target}}
+          **Success Metric**: {{weekly_metric}}
+          **Potential Challenge**: {{weekly_obstacle}}
+          **Motivation Boost**: {{weekly_motivation}}
+
+  - id: obstacle-preparation
+    title: Obstacle Preparation & Solutions
+    instruction: |
+      Anticipate the most likely obstacles and create specific strategies to overcome them before they derail the challenge.
+    elicit: true
+    sections:
+      - id: obstacle
+        title: "Obstacle {{number}}: {{obstacle_name}}"
+        repeatable: true
+        template: |
+          **Scenario**: {{obstacle_scenario}}
+          **Warning Signs**: {{early_indicators}}
+          **Prevention Strategy**: {{prevention_plan}}
+          **Response Protocol**: If {{trigger_condition}}, then I will {{response_action}}
+          **Recovery Plan**: {{recovery_strategy}}
+          **Support Activation**: {{support_escalation}}
+
+  - id: accountability-system
+    title: Accountability & Support System
+    instruction: |
+      Design robust accountability and support systems to increase the likelihood of completing the challenge.
+    template: |
+      ## Accountability Structure
+      
+      ### Primary Accountability Partner
+      **Who**: {{accountability_partner}}
+      **Check-in Method**: {{checkin_method}}
+      **Check-in Frequency**: {{checkin_frequency}}
+      **Their Role**: {{partner_responsibilities}}
+      
+      ### Community/Group Support
+      {{community_support}}
+      
+      ### Public Commitment
+      {{public_declaration}}
+      
+      ### Progress Sharing
+      {{progress_sharing_plan}}
+      
+      ### Consequences & Rewards
+      - **Daily Success Reward**: {{daily_reward}}
+      - **Weekly Success Reward**: {{weekly_reward}}
+      - **Challenge Completion Reward**: {{completion_reward}}
+      - **Missed Day Consequence**: {{daily_consequence}}
+      - **Week Failure Consequence**: {{weekly_consequence}}
+
+  - id: tracking-dashboard
+    title: Progress Tracking & Measurement
+    instruction: |
+      Create a simple but comprehensive system for tracking progress throughout the challenge.
+    template: |
+      ## Tracking System
+      
+      ### Primary Metrics
+      - **Consistency Rate**: {{consistency_metric}}
+      - **Quality Score**: {{quality_metric}}
+      - **Progress Indicator**: {{progress_metric}}
+      
+      ### Daily Tracking Template
+      ```
+      Date: _______
+      Challenge Completed: [ ] Yes [ ] No
+      Quality Rating (1-10): _____
+      Time Invested: _____
+      Energy Level: _____
+      Notes: ________________
+      Tomorrow's Commitment: ________________
+      ```
+      
+      ### Weekly Review Template
+      ```
+      Week of: _______
+      Days Completed: ___/7
+      Average Quality: ___/10
+      Key Insights: ________________
+      Improvements for Next Week: ________________
+      Motivation Level: ___/10
+      ```
+
+  - id: learning-development
+    title: Learning & Skill Development Plan
+    instruction: |
+      Identify what you'll learn or develop through this challenge and how you'll capture and apply those learnings.
+    template: |
+      ## Learning Objectives
+      
+      ### Skills to Develop
+      - {{skill_1}}
+      - {{skill_2}}
+      - {{skill_3}}
+      
+      ### Knowledge to Gain
+      {{knowledge_goals}}
+      
+      ### Character Qualities to Strengthen
+      {{character_development}}
+      
+      ### Insights to Capture
+      {{insight_areas}}
+      
+      ### Learning Documentation
+      {{learning_capture_method}}
+
+  - id: challenge-evolution
+    title: Challenge Evolution & Adaptation
+    instruction: |
+      Plan how the challenge might evolve and how you'll adapt while maintaining the core commitment.
+    template: |
+      ## Evolution Guidelines
+      
+      ### Difficulty Scaling
+      {{difficulty_progression}}
+      
+      ### Adaptation Triggers
+      {{adaptation_criteria}}
+      
+      ### Modification Protocol
+      {{modification_process}}
+      
+      ### Core Non-Negotiables
+      {{non_negotiable_elements}}
+      
+      ### Flexibility Zones
+      {{flexibility_areas}}
+
+  - id: completion-celebration
+    title: Completion & Integration Plan
+    instruction: |
+      Plan how you'll celebrate completion and integrate the learnings and habits into your ongoing life.
+    template: |
+      ## Completion Celebration
+      
+      ### Success Celebration Plan
+      {{celebration_description}}
+      
+      ### Achievement Recognition
+      {{recognition_plan}}
+      
+      ### Sharing Success
+      {{success_sharing}}
+      
+      ## Post-Challenge Integration
+      
+      ### Habits to Maintain
+      {{habit_maintenance}}
+      
+      ### Learnings to Apply
+      {{learning_application}}
+      
+      ### Next Challenge Ideas
+      {{future_challenges}}
+      
+      ### Long-term Integration
+      {{long_term_integration}}
+
+  - id: emergency-protocols
+    title: Emergency & Recovery Protocols
+    instruction: |
+      Create specific protocols for handling setbacks, missed days, and getting back on track.
+    template: |
+      ## Emergency Protocols
+      
+      ### Missed Day Protocol
+      1. {{missed_day_step_1}}
+      2. {{missed_day_step_2}}
+      3. {{missed_day_step_3}}
+      
+      ### Multiple Missed Days
+      {{multiple_miss_protocol}}
+      
+      ### Major Setback Recovery
+      {{major_setback_plan}}
+      
+      ### Motivation Crisis Plan
+      {{motivation_crisis_response}}
+      
+      ### Re-engagement Strategy
+      {{reengagement_method}}
+      
+      ### Support Activation
+      **When to call for help**: {{help_triggers}}
+      **Who to contact**: {{support_contacts}}
+      **What to ask for**: {{support_requests}}
+
+  - id: challenge-commitment
+    title: Challenge Commitment Statement
+    instruction: |
+      Write a powerful commitment statement that you can refer back to throughout the challenge.
+    template: |
+      ## My Challenge Commitment
+      
+      I commit to completing the {{challenge_name}} Challenge because {{commitment_reason}}
+      
+      I will honor this commitment by {{commitment_actions}}
+      
+      When I face obstacles, I will {{obstacle_response}}
+      
+      When I don't feel motivated, I will {{motivation_response}}
+      
+      I will hold myself accountable by {{accountability_method}}
+      
+      Success in this challenge means {{success_definition}}
+      
+      This challenge will help me become {{identity_statement}}
+      
+      **Signature**: {{signature}}
+      **Date**: {{commitment_date}}
+      **Witness**: {{witness_signature}}
+      
+      ---
+      
+      **Daily Affirmation**: {{daily_affirmation}}
+      
+      **Challenge Mantra**: {{challenge_mantra}}

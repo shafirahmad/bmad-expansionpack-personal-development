@@ -1,0 +1,399 @@
+name: wellness-dashboard
+description: Comprehensive wellness tracking and monitoring dashboard
+version: 1.0.0
+author: BMad AI
+category: wellness
+tags:
+  - health
+  - tracking
+  - metrics
+  - holistic
+  - monitoring
+
+instructions: |
+  This wellness dashboard helps you track and optimize all dimensions of wellness.
+  Update daily for best results and review weekly for patterns and insights.
+
+sections:
+  - id: overview
+    title: Wellness Overview
+    type: metrics
+    fields:
+      - name: date
+        type: date
+        required: true
+        default: today
+        
+      - name: overall_wellness
+        type: rating
+        label: Overall Wellness Score
+        min: 1
+        max: 10
+        description: How well do you feel overall today?
+        
+      - name: energy_level
+        type: rating
+        label: Energy Level
+        min: 1
+        max: 10
+        description: Your energy throughout the day
+        
+      - name: mood_rating
+        type: rating
+        label: Mood
+        min: 1
+        max: 10
+        description: Emotional state and outlook
+
+  - id: physical_wellness
+    title: Physical Health
+    type: tracking
+    fields:
+      - name: sleep_hours
+        type: number
+        label: Sleep Duration
+        unit: hours
+        min: 0
+        max: 24
+        
+      - name: sleep_quality
+        type: rating
+        label: Sleep Quality
+        min: 1
+        max: 10
+        
+      - name: exercise_minutes
+        type: number
+        label: Exercise
+        unit: minutes
+        min: 0
+        
+      - name: exercise_type
+        type: select
+        label: Exercise Type
+        options:
+          - cardio
+          - strength
+          - flexibility
+          - sports
+          - walking
+          - other
+          
+      - name: water_intake
+        type: number
+        label: Water Intake
+        unit: ounces
+        min: 0
+        
+      - name: nutrition_quality
+        type: rating
+        label: Nutrition Quality
+        min: 1
+        max: 10
+        description: How well did you eat today?
+
+  - id: mental_wellness
+    title: Mental & Emotional Health
+    type: assessment
+    fields:
+      - name: stress_level
+        type: rating
+        label: Stress Level
+        min: 1
+        max: 10
+        description: 1 = Very low, 10 = Very high
+        
+      - name: focus_quality
+        type: rating
+        label: Focus & Concentration
+        min: 1
+        max: 10
+        
+      - name: mindfulness_minutes
+        type: number
+        label: Mindfulness Practice
+        unit: minutes
+        min: 0
+        
+      - name: gratitude_items
+        type: text_list
+        label: Gratitude List
+        min_items: 1
+        max_items: 5
+        placeholder: What are you grateful for today?
+        
+      - name: emotional_notes
+        type: textarea
+        label: Emotional Check-in
+        placeholder: How are you feeling emotionally?
+
+  - id: social_wellness
+    title: Social & Relational Health
+    type: tracking
+    fields:
+      - name: social_interactions
+        type: number
+        label: Meaningful Interactions
+        min: 0
+        description: Number of quality social connections
+        
+      - name: relationship_quality
+        type: rating
+        label: Relationship Satisfaction
+        min: 1
+        max: 10
+        
+      - name: support_given
+        type: boolean
+        label: Supported Others
+        description: Did you help or support someone today?
+        
+      - name: support_received
+        type: boolean
+        label: Received Support
+        description: Did you receive help or support today?
+        
+      - name: connection_notes
+        type: text
+        label: Social Notes
+        placeholder: Notable social experiences
+
+  - id: environmental_wellness
+    title: Environmental Health
+    type: checklist
+    fields:
+      - name: space_organization
+        type: rating
+        label: Space Organization
+        min: 1
+        max: 10
+        description: How organized is your environment?
+        
+      - name: nature_exposure
+        type: boolean
+        label: Nature Time
+        description: Did you spend time in nature?
+        
+      - name: air_quality
+        type: select
+        label: Air Quality
+        options:
+          - excellent
+          - good
+          - fair
+          - poor
+          
+      - name: noise_level
+        type: select
+        label: Noise Management
+        options:
+          - very_quiet
+          - quiet
+          - moderate
+          - noisy
+          
+      - name: environmental_action
+        type: text
+        label: Eco Action
+        placeholder: Sustainable action taken today
+
+  - id: financial_wellness
+    title: Financial Health
+    type: tracking
+    fields:
+      - name: spending_awareness
+        type: boolean
+        label: Tracked Spending
+        description: Did you track expenses today?
+        
+      - name: budget_adherence
+        type: rating
+        label: Budget Compliance
+        min: 1
+        max: 10
+        description: How well did you stick to budget?
+        
+      - name: financial_stress
+        type: rating
+        label: Financial Stress
+        min: 1
+        max: 10
+        description: 1 = No stress, 10 = High stress
+        
+      - name: savings_action
+        type: boolean
+        label: Saved Money
+        description: Did you save any money today?
+        
+      - name: financial_win
+        type: text
+        label: Financial Win
+        placeholder: Any financial success today?
+
+  - id: habits_routines
+    title: Habits & Routines
+    type: checklist
+    fields:
+      - name: morning_routine
+        type: boolean
+        label: Morning Routine
+        description: Completed morning routine?
+        
+      - name: evening_routine
+        type: boolean
+        label: Evening Routine
+        description: Completed evening routine?
+        
+      - name: key_habits
+        type: checkbox_list
+        label: Key Habits
+        options:
+          - meditation
+          - exercise
+          - reading
+          - journaling
+          - meal_prep
+          - planning
+          - learning
+          - creative_time
+          
+      - name: habit_streak
+        type: number
+        label: Habit Streak
+        unit: days
+        min: 0
+        description: Consecutive days of key habit
+
+  - id: progress_reflection
+    title: Progress & Reflection
+    type: journal
+    fields:
+      - name: daily_win
+        type: text
+        label: Today's Win
+        placeholder: What went well today?
+        required: true
+        
+      - name: daily_challenge
+        type: text
+        label: Today's Challenge
+        placeholder: What was difficult today?
+        
+      - name: lesson_learned
+        type: text
+        label: Lesson Learned
+        placeholder: What did you learn today?
+        
+      - name: tomorrow_focus
+        type: text
+        label: Tomorrow's Focus
+        placeholder: What will you focus on tomorrow?
+        
+      - name: weekly_review
+        type: textarea
+        label: Weekly Review
+        placeholder: Weekly wellness reflection (complete on Sunday)
+        conditional: day_of_week == 'sunday'
+
+outputs:
+  - id: daily_summary
+    title: Daily Wellness Summary
+    format: markdown
+    template: |
+      # Wellness Dashboard - {{date}}
+      
+      ## Overall Wellness: {{overall_wellness}}/10
+      
+      ### Key Metrics
+      - **Energy**: {{energy_level}}/10
+      - **Mood**: {{mood_rating}}/10
+      - **Stress**: {{stress_level}}/10
+      
+      ### Physical Health
+      - Sleep: {{sleep_hours}} hours (Quality: {{sleep_quality}}/10)
+      - Exercise: {{exercise_minutes}} minutes of {{exercise_type}}
+      - Water: {{water_intake}} oz
+      - Nutrition: {{nutrition_quality}}/10
+      
+      ### Mental & Emotional
+      - Focus: {{focus_quality}}/10
+      - Mindfulness: {{mindfulness_minutes}} minutes
+      - Gratitude: {{gratitude_items | join}}
+      
+      ### Social Connection
+      - Interactions: {{social_interactions}}
+      - Relationship Quality: {{relationship_quality}}/10
+      - Support Balance: Given {{support_given}}, Received {{support_received}}
+      
+      ### Today's Win
+      {{daily_win}}
+      
+      ### Tomorrow's Focus
+      {{tomorrow_focus}}
+
+  - id: weekly_report
+    title: Weekly Wellness Report
+    format: dashboard
+    charts:
+      - type: line_chart
+        title: Wellness Trends
+        data:
+          - overall_wellness
+          - energy_level
+          - mood_rating
+          - stress_level
+          
+      - type: bar_chart
+        title: Physical Activity
+        data:
+          - exercise_minutes
+          - sleep_hours
+          - water_intake
+          
+      - type: pie_chart
+        title: Time Allocation
+        data:
+          - exercise_minutes
+          - mindfulness_minutes
+          - social_interactions
+
+automation:
+  reminders:
+    - time: "08:00"
+      message: "Good morning! Time for your wellness check-in."
+      
+    - time: "20:00"
+      message: "Evening wellness review - how was your day?"
+      
+    - time: "sunday 19:00"
+      message: "Weekly wellness review time!"
+      
+  alerts:
+    - condition: stress_level > 7
+      message: "High stress detected. Consider stress-reduction techniques."
+      
+    - condition: sleep_hours < 6
+      message: "Low sleep detected. Prioritize rest tonight."
+      
+    - condition: water_intake < 64
+      message: "Hydration reminder: Aim for at least 64 oz of water."
+
+integrations:
+  - type: calendar
+    sync: true
+    events:
+      - exercise_sessions
+      - mindfulness_practice
+      - social_activities
+      
+  - type: health_apps
+    import:
+      - sleep_data
+      - activity_data
+      - heart_rate
+      
+  - type: export
+    formats:
+      - csv
+      - pdf
+      - json

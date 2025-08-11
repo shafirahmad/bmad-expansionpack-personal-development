@@ -1,0 +1,324 @@
+# Fear Breakthrough Template
+# Purpose: Guide systematic fear facing and transformation into courage
+# Agent: Mindset Mentor
+
+template_id: fear-breakthrough
+template_name: "Fear Breakthrough Template"
+version: "1.0.0"
+description: "Structured template for identifying, understanding, and systematically overcoming fears through graduated exposure and cognitive restructuring"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's create a personalized plan to face and overcome your fear, transforming it from a limitation into a source of growth and strength."
+  
+  sections:
+    - name: fear_identification
+      title: "Fear Exploration"
+      questions:
+        - prompt: "What specific fear do you want to overcome?"
+          field: target_fear
+          type: text
+          validation: max_words:10
+          examples:
+            - "Fear of public speaking"
+            - "Fear of rejection"
+            - "Fear of failure"
+            - "Fear of heights"
+            
+        - prompt: "How intense is this fear on a scale of 1-10?"
+          field: fear_intensity
+          type: number
+          validation: min:1, max:10
+          
+        - prompt: "How long have you had this fear?"
+          field: fear_duration
+          type: choice
+          options:
+            - "Less than 1 year"
+            - "1-5 years"
+            - "5-10 years"
+            - "More than 10 years"
+            - "As long as I can remember"
+            
+        - prompt: "Describe what happens in your body when you face this fear"
+          field: physical_response
+          type: text_long
+          validation: min_words:15
+
+    - name: fear_impact
+      title: "Fear Impact Assessment"
+      questions:
+        - prompt: "How does this fear limit your life?"
+          field: life_limitations
+          type: list
+          min_items: 3
+          instruction: "Be specific about missed opportunities or avoided situations"
+          
+        - prompt: "What would be possible if you didn't have this fear?"
+          field: life_without_fear
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What's the worst thing that could realistically happen if you faced this fear?"
+          field: worst_case_scenario
+          type: text_long
+          
+        - prompt: "What's the best thing that could happen if you overcame this fear?"
+          field: best_case_scenario
+          type: text_long
+
+    - name: fear_history
+      title: "Fear Origins & Patterns"
+      questions:
+        - prompt: "Can you recall when this fear started or what triggered it?"
+          field: fear_origin
+          type: text_long
+          instruction: "If unsure, describe your earliest memory of the fear"
+          
+        - prompt: "Have you tried to overcome this fear before? What happened?"
+          field: previous_attempts
+          type: text_long
+          
+        - prompt: "What beliefs do you have about this fear?"
+          field: fear_beliefs
+          type: list
+          min_items: 2
+          examples:
+            - "I'll be humiliated"
+            - "I'm not strong enough"
+            - "Something terrible will happen"
+            
+        - prompt: "Who in your life has successfully faced a similar fear?"
+          field: fear_models
+          type: list
+          min_items: 1
+
+    - name: exposure_planning
+      title: "Graduated Exposure Design"
+      questions:
+        - prompt: "What's the absolute smallest step toward facing this fear?"
+          field: tiniest_step
+          type: text
+          instruction: "Something so small it barely triggers fear"
+          
+        - prompt: "List 8-10 progressively scarier steps from easiest to hardest"
+          field: exposure_ladder
+          type: progressive_list
+          min_items: 8
+          max_items: 10
+          instruction: "Each step should be slightly scarier than the last"
+          
+        - prompt: "What would represent complete mastery over this fear?"
+          field: mastery_goal
+          type: text
+          
+        - prompt: "How quickly do you want to progress through these steps?"
+          field: progression_pace
+          type: choice
+          options:
+            - "Slow and steady (1 step per week)"
+            - "Moderate (2-3 steps per week)"
+            - "Intensive (daily progression)"
+
+    - name: support_tools
+      title: "Support Strategies"
+      questions:
+        - prompt: "What calming techniques work for you?"
+          field: calming_techniques
+          type: multi_choice
+          options:
+            - "Deep breathing"
+            - "Progressive muscle relaxation"
+            - "Visualization"
+            - "Positive self-talk"
+            - "Grounding exercises"
+            - "Movement/exercise"
+            - "Music"
+            - "Prayer/meditation"
+            
+        - prompt: "What courage-building phrase will you use?"
+          field: courage_mantra
+          type: text
+          validation: max_words:8
+          examples:
+            - "I can do hard things"
+            - "Fear is just a feeling"
+            - "Courage over comfort"
+            
+        - prompt: "Who can support you in facing this fear?"
+          field: support_team
+          type: list
+          min_items: 1
+          
+        - prompt: "How will you reward yourself for courage?"
+          field: reward_system
+          type: text_long
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Fear Breakthrough Plan: {{target_fear}}"
+    sections:
+      - header: "Fear Profile"
+        content:
+          - "**Target Fear**: {{target_fear}}"
+          - "**Current Intensity**: {{fear_intensity}}/10"
+          - "**Duration**: {{fear_duration}}"
+          - "**Physical Response**: {{physical_response}}"
+          - ""
+          - "**Origin Story**: {{fear_origin}}"
+          
+      - header: "Impact & Motivation"
+        content:
+          - "### Current Limitations"
+          - "This fear prevents me from:"
+          - "{{life_limitations|numbered}}"
+          - ""
+          - "### Life Without This Fear"
+          - "{{life_without_fear}}"
+          - ""
+          - "### Reality Check"
+          - "**Worst Case** (unlikely): {{worst_case_scenario}}"
+          - "**Best Case** (possible): {{best_case_scenario}}"
+          
+      - header: "Belief Transformation"
+        content:
+          - "### Current Fear Beliefs"
+          - "{{fear_beliefs|numbered}}"
+          - ""
+          - "### Reframed Truths"
+          - "Transform each belief:"
+          - "1. Old: {{fear_beliefs|first}}"
+          - "   New: [More balanced, empowering perspective]"
+          - "2. Continue for each belief..."
+          - ""
+          - "### Success Models"
+          - "People who've conquered similar fears:"
+          - "{{fear_models|bullets}}"
+          
+      - header: "Graduated Exposure Plan"
+        content:
+          - "**Progression Pace**: {{progression_pace}}"
+          - ""
+          - "### Fear Ladder (10 Steps to Freedom)"
+          - ""
+          - "**Step 0 (Baseline)**: {{tiniest_step}}"
+          - "Anxiety Level: 1/10"
+          - ""
+          - "{{exposure_ladder|fear_ladder}}"
+          - ""
+          - "**Step 10 (Mastery)**: {{mastery_goal}}"
+          - "Anxiety Level: Initially 10/10 → Eventually 3/10"
+          
+      - header: "Week-by-Week Action Plan"
+        content:
+          - "### Week 1: Foundation"
+          - "**Goal**: Complete Steps 0-1"
+          - "- [ ] Daily courage affirmations"
+          - "- [ ] Practice calming techniques"
+          - "- [ ] Complete Step 0 ({{tiniest_step}})"
+          - "- [ ] Journal about the experience"
+          - "- [ ] Attempt Step 1"
+          - ""
+          - "### Week 2: Building"
+          - "**Goal**: Complete Steps 2-3"
+          - "- [ ] Continue daily practices"
+          - "- [ ] Increase exposure time"
+          - "- [ ] Use support team"
+          - "- [ ] Document progress"
+          - ""
+          - "### Week 3: Expanding"
+          - "**Goal**: Complete Steps 4-5"
+          - "- [ ] Face fear in new contexts"
+          - "- [ ] Reduce reliance on safety behaviors"
+          - "- [ ] Celebrate courage"
+          - ""
+          - "### Week 4: Breakthrough"
+          - "**Goal**: Complete Steps 6-7"
+          - "- [ ] Push comfort zone significantly"
+          - "- [ ] Share success story"
+          - "- [ ] Plan next challenges"
+          
+      - header: "Fear-Facing Toolkit"
+        content:
+          - "### Pre-Exposure Routine"
+          - "1. Set clear intention"
+          - "2. Practice chosen calming technique"
+          - "3. Say courage mantra: '{{courage_mantra}}'"
+          - "4. Visualize success"
+          - "5. Commit to attempt (not perfection)"
+          - ""
+          - "### During Exposure"
+          - "**Calming Techniques Available**:"
+          - "{{calming_techniques|bullets}}"
+          - ""
+          - "**Remember**:"
+          - "- Anxiety is uncomfortable but not dangerous"
+          - "- This feeling is temporary"
+          - "- Each second is building courage"
+          - "- You can leave if truly needed"
+          - ""
+          - "### Post-Exposure Celebration"
+          - "1. Acknowledge your courage"
+          - "2. Rate anxiety (likely lower than expected)"
+          - "3. Note what you learned"
+          - "4. Reward yourself"
+          - "5. Share with support person"
+          
+      - header: "Support System"
+        content:
+          - "### Courage Team"
+          - "{{support_team|support_roles}}"
+          - ""
+          - "### Reward System"
+          - "{{reward_system}}"
+          - ""
+          - "### Accountability Plan"
+          - "- Daily check-in with self"
+          - "- Weekly update to support person"
+          - "- Progress photos/videos if applicable"
+          - "- Fear journal maintained"
+          
+      - header: "Progress Tracking"
+        content:
+          - "### Exposure Log Template"
+          - "**Date**: _______"
+          - "**Step Attempted**: _______"
+          - "**Anticipated Anxiety**: ___/10"
+          - "**Peak Anxiety**: ___/10"
+          - "**End Anxiety**: ___/10"
+          - "**Duration**: _______ minutes"
+          - "**What I Learned**: _______"
+          - "**Next Time I'll**: _______"
+          - ""
+          - "### Success Metrics"
+          - "- Steps completed: ___/10"
+          - "- Average anxiety reduction per exposure"
+          - "- Spontaneous fear-facing moments"
+          - "- Life improvements noticed"
+          
+      - header: "Breakthrough Vision"
+        content:
+          - "### 30 Days From Now"
+          - "I will have completed at least half the fear ladder and feel noticeably more confident."
+          - ""
+          - "### 90 Days From Now"
+          - "I will have faced my fear fully and integrated courage as part of my identity."
+          - ""
+          - "### My Courageous Future Self"
+          - "Once I've conquered this fear, I will be someone who {{life_without_fear|truncate:100}}"
+          - ""
+          - "### Next Fears to Tackle"
+          - "Success with this fear will give me courage to face:"
+          - "1. [Next fear]"
+          - "2. [Next fear]"
+          - "3. [Next fear]"
+
+# Research Foundation
+research_base:
+  - "Exposure Therapy: Systematic desensitization"
+  - "Cognitive Behavioral Therapy: Fear and anxiety"
+  - "Susan Jeffers: Feel the Fear and Do It Anyway"
+  - "Acceptance and Commitment Therapy"
+  - "Neuroscience of fear and courage"

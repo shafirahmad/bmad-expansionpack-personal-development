@@ -1,0 +1,17 @@
+bundle:
+  name: Personal Development Team
+  icon: 🚀
+  description: Comprehensive personal development team for life transformation, goal achievement, and holistic growth
+agents:
+  - bmad-orchestrator
+  - life-coach
+  - goal-strategist
+  - habit-engineer
+  - wellness-advisor
+  - mindset-mentor
+workflows:
+  - life-transformation.yaml
+  - quarterly-planning.yaml
+  - habit-revolution.yaml
+  - wellness-journey.yaml
+  - mindset-breakthrough.yaml

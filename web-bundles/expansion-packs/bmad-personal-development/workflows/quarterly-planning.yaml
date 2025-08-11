@@ -1,0 +1,284 @@
+workflow:
+  id: quarterly-planning
+  name: Quarterly Goal & Habit Planning
+  version: 1.0
+  description: Strategic 90-day planning process for goals, habits, and life optimization
+  duration: 1-2 weeks for planning, 12 weeks for execution
+  difficulty: Intermediate
+
+overview: |
+  This workflow guides users through comprehensive quarterly planning combining goal setting,
+  habit design, and life optimization strategies. Perfect for users who want to make significant
+  progress in specific areas while maintaining overall life balance.
+
+prerequisites:
+  - Clear sense of personal values and priorities
+  - Basic familiarity with goal setting and habit formation
+  - Commitment to 90-day focused effort
+  - 1-2 hours for initial planning session
+  - 30 minutes weekly for review and adjustment
+
+phases:
+  - phase: 1
+    name: Quarterly Assessment
+    duration: 2-3 days
+    objective: Assess current state and identify quarterly priorities
+    agents:
+      primary: goal-strategist
+      supporting: [life-coach]
+    tasks:
+      - goal-audit
+      - priority-matrix-creation
+      - progress-analysis (from previous quarter)
+    deliverables:
+      - Current state assessment
+      - Priority matrix for next quarter
+      - Lessons learned from previous quarter
+    success_criteria:
+      - Clear picture of current progress and gaps
+      - Top 3-5 priority areas identified
+      - Previous quarter insights captured
+
+  - phase: 2
+    name: Goal Framework Development
+    duration: 2-3 days
+    objective: Create focused goal framework for the quarter
+    agents:
+      primary: goal-strategist
+      supporting: []
+    tasks:
+      - develop-okrs
+      - milestone-decomposition
+      - define-success-metrics
+    deliverables:
+      - Quarterly OKRs (3-5 objectives)
+      - Milestone timeline
+      - Success metrics and tracking plan
+    success_criteria:
+      - Clear, measurable objectives established
+      - Monthly milestones defined
+      - Tracking system identified
+
+  - phase: 3
+    name: Habit System Design
+    duration: 2-3 days
+    objective: Design or optimize habits that support quarterly goals
+    agents:
+      primary: habit-engineer
+      supporting: [wellness-advisor]
+    tasks:
+      - habit-assessment
+      - design-habit (for goal-supporting habits)
+      - habit-stack
+    deliverables:
+      - Habit assessment update
+      - New habit designs
+      - Optimized habit stacks
+    success_criteria:
+      - Habits aligned with quarterly goals
+      - Realistic habit progression planned
+      - Integration with existing routines
+
+  - phase: 4
+    name: Weekly Rhythm Design
+    duration: 1-2 days
+    objective: Create sustainable weekly rhythm for goal achievement
+    agents:
+      primary: goal-strategist
+      supporting: [habit-engineer, wellness-advisor]
+    tasks:
+      - personal-sprint-planning
+      - routine-optimization
+      - energy-management-design
+    deliverables:
+      - Weekly planning template
+      - Time allocation strategy
+      - Energy management plan
+    success_criteria:
+      - Sustainable weekly rhythm designed
+      - Time blocks allocated for priorities
+      - Energy patterns optimized
+
+  - phase: 5
+    name: Support System Activation
+    duration: 1-2 days
+    objective: Establish accountability and support systems
+    agents:
+      primary: life-coach
+      supporting: [goal-strategist]
+    tasks:
+      - obstacle-analysis
+      - create-doc (with accountability-plan-tmpl)
+    deliverables:
+      - Obstacle mitigation plan
+      - Accountability system design
+      - Support network activation
+    success_criteria:
+      - Accountability partners identified and committed
+      - Obstacle responses prepared
+      - Support systems activated
+
+  - phase: 6
+    name: Implementation Launch
+    duration: 1 day
+    objective: Launch quarterly plan with strong foundation
+    agents:
+      primary: bmad-orchestrator
+      supporting: [all agents]
+    tasks:
+      - integration
+      - action-plan
+    deliverables:
+      - Integrated quarterly plan
+      - First week action steps
+      - Review and adjustment schedule
+    success_criteria:
+      - Plan feels integrated and achievable
+      - First actions clearly defined
+      - Review rhythm established
+
+execution_support:
+  weekly_rhythm:
+    planning_session:
+      frequency: Weekly
+      duration: 30-60 minutes
+      agent: goal-strategist
+      focus: Review progress, plan next week, adjust as needed
+      
+    habit_check:
+      frequency: Weekly  
+      duration: 15-30 minutes
+      agent: habit-engineer
+      focus: Habit consistency, obstacles, optimization
+
+    wellness_review:
+      frequency: Bi-weekly
+      duration: 20-30 minutes
+      agent: wellness-advisor
+      focus: Energy, stress, balance assessment
+
+    coaching_session:
+      frequency: Monthly
+      duration: 45-60 minutes
+      agent: life-coach
+      focus: Motivation, obstacles, breakthrough moments
+
+  monthly_optimization:
+    month_1: Foundation and momentum building
+    month_2: Optimization and acceleration
+    month_3: Integration and preparation for next quarter
+
+tracking_framework:
+  daily_metrics:
+    - Habit completion rates
+    - Energy levels (1-10)
+    - Priority focus time
+    - Mood and motivation
+
+  weekly_metrics:
+    - Goal progress indicators
+    - Time allocation assessment
+    - Obstacle encounters
+    - Support system utilization
+
+  monthly_metrics:
+    - OKR scoring and progress
+    - Life satisfaction ratings
+    - Habit establishment assessment
+    - Strategic plan effectiveness
+
+success_patterns:
+  week_1-2: Foundation setting and habit establishment
+  week_3-4: Momentum building and initial results
+  week_5-8: Acceleration and optimization
+  week_9-10: Integration and mastery
+  week_11-12: Completion and next quarter preparation
+
+common_challenges:
+  week_3_dip: Initial enthusiasm wanes
+  mid_quarter_plateau: Progress feels stalled
+  competing_priorities: Life disruptions interfere
+  perfectionism: All-or-nothing thinking sabotages progress
+
+challenge_responses:
+  motivation_renewal:
+    - Reconnect with deeper purpose and vision
+    - Celebrate small wins and progress made
+    - Adjust expectations and plans as needed
+    - Activate support system
+
+  obstacle_management:
+    - Quick obstacle analysis and solution generation
+    - Temporary plan modifications
+    - Support system activation
+    - Focus on minimum viable progress
+
+  optimization_opportunities:
+    - Regular weekly reviews and adjustments
+    - Habit optimization based on data
+    - Time allocation refinements
+    - Energy management improvements
+
+quarterly_review_process:
+  final_week:
+    - Complete OKR scoring and assessment
+    - Capture key learnings and insights  
+    - Celebrate achievements and growth
+    - Identify patterns and what worked best
+    - Document recommendations for next quarter
+
+  transition_planning:
+    - Assess what to continue, modify, or discontinue
+    - Set foundation for next quarterly planning
+    - Update long-term vision and goals
+    - Plan recovery and renewal between quarters
+
+customization_options:
+  focus_areas:
+    professional: Career advancement and skill development
+    health: Fitness, nutrition, and wellness optimization
+    relationships: Social connections and communication
+    creative: Artistic pursuits and creative projects
+    financial: Money management and wealth building
+    learning: Skill acquisition and knowledge development
+
+  intensity_levels:
+    focused: 1-2 major objectives with supporting habits
+    balanced: 3-4 objectives across different life areas
+    comprehensive: 4-5 objectives with full system optimization
+
+  support_levels:
+    self_directed: Independent execution with minimal support
+    partner_supported: Accountability partner or coach involved
+    community_based: Group or cohort experience
+    professionally_guided: Regular professional coaching support
+
+integration_with_annual_planning:
+  Q1: Foundation building and system establishment
+  Q2: Acceleration and momentum building  
+  Q3: Optimization and advanced development
+  Q4: Integration and preparation for next year
+
+workflow_exit_criteria:
+  successful_completion:
+    - 12 weeks of consistent execution
+    - Meaningful progress on all objectives
+    - Sustainable systems established
+    - Lessons learned captured for next cycle
+
+  early_completion:
+    - Objectives achieved ahead of schedule
+    - Major life change requires new direction
+    - System working so well that intensive management not needed
+
+  pivot_criteria:
+    - Major life disruption requires plan adjustment
+    - Objectives no longer relevant or important
+    - Better opportunities emerge requiring focus shift
+    - Health or family priorities require attention
+
+next_quarter_preparation:
+  rest_and_renewal: 1-2 week break between intensive quarters
+  system_maintenance: Continue established habits and routines
+  strategic_thinking: Reflection on longer-term direction
+  planning_preparation: Gather input for next quarter's planning

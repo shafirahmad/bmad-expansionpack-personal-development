@@ -1,0 +1,153 @@
+template:
+  id: habit-design-template
+  name: Habit System Design
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/habit-system.md
+    title: "Habit System Design"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: habit-overview
+    title: Habit Overview
+    instruction: |
+      Define the habit you want to build, why it matters, and what success looks like. Be specific about the behavior and its impact on your life.
+    template: |
+      **Target Habit**: {{habit_name}}
+      
+      **Specific Behavior**: {{behavior_description}}
+      
+      **Why This Habit**: {{motivation}}
+      
+      **Identity Statement**: I am someone who {{identity_statement}}
+      
+      **Success Vision**: {{success_description}}
+
+  - id: habit-architecture
+    title: Habit Architecture
+    instruction: |
+      Design the complete habit loop using the cue-routine-reward framework, making it obvious, attractive, easy, and satisfying.
+    elicit: true
+    sections:
+      - id: cue-design
+        title: Cue (Make it Obvious)
+        template: |
+          **Trigger Type**: {{trigger_type}}
+          **Specific Cue**: {{cue_description}}
+          **Environment Design**: {{environment_setup}}
+          **Visual Reminders**: {{visual_cues}}
+          **Implementation Intention**: After {{when_where}}, I will {{behavior}}
+      - id: routine-design
+        title: Routine (Make it Easy)
+        template: |
+          **Minimum Viable Habit**: {{mvh_description}}
+          **Standard Routine**: {{standard_routine}}
+          **Optimal Routine**: {{optimal_routine}}
+          **Time Required**: Minimum {{min_time}} | Standard {{std_time}} | Optimal {{opt_time}}
+          **Friction Reduction**: {{friction_removal}}
+      - id: reward-design
+        title: Reward (Make it Satisfying)
+        template: |
+          **Immediate Reward**: {{immediate_reward}}
+          **Tracking Method**: {{tracking_method}}
+          **Celebration Ritual**: {{celebration}}
+          **Progress Visualization**: {{progress_visual}}
+
+  - id: habit-stacking
+    title: Habit Stack Integration
+    instruction: |
+      Design how this habit fits into your existing routine by stacking it with current behaviors.
+    template: |
+      **Anchor Habit**: {{existing_habit}}
+      **Stack Sequence**:
+      1. {{existing_habit}}
+      2. {{new_habit}}
+      3. {{following_activity}}
+      
+      **Transition Ritual**: {{transition_description}}
+      **Total Stack Duration**: {{total_time}}
+
+  - id: environment-engineering
+    title: Environment Engineering
+    instruction: |
+      Design your physical and digital environment to support this habit and make it the path of least resistance.
+    elicit: true
+    sections:
+      - id: physical-environment
+        title: Physical Environment
+        template: |
+          **Setup Changes**: {{physical_changes}}
+          **Tools/Equipment Placement**: {{tool_placement}}
+          **Friction for Bad Habits**: {{bad_habit_friction}}
+      - id: digital-environment
+        title: Digital Environment
+        template: |
+          **Apps/Tools**: {{digital_tools}}
+          **Notifications/Reminders**: {{digital_reminders}}
+          **Digital Barriers**: {{digital_barriers}}
+      - id: social-environment
+        title: Social Environment
+        template: |
+          **Accountability Partner**: {{partner}}
+          **Community/Group**: {{community}}
+          **Social Commitment**: {{public_commitment}}
+
+  - id: progression-plan
+    title: Progression Plan
+    instruction: |
+      Create a progression plan that starts small and gradually increases over time to build momentum and confidence.
+    sections:
+      - id: week
+        title: "Week {{week_number}}"
+        repeatable: true
+        template: |
+          **Target**: {{weekly_target}}
+          **Success Criteria**: {{success_criteria}}
+          **Difficulty Level**: {{difficulty}}
+          **Adjustment Notes**: {{adjustments}}
+
+  - id: obstacle-strategies
+    title: Obstacle Strategies
+    instruction: |
+      Identify potential obstacles and create specific strategies to overcome them.
+    sections:
+      - id: obstacle
+        title: "Obstacle: {{obstacle_name}}"
+        repeatable: true
+        template: |
+          **Scenario**: {{obstacle_scenario}}
+          **Prevention Strategy**: {{prevention}}
+          **Response Strategy**: If {{obstacle_occurs}}, then I will {{response}}
+          **Recovery Protocol**: {{recovery}}
+
+  - id: tracking-system
+    title: Tracking & Measurement System
+    instruction: |
+      Design a simple, effective tracking system that provides visibility and motivation.
+    template: |
+      **Primary Metric**: {{main_metric}}
+      **Tracking Method**: {{tracking_tool}}
+      **Check-in Frequency**: {{checkin_frequency}}
+      **Weekly Review Questions**:
+      - {{review_q1}}
+      - {{review_q2}}
+      - {{review_q3}}
+      
+      **Monthly Metrics**:
+      - Consistency Rate: {{consistency_target}}%
+      - Quality Score: {{quality_measure}}
+      - Impact Assessment: {{impact_measure}}
+
+  - id: maintenance-protocol
+    title: Maintenance Protocol
+    instruction: |
+      Define how you'll maintain this habit long-term once it's established.
+    template: |
+      **Habit Graduation Criteria**: {{graduation_criteria}}
+      **Maintenance Mode**: {{maintenance_description}}
+      **Refresh Triggers**: {{refresh_conditions}}
+      **Integration with Identity**: {{identity_integration}}

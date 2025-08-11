@@ -1,0 +1,453 @@
+# Annual Plan Template
+# Purpose: Create comprehensive annual plans with quarterly milestones and monthly focuses
+# Agent: Goal Strategist
+
+template_id: annual-plan
+template_name: "Annual Planning Template"
+version: "1.0.0"
+description: "Comprehensive template for creating powerful annual plans with themes, goals, and execution strategies"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's create your annual plan - a powerful blueprint for making this your best year yet. We'll define your theme, set meaningful goals, and create a clear execution path."
+  
+  sections:
+    - name: year_vision
+      title: "Annual Vision & Theme"
+      questions:
+        - prompt: "What do you want this year to be about? What's your year theme? (e.g., 'Year of Growth', 'Year of Building')"
+          field: year_theme
+          type: text
+          validation: max_words:5
+          examples:
+            - "Year of Transformation"
+            - "Year of Foundations"
+            - "Year of Expansion"
+            
+        - prompt: "Imagine it's December 31st. You're reflecting on an amazing year. What happened that made it amazing?"
+          field: year_end_vision
+          type: text_long
+          validation: min_words:30
+          
+        - prompt: "What are your top 3 priorities for this year?"
+          field: top_priorities
+          type: list
+          min_items: 3
+          max_items: 3
+          
+        - prompt: "What single achievement would make this year a success even if nothing else happened?"
+          field: keystone_goal
+          type: text_long
+          validation: min_words:10
+
+    - name: life_areas
+      title: "Life Area Goals"
+      questions:
+        - prompt: "What are your career/professional goals for this year?"
+          field: career_goals
+          type: list
+          min_items: 1
+          max_items: 3
+          
+        - prompt: "What are your health and fitness goals?"
+          field: health_goals
+          type: list
+          min_items: 1
+          max_items: 3
+          
+        - prompt: "What are your relationship and social goals?"
+          field: relationship_goals
+          type: list
+          min_items: 1
+          max_items: 3
+          
+        - prompt: "What are your personal growth and learning goals?"
+          field: growth_goals
+          type: list
+          min_items: 1
+          max_items: 3
+          
+        - prompt: "What are your financial goals?"
+          field: financial_goals
+          type: list
+          min_items: 1
+          max_items: 3
+          
+        - prompt: "What adventures or experiences do you want this year?"
+          field: adventure_goals
+          type: list
+          min_items: 1
+          max_items: 3
+
+    - name: quarterly_planning
+      title: "Quarterly Breakdown"
+      questions:
+        - prompt: "Q1 (Jan-Mar) Focus: What's the main theme and top 3 objectives?"
+          field: q1_plan
+          type: structured_text
+          structure:
+            - theme: "Quarter theme"
+            - objective_1: "First objective"
+            - objective_2: "Second objective"
+            - objective_3: "Third objective"
+            
+        - prompt: "Q2 (Apr-Jun) Focus: What's the main theme and top 3 objectives?"
+          field: q2_plan
+          type: structured_text
+          structure:
+            - theme: "Quarter theme"
+            - objective_1: "First objective"
+            - objective_2: "Second objective"
+            - objective_3: "Third objective"
+            
+        - prompt: "Q3 (Jul-Sep) Focus: What's the main theme and top 3 objectives?"
+          field: q3_plan
+          type: structured_text
+          structure:
+            - theme: "Quarter theme"
+            - objective_1: "First objective"
+            - objective_2: "Second objective"
+            - objective_3: "Third objective"
+            
+        - prompt: "Q4 (Oct-Dec) Focus: What's the main theme and top 3 objectives?"
+          field: q4_plan
+          type: structured_text
+          structure:
+            - theme: "Quarter theme"
+            - objective_1: "First objective"
+            - objective_2: "Second objective"
+            - objective_3: "Third objective"
+
+    - name: monthly_themes
+      title: "Monthly Focus Areas"
+      questions:
+        - prompt: "Assign a focus word or short phrase for each month:"
+          field: monthly_focuses
+          type: month_list
+          structure:
+            - january: "Focus/theme"
+            - february: "Focus/theme"
+            - march: "Focus/theme"
+            - april: "Focus/theme"
+            - may: "Focus/theme"
+            - june: "Focus/theme"
+            - july: "Focus/theme"
+            - august: "Focus/theme"
+            - september: "Focus/theme"
+            - october: "Focus/theme"
+            - november: "Focus/theme"
+            - december: "Focus/theme"
+
+    - name: success_systems
+      title: "Success Systems & Habits"
+      questions:
+        - prompt: "What daily habits will you commit to this year?"
+          field: daily_habits
+          type: list
+          min_items: 3
+          max_items: 5
+          examples:
+            - "Morning meditation"
+            - "Exercise 30 minutes"
+            - "Read 30 minutes"
+            
+        - prompt: "What weekly rituals will keep you on track?"
+          field: weekly_rituals
+          type: list
+          min_items: 2
+          max_items: 4
+          examples:
+            - "Weekly planning session"
+            - "Week review and reflection"
+            
+        - prompt: "What monthly practices will you maintain?"
+          field: monthly_practices
+          type: list
+          min_items: 2
+          max_items: 3
+          examples:
+            - "Monthly goal review"
+            - "Financial check-in"
+            
+        - prompt: "How will you track your progress?"
+          field: tracking_system
+          type: text_long
+
+    - name: resources_support
+      title: "Resources & Support"
+      questions:
+        - prompt: "What resources (time, money, energy) can you allocate to your goals?"
+          field: available_resources
+          type: structured_text
+          structure:
+            - time_weekly: "Hours per week for goals"
+            - financial_budget: "Annual budget for goals"
+            - energy_optimization: "How you'll manage energy"
+            
+        - prompt: "What new skills or knowledge do you need to acquire?"
+          field: learning_needs
+          type: list
+          min_items: 2
+          
+        - prompt: "Who will support you this year? (mentors, accountability partners, etc.)"
+          field: support_team
+          type: list
+          min_items: 1
+          
+        - prompt: "What might try to stop you, and how will you overcome it?"
+          field: obstacles_solutions
+          type: obstacle_list
+          min_items: 3
+          structure:
+            - obstacle: "Potential obstacle"
+            - solution: "How to overcome"
+
+    - name: balance_wellbeing
+      title: "Life Balance & Wellbeing"
+      questions:
+        - prompt: "Rate your current satisfaction in each life area (1-10):"
+          field: current_life_scores
+          type: rating_scale
+          categories:
+            - career: "Career/Work"
+            - health: "Health/Fitness"
+            - relationships: "Relationships"
+            - growth: "Personal Growth"
+            - fun: "Fun/Recreation"
+            - finance: "Financial"
+            - contribution: "Contribution/Service"
+            - environment: "Environment/Home"
+            
+        - prompt: "What would a 10/10 look like in your lowest-rated area?"
+          field: improvement_vision
+          type: text_long
+          
+        - prompt: "How will you prevent burnout and maintain balance?"
+          field: balance_strategy
+          type: text_long
+          
+        - prompt: "When will you take breaks/vacations for renewal?"
+          field: renewal_plan
+          type: list
+          min_items: 2
+
+    - name: celebration_review
+      title: "Celebration & Review"
+      questions:
+        - prompt: "How will you celebrate quarterly achievements?"
+          field: quarterly_celebrations
+          type: list
+          min_items: 4
+          max_items: 4
+          
+        - prompt: "What will be your big year-end celebration?"
+          field: annual_celebration
+          type: text
+          
+        - prompt: "When will you do formal reviews? (dates/frequency)"
+          field: review_schedule
+          type: structured_text
+          structure:
+            - weekly: "Day and time"
+            - monthly: "Day of month"
+            - quarterly: "Dates for each quarter"
+            - annual: "Year-end review date"
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "{{current_year}} Annual Plan: {{year_theme}}"
+    sections:
+      - header: "Year Vision"
+        content:
+          - "## Theme: {{year_theme}}"
+          - "{{year_end_vision}}"
+          - ""
+          - "**Keystone Goal**: {{keystone_goal}}"
+          - ""
+          - "**Top 3 Priorities**:"
+          - "{{top_priorities|numbered}}"
+          
+      - header: "Annual Goals by Life Area"
+        subsections:
+          - title: "Career & Professional"
+            content: "{{career_goals|numbered}}"
+          - title: "Health & Fitness"
+            content: "{{health_goals|numbered}}"
+          - title: "Relationships & Social"
+            content: "{{relationship_goals|numbered}}"
+          - title: "Personal Growth & Learning"
+            content: "{{growth_goals|numbered}}"
+          - title: "Financial"
+            content: "{{financial_goals|numbered}}"
+          - title: "Adventure & Experiences"
+            content: "{{adventure_goals|numbered}}"
+            
+      - header: "Quarterly Execution Plan"
+        subsections:
+          - title: "Q1: January - March"
+            content:
+              - "**Theme**: {{q1_plan.theme}}"
+              - "**Objectives**:"
+              - "1. {{q1_plan.objective_1}}"
+              - "2. {{q1_plan.objective_2}}"
+              - "3. {{q1_plan.objective_3}}"
+          - title: "Q2: April - June"
+            content:
+              - "**Theme**: {{q2_plan.theme}}"
+              - "**Objectives**:"
+              - "1. {{q2_plan.objective_1}}"
+              - "2. {{q2_plan.objective_2}}"
+              - "3. {{q2_plan.objective_3}}"
+          - title: "Q3: July - September"
+            content:
+              - "**Theme**: {{q3_plan.theme}}"
+              - "**Objectives**:"
+              - "1. {{q3_plan.objective_1}}"
+              - "2. {{q3_plan.objective_2}}"
+              - "3. {{q3_plan.objective_3}}"
+          - title: "Q4: October - December"
+            content:
+              - "**Theme**: {{q4_plan.theme}}"
+              - "**Objectives**:"
+              - "1. {{q4_plan.objective_1}}"
+              - "2. {{q4_plan.objective_2}}"
+              - "3. {{q4_plan.objective_3}}"
+              
+      - header: "Monthly Focus Calendar"
+        content:
+          - "| Month | Focus | Key Goal |"
+          - "|-------|-------|----------|"
+          - "| January | {{monthly_focuses.january}} | {{q1_milestone}} |"
+          - "| February | {{monthly_focuses.february}} | {{q1_milestone}} |"
+          - "| March | {{monthly_focuses.march}} | {{q1_milestone}} |"
+          - "| April | {{monthly_focuses.april}} | {{q2_milestone}} |"
+          - "| May | {{monthly_focuses.may}} | {{q2_milestone}} |"
+          - "| June | {{monthly_focuses.june}} | {{q2_milestone}} |"
+          - "| July | {{monthly_focuses.july}} | {{q3_milestone}} |"
+          - "| August | {{monthly_focuses.august}} | {{q3_milestone}} |"
+          - "| September | {{monthly_focuses.september}} | {{q3_milestone}} |"
+          - "| October | {{monthly_focuses.october}} | {{q4_milestone}} |"
+          - "| November | {{monthly_focuses.november}} | {{q4_milestone}} |"
+          - "| December | {{monthly_focuses.december}} | {{q4_milestone}} |"
+          
+      - header: "Success Systems"
+        subsections:
+          - title: "Daily Habits"
+            content: "{{daily_habits|checklist}}"
+          - title: "Weekly Rituals"
+            content: "{{weekly_rituals|checklist}}"
+          - title: "Monthly Practices"
+            content: "{{monthly_practices|checklist}}"
+          - title: "Progress Tracking"
+            content: "{{tracking_system}}"
+            
+      - header: "Resources & Support"
+        content:
+          - "**Time Commitment**: {{available_resources.time_weekly}} hours/week"
+          - "**Financial Investment**: {{available_resources.financial_budget}}"
+          - "**Energy Strategy**: {{available_resources.energy_optimization}}"
+          - ""
+          - "**Learning Plan**:"
+          - "{{learning_needs|bullets}}"
+          - ""
+          - "**Support Team**:"
+          - "{{support_team|bullets}}"
+          
+      - header: "Risk Management"
+        content:
+          - "| Potential Obstacle | Mitigation Strategy |"
+          - "|-------------------|-------------------|"
+          - "{{obstacles_solutions|table}}"
+          
+      - header: "Life Balance Dashboard"
+        content:
+          - "**Current Satisfaction Scores**:"
+          - "{{current_life_scores|bar_chart}}"
+          - ""
+          - "**Lowest Area Improvement Vision**:"
+          - "{{improvement_vision}}"
+          - ""
+          - "**Balance Strategy**: {{balance_strategy}}"
+          - ""
+          - "**Renewal Plan**:"
+          - "{{renewal_plan|bullets}}"
+          
+      - header: "Review & Celebration Schedule"
+        content:
+          - "**Regular Reviews**:"
+          - "- Weekly: {{review_schedule.weekly}}"
+          - "- Monthly: {{review_schedule.monthly}}"
+          - "- Quarterly: {{review_schedule.quarterly}}"
+          - "- Annual: {{review_schedule.annual}}"
+          - ""
+          - "**Quarterly Celebrations**:"
+          - "{{quarterly_celebrations|numbered}}"
+          - ""
+          - "**Year-End Celebration**: {{annual_celebration}}"
+          
+      - header: "Commitment & Signature"
+        content:
+          - "I commit to making {{current_year}} my {{year_theme}}."
+          - "I will pursue my goals with intention, maintain my success systems,"
+          - "and celebrate progress along the way."
+          - ""
+          - "Signed: _______________________"
+          - "Date: {{current_date}}"
+
+# Validation Rules
+validation:
+  required_fields:
+    - year_theme
+    - year_end_vision
+    - top_priorities
+    - keystone_goal
+    - daily_habits
+    
+  goal_limits:
+    max_total_goals: 20
+    min_total_goals: 8
+    
+  balance_check:
+    rule: "At least one goal in 5 different life areas"
+
+# Processing Instructions
+processing:
+  - step: goal_alignment
+    description: "Ensure all goals align with year theme"
+    
+  - step: quarterly_distribution
+    description: "Balance goals across quarters"
+    
+  - step: resource_feasibility
+    description: "Verify resources match goal requirements"
+    
+  - step: success_probability
+    description: "Assess overall plan achievability"
+
+# Annual Metrics
+metrics:
+  - goal_completion_rate: "Completed goals / Total goals"
+  - quarterly_progress: "Average quarterly objective completion"
+  - habit_consistency: "Days with all habits completed"
+  - life_balance_improvement: "End scores vs. start scores"
+
+# Follow-up Templates
+follow_up:
+  - template_id: quarterly-review
+    trigger: "End of each quarter"
+    
+  - template_id: monthly-planning
+    trigger: "Last week of each month"
+    
+  - template_id: annual-reflection
+    trigger: "End of year"
+
+# Research Foundation
+research_base:
+  - "Your Best Year Ever: Michael Hyatt"
+  - "12 Week Year: Brian Moran"
+  - "High Performance Habits: Brendon Burchard"
+  - "Annual Planning Best Practices: Franklin Covey"
+  - "Goal Setting Theory: Locke & Latham"

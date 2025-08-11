@@ -1,0 +1,238 @@
+template:
+  id: okr-template
+  name: OKRs (Objectives and Key Results)
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/okrs.md
+    title: "OKRs - {{time_period}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: okr-overview
+    title: OKR Overview
+    instruction: |
+      Introduce the OKR framework and this specific set. Include the time period, overall theme, and connection to longer-term vision.
+    template: |
+      **Time Period**: {{time_period}}
+      **Overall Theme**: {{theme}}
+      **Vision Connection**: {{vision_alignment}}
+      **Success Definition**: {{overall_success}}
+
+  - id: objective-1
+    title: "Objective 1: {{objective_1_name}}"
+    instruction: |
+      Define the first objective - an inspiring, qualitative goal that describes what you want to achieve. Objectives should be memorable, qualitative, and inspiring.
+    elicit: true
+    template: |
+      **Objective**: {{objective_statement}}
+      **Why This Matters**: {{objective_importance}}
+      **Success Vision**: {{objective_success_vision}}
+    sections:
+      - id: kr-1-1
+        title: "Key Result 1.1"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-1-2
+        title: "Key Result 1.2"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-1-3
+        title: "Key Result 1.3"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+
+  - id: objective-2
+    title: "Objective 2: {{objective_2_name}}"
+    instruction: |
+      Define the second objective. Ensure it's distinct from the first and covers a different aspect of your growth or achievement.
+    elicit: true
+    template: |
+      **Objective**: {{objective_statement}}
+      **Why This Matters**: {{objective_importance}}
+      **Success Vision**: {{objective_success_vision}}
+    sections:
+      - id: kr-2-1
+        title: "Key Result 2.1"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-2-2
+        title: "Key Result 2.2"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-2-3
+        title: "Key Result 2.3"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+
+  - id: objective-3
+    title: "Objective 3: {{objective_3_name}}"
+    instruction: |
+      Define the third objective. This completes your focused set - typically 3-5 objectives is optimal.
+    elicit: true
+    template: |
+      **Objective**: {{objective_statement}}
+      **Why This Matters**: {{objective_importance}}
+      **Success Vision**: {{objective_success_vision}}
+    sections:
+      - id: kr-3-1
+        title: "Key Result 3.1"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-3-2
+        title: "Key Result 3.2"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+      - id: kr-3-3
+        title: "Key Result 3.3"
+        template: |
+          **Metric**: {{kr_description}}
+          **Current Baseline**: {{baseline}}
+          **Target**: {{target}}
+          **Measurement Method**: {{measurement}}
+          **Update Frequency**: {{frequency}}
+
+  - id: additional-objectives
+    title: "Additional Objectives"
+    condition: More than 3 objectives needed
+    instruction: |
+      Add additional objectives if needed. Remember that focus is key - more than 5 objectives often leads to diluted effort.
+    sections:
+      - id: objective-extra
+        title: "Objective {{number}}: {{objective_name}}"
+        repeatable: true
+        template: |
+          **Objective**: {{objective_statement}}
+          **Why This Matters**: {{objective_importance}}
+        sections:
+          - id: kr-extra
+            title: "Key Result {{objective_number}}.{{kr_number}}"
+            repeatable: true
+            template: |
+              **Metric**: {{kr_description}}
+              **Target**: {{target}}
+              **Measurement**: {{measurement}}
+
+  - id: interdependencies
+    title: OKR Interdependencies
+    instruction: |
+      Identify how your objectives and key results connect and support each other. Look for synergies and potential conflicts.
+    template: |
+      **Reinforcing Relationships**: {{synergies}}
+      **Potential Conflicts**: {{conflicts}}
+      **Priority Order**: {{prioritization}}
+      **Resource Allocation**: {{resource_distribution}}
+
+  - id: execution-strategy
+    title: Execution Strategy
+    instruction: |
+      Define how you'll execute on these OKRs throughout the period. Include rhythm, accountability, and adjustment mechanisms.
+    elicit: true
+    template: |
+      **Weekly Rhythm**: {{weekly_process}}
+      **Monthly Reviews**: {{monthly_assessment}}
+      **Accountability Partner**: {{accountability}}
+      **Progress Sharing**: {{communication_plan}}
+      **Adjustment Criteria**: {{modification_triggers}}
+
+  - id: success-metrics
+    title: Overall Success Framework
+    instruction: |
+      Define what overall success looks like and how you'll measure it across all objectives.
+    template: |
+      **Overall Success Definition**: {{success_criteria}}
+      **Scoring Method**: {{scoring_approach}}
+      **Target Success Rate**: {{target_percentage}}
+      **Minimum Acceptable Performance**: {{minimum_threshold}}
+
+  - id: tracking-dashboard
+    title: Tracking Dashboard Design
+    instruction: |
+      Design how you'll visualize and track progress on your OKRs. Keep it simple but comprehensive.
+    template: |
+      **Primary Dashboard**: {{dashboard_design}}
+      **Update Frequency**: {{update_schedule}}
+      **Key Visualizations**: {{charts_graphs}}
+      **Progress Indicators**: {{status_system}}
+      **Alert Thresholds**: {{warning_levels}}
+
+  - id: learning-development
+    title: Learning & Development Plan
+    instruction: |
+      Identify what you need to learn or develop to successfully achieve these OKRs.
+    template: |
+      **Skills to Develop**: {{skill_gaps}}
+      **Knowledge to Acquire**: {{learning_needs}}
+      **Resources Required**: {{educational_resources}}
+      **Development Timeline**: {{learning_schedule}}
+
+  - id: risk-mitigation
+    title: Risk Assessment & Mitigation
+    instruction: |
+      Identify the main risks that could prevent OKR achievement and create mitigation strategies.
+    sections:
+      - id: risk
+        title: "Risk {{number}}: {{risk_name}}"
+        repeatable: true
+        template: |
+          **Risk Description**: {{risk_detail}}
+          **Probability**: {{likelihood}}
+          **Impact**: {{severity}}
+          **Mitigation Strategy**: {{prevention}}
+          **Contingency Plan**: {{response}}
+
+  - id: celebration-plan
+    title: Celebration & Recognition Plan
+    instruction: |
+      Plan how you'll celebrate progress and achievements throughout the OKR period.
+    template: |
+      **Monthly Celebrations**: {{monthly_recognition}}
+      **Key Result Achievements**: {{kr_celebrations}}
+      **Objective Completions**: {{objective_celebrations}}
+      **Period End Celebration**: {{final_celebration}}
+      **Learning Celebrations**: {{growth_recognition}}
+
+  - id: next-period-planning
+    title: Next Period Preparation
+    instruction: |
+      Set up how this OKR period will inform the next one.
+    template: |
+      **Learning Capture Process**: {{learning_integration}}
+      **Carryover Criteria**: {{continuation_rules}}
+      **Evolution Planning**: {{advancement_strategy}}
+      **Reflection Schedule**: {{reflection_timing}}

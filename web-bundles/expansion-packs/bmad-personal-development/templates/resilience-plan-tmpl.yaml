@@ -1,0 +1,340 @@
+# Resilience Building Plan Template
+# Purpose: Design comprehensive resilience training programs for mental toughness
+# Agent: Mindset Mentor
+
+template_id: resilience-plan
+template_name: "Resilience Building Plan Template"
+version: "1.0.0"
+description: "Template for creating personalized resilience training programs to build mental toughness and bounce-back ability"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's design a personalized resilience building plan to strengthen your ability to bounce back from setbacks, handle stress, and thrive through challenges."
+  
+  sections:
+    - name: resilience_assessment
+      title: "Current Resilience Level"
+      questions:
+        - prompt: "What type of challenges are you facing or preparing for?"
+          field: challenge_context
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "Rate your current bounce-back ability (1-10)"
+          field: current_resilience
+          type: number
+          validation: min:1, max:10
+          
+        - prompt: "How long does it typically take you to recover from setbacks?"
+          field: recovery_time
+          type: choice
+          options:
+            - "Hours"
+            - "Days"
+            - "Weeks"
+            - "Months"
+            - "Still struggling with past setbacks"
+            
+        - prompt: "What happens to you physically when stressed? (select all that apply)"
+          field: stress_symptoms
+          type: multi_choice
+          options:
+            - "Tension headaches"
+            - "Muscle tension"
+            - "Sleep disruption"
+            - "Digestive issues"
+            - "Fatigue"
+            - "Racing heart"
+            - "Shallow breathing"
+
+    - name: resilience_history
+      title: "Resilience Experience"
+      questions:
+        - prompt: "Describe a time you successfully overcame a major challenge"
+          field: past_resilience
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What strengths helped you through that experience?"
+          field: resilience_strengths
+          type: list
+          min_items: 3
+          
+        - prompt: "What typically helps you cope with stress?"
+          field: current_coping
+          type: list
+          min_items: 3
+          
+        - prompt: "What makes recovery harder for you?"
+          field: recovery_obstacles
+          type: list
+          min_items: 2
+
+    - name: resilience_goals
+      title: "Resilience Vision"
+      questions:
+        - prompt: "What does being resilient mean to you?"
+          field: resilience_definition
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "How would your life improve with greater resilience?"
+          field: resilience_benefits
+          type: list
+          min_items: 3
+          
+        - prompt: "What specific situations do you want to handle better?"
+          field: target_situations
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "What resilience level do you want to achieve? (1-10)"
+          field: target_resilience
+          type: number
+          validation: min:7, max:10
+
+    - name: training_components
+      title: "Training Preferences"
+      questions:
+        - prompt: "Which resilience building practices appeal to you?"
+          field: preferred_practices
+          type: multi_choice
+          options:
+            - "Meditation/mindfulness"
+            - "Physical challenges"
+            - "Breathing exercises"
+            - "Cold exposure"
+            - "Journaling"
+            - "Visualization"
+            - "Social connection"
+            - "Nature exposure"
+            - "Creative expression"
+            
+        - prompt: "How much time can you dedicate daily to resilience training?"
+          field: daily_time
+          type: choice
+          options:
+            - "10-15 minutes"
+            - "15-30 minutes"
+            - "30-45 minutes"
+            - "45-60 minutes"
+            - "More than 60 minutes"
+            
+        - prompt: "What time of day works best for practice?"
+          field: practice_time
+          type: multi_choice
+          options:
+            - "Early morning"
+            - "Morning"
+            - "Lunch break"
+            - "Afternoon"
+            - "Evening"
+            - "Before bed"
+            
+        - prompt: "Do you prefer gradual or intensive training?"
+          field: training_intensity
+          type: choice
+          options:
+            - "Gradual (slow and steady)"
+            - "Moderate (balanced approach)"
+            - "Intensive (rapid development)"
+
+    - name: support_system
+      title: "Support Resources"
+      questions:
+        - prompt: "Who can support your resilience building?"
+          field: support_people
+          type: list
+          min_items: 1
+          
+        - prompt: "What resources do you have available? (books, apps, classes)"
+          field: available_resources
+          type: list
+          
+        - prompt: "What might challenge your resilience training?"
+          field: potential_obstacles
+          type: list
+          min_items: 2
+          
+        - prompt: "How will you stay accountable?"
+          field: accountability_plan
+          type: text_long
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Personalized Resilience Building Plan"
+    sections:
+      - header: "Resilience Assessment"
+        content:
+          - "**Current Challenge Context**: {{challenge_context}}"
+          - "**Current Resilience Level**: {{current_resilience}}/10"
+          - "**Target Resilience Level**: {{target_resilience}}/10"
+          - "**Typical Recovery Time**: {{recovery_time}}"
+          - "**Stress Symptoms**: {{stress_symptoms|list}}"
+          
+      - header: "Resilience Foundation"
+        content:
+          - "**Past Resilience Success**:"
+          - "{{past_resilience}}"
+          - ""
+          - "**Core Resilience Strengths**:"
+          - "{{resilience_strengths|bullets}}"
+          - ""
+          - "**Current Coping Strategies**:"
+          - "{{current_coping|bullets}}"
+          
+      - header: "Resilience Vision"
+        content:
+          - "**What Resilience Means to Me**:"
+          - "{{resilience_definition}}"
+          - ""
+          - "**Benefits of Greater Resilience**:"
+          - "{{resilience_benefits|numbered}}"
+          - ""
+          - "**Target Situations to Master**:"
+          - "{{target_situations|checklist}}"
+          
+      - header: "4-Week Resilience Training Program"
+        content:
+          - "**Training Schedule**: {{daily_time}} daily at {{practice_time|first}}"
+          - "**Training Intensity**: {{training_intensity}}"
+          - ""
+          - "### Week 1: Foundation Building"
+          - "**Focus**: Awareness and Basic Skills"
+          - "- Daily stress awareness check-ins"
+          - "- Basic breathing exercises (5 min)"
+          - "- Gratitude practice (3 things)"
+          - "- One small challenge daily"
+          - ""
+          - "### Week 2: Stress Inoculation"
+          - "**Focus**: Controlled Exposure"
+          - "- Progressive challenge ladder"
+          - "- Cold shower training (30 sec → 2 min)"
+          - "- Difficult conversation practice"
+          - "- Comfort zone exits (1 daily)"
+          - ""
+          - "### Week 3: Recovery Training"
+          - "**Focus**: Bounce-Back Skills"
+          - "- Post-stress recovery protocols"
+          - "- Emotional regulation practice"
+          - "- Reframing exercises"
+          - "- Energy management optimization"
+          - ""
+          - "### Week 4: Integration"
+          - "**Focus**: Real-World Application"
+          - "- Apply skills to target situations"
+          - "- Stress testing resilience"
+          - "- Building maintenance habits"
+          - "- Creating resilience rituals"
+          
+      - header: "Daily Resilience Practices"
+        content:
+          - "### Morning Routine ({{daily_time|split:first}} min)"
+          - "Based on your preferences: {{preferred_practices|list}}"
+          - ""
+          - "1. **Mindset Prime** (2 min)"
+          - "   - Resilience affirmation"
+          - "   - Set daily intention"
+          - "   - Visualize handling challenges"
+          - ""
+          - "2. **Physical Activation** (5 min)"
+          - "   - Movement or stretching"
+          - "   - Power breathing"
+          - "   - Cold exposure (optional)"
+          - ""
+          - "3. **Mental Training** (5-10 min)"
+          - "   - Meditation or mindfulness"
+          - "   - Visualization practice"
+          - "   - Gratitude journaling"
+          - ""
+          - "### Evening Review (5 min)"
+          - "- What challenges did I face?"
+          - "- How did I respond?"
+          - "- What did I learn?"
+          - "- What am I grateful for?"
+          
+      - header: "Resilience Toolkit"
+        content:
+          - "### Stress Response Protocol"
+          - "When stress hits:"
+          - "1. **STOP** - Pause and recognize"
+          - "2. **BREATHE** - 4-7-8 breathing (3 rounds)"
+          - "3. **GROUND** - 5-4-3-2-1 sensory technique"
+          - "4. **REFRAME** - Find opportunity in challenge"
+          - "5. **ACT** - Take one positive step"
+          - ""
+          - "### Recovery Practices"
+          - "After setbacks:"
+          - "- Physical: Movement to discharge stress"
+          - "- Emotional: Self-compassion practice"
+          - "- Mental: Lesson extraction"
+          - "- Social: Connection with support"
+          - "- Spiritual: Meaning-making"
+          
+      - header: "Progressive Challenge Plan"
+        content:
+          - "### Week 1 Challenges (Mild)"
+          - "- Take a different route to work"
+          - "- Start conversation with stranger"
+          - "- Try new food or restaurant"
+          - "- Disagree respectfully in meeting"
+          - ""
+          - "### Week 2 Challenges (Moderate)"
+          - "- Give presentation or speech"
+          - "- Ask for help with something"
+          - "- Take cold shower for 1 minute"
+          - "- Have difficult conversation"
+          - ""
+          - "### Week 3 Challenges (Harder)"
+          - "- Take on stretch assignment"
+          - "- Share vulnerable story"
+          - "- Face specific fear"
+          - "- Handle criticism publicly"
+          - ""
+          - "### Week 4 Challenges (Intense)"
+          - "- Tackle biggest fear"
+          - "- Lead under pressure"
+          - "- Recover from actual setback"
+          - "- Master target situation"
+          
+      - header: "Support & Accountability"
+        content:
+          - "**Support Team**:"
+          - "{{support_people|support_roles}}"
+          - ""
+          - "**Available Resources**:"
+          - "{{available_resources|bullets}}"
+          - ""
+          - "**Potential Obstacles**:"
+          - "{{potential_obstacles|numbered}}"
+          - ""
+          - "**Accountability Plan**:"
+          - "{{accountability_plan}}"
+          
+      - header: "Progress Tracking"
+        content:
+          - "### Weekly Metrics"
+          - "- Resilience level (1-10 self-rating)"
+          - "- Challenges completed"
+          - "- Recovery time from setbacks"
+          - "- Stress episodes handled well"
+          - "- Energy and mood levels"
+          - ""
+          - "### Target Situation Progress"
+          - "Track improvement in:"
+          - "{{target_situations|progress_tracker}}"
+          - ""
+          - "### Recovery Obstacles"
+          - "Monitor reduction in:"
+          - "{{recovery_obstacles|checklist}}"
+
+# Research Foundation
+research_base:
+  - "Martin Seligman: Learned optimism and resilience"
+  - "Post-Traumatic Growth research"
+  - "Stress Inoculation Training"
+  - "Wim Hof: Cold exposure and breathing"
+  - "Viktor Frankl: Meaning and resilience"

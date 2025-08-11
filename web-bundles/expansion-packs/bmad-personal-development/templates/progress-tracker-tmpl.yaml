@@ -1,0 +1,429 @@
+# Progress Tracker Template
+# Purpose: Create comprehensive progress tracking systems for goals and projects
+# Agent: Goal Strategist
+
+template_id: progress-tracker
+template_name: "Progress Tracking Template"
+version: "1.0.0"
+description: "Template for setting up robust progress tracking with metrics, milestones, and analysis frameworks"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's set up a comprehensive progress tracking system to monitor your goal achievement, identify patterns, and optimize your strategies for success."
+  
+  sections:
+    - name: goal_context
+      title: "Goal & Context"
+      questions:
+        - prompt: "What goal or project will you be tracking?"
+          field: goal_name
+          type: text
+          validation: max_words:10
+          
+        - prompt: "Describe the desired outcome in detail:"
+          field: desired_outcome
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What's the target completion date?"
+          field: target_date
+          type: date
+          
+        - prompt: "What's your current starting point or baseline?"
+          field: baseline_status
+          type: text_long
+          validation: min_words:10
+          
+        - prompt: "Why is tracking progress important for this goal?"
+          field: tracking_importance
+          type: text_long
+
+    - name: success_metrics
+      title: "Success Metrics Definition"
+      questions:
+        - prompt: "What are your key performance indicators (KPIs)? List 3-5 measurable metrics:"
+          field: kpis
+          type: metric_list
+          min_items: 3
+          max_items: 5
+          structure:
+            - metric_name: "What you're measuring"
+            - current_value: "Starting point"
+            - target_value: "Goal"
+            - unit: "Unit of measurement"
+            - frequency: "How often measured"
+            
+        - prompt: "Which metric is most critical to success?"
+          field: primary_metric
+          type: text
+          
+        - prompt: "What leading indicators predict success? (actions/behaviors that drive results)"
+          field: leading_indicators
+          type: list
+          min_items: 3
+          examples:
+            - "Daily practice hours"
+            - "Number of outreach attempts"
+            - "Pages written per day"
+            
+        - prompt: "What lagging indicators show results? (outcomes that confirm progress)"
+          field: lagging_indicators
+          type: list
+          min_items: 2
+          examples:
+            - "Revenue generated"
+            - "Weight lost"
+            - "Clients acquired"
+
+    - name: milestone_planning
+      title: "Milestones & Checkpoints"
+      questions:
+        - prompt: "Break down your journey into 4-8 major milestones:"
+          field: milestones
+          type: milestone_list
+          min_items: 4
+          max_items: 8
+          structure:
+            - milestone_name: "Milestone description"
+            - target_date: "When to achieve"
+            - success_criteria: "How you'll know it's done"
+            - percentage_complete: "% of total goal"
+            
+        - prompt: "How often will you formally review progress?"
+          field: review_frequency
+          type: choice
+          options:
+            - "Daily"
+            - "Every 3 days"
+            - "Weekly"
+            - "Bi-weekly"
+            - "Monthly"
+            
+        - prompt: "What questions will you ask during each review?"
+          field: review_questions
+          type: list
+          min_items: 3
+          max_items: 5
+          examples:
+            - "What's working well?"
+            - "What obstacles did I face?"
+            - "What needs adjustment?"
+
+    - name: tracking_methods
+      title: "Tracking Methods & Tools"
+      questions:
+        - prompt: "How will you capture daily/regular progress data?"
+          field: data_capture_method
+          type: multi_choice
+          options:
+            - "Spreadsheet"
+            - "Journal/notebook"
+            - "Mobile app"
+            - "Wall chart/visual board"
+            - "Digital dashboard"
+            - "Calendar marking"
+            
+        - prompt: "What specific tool(s) will you use?"
+          field: tracking_tools
+          type: list
+          min_items: 1
+          examples:
+            - "Google Sheets"
+            - "Notion"
+            - "Habitica"
+            - "Physical journal"
+            
+        - prompt: "How much time will daily tracking take?"
+          field: tracking_time
+          type: choice
+          options:
+            - "Less than 2 minutes"
+            - "2-5 minutes"
+            - "5-10 minutes"
+            - "10-15 minutes"
+            - "More than 15 minutes"
+            
+        - prompt: "What will trigger you to record progress? (when/where/how)"
+          field: tracking_trigger
+          type: text
+          example: "Every evening at 9pm, before bed"
+
+    - name: analysis_framework
+      title: "Progress Analysis"
+      questions:
+        - prompt: "What patterns will you look for in your progress data?"
+          field: pattern_analysis
+          type: list
+          min_items: 3
+          examples:
+            - "Best time of day for productivity"
+            - "Weekly progress trends"
+            - "Energy level correlations"
+            
+        - prompt: "What would indicate you're on track for success?"
+          field: on_track_indicators
+          type: list
+          min_items: 3
+          
+        - prompt: "What warning signs would show you're falling behind?"
+          field: warning_signs
+          type: list
+          min_items: 3
+          
+        - prompt: "How will you visualize your progress? (charts, graphs, etc.)"
+          field: visualization_methods
+          type: multi_choice
+          options:
+            - "Line graph over time"
+            - "Bar chart comparisons"
+            - "Progress thermometer"
+            - "Percentage circle"
+            - "Milestone timeline"
+            - "Heat map calendar"
+
+    - name: accountability_motivation
+      title: "Accountability & Motivation"
+      questions:
+        - prompt: "Who will you share your progress with?"
+          field: accountability_partners
+          type: list
+          min_items: 1
+          
+        - prompt: "How will you share updates? (method and frequency)"
+          field: sharing_method
+          type: text_long
+          
+        - prompt: "What rewards will you give yourself for hitting milestones?"
+          field: milestone_rewards
+          type: list
+          min_items: 3
+          
+        - prompt: "How will you maintain motivation during slow progress periods?"
+          field: motivation_strategy
+          type: text_long
+          
+        - prompt: "What will you do if you miss a milestone?"
+          field: recovery_protocol
+          type: text_long
+
+    - name: adjustment_strategy
+      title: "Adaptation & Optimization"
+      questions:
+        - prompt: "What will trigger a strategy adjustment? (specific thresholds)"
+          field: adjustment_triggers
+          type: list
+          min_items: 3
+          examples:
+            - "2 weeks without progress"
+            - "Missing 3 daily targets in a row"
+            - "Milestone delayed by more than 1 week"
+            
+        - prompt: "How will you experiment with improvements?"
+          field: experimentation_approach
+          type: text_long
+          
+        - prompt: "What's your minimum acceptable progress rate?"
+          field: minimum_progress_rate
+          type: text
+          example: "5% per week"
+          
+        - prompt: "When would you consider pivoting or abandoning this goal?"
+          field: pivot_criteria
+          type: text_long
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Progress Tracking System: {{goal_name}}"
+    sections:
+      - header: "Goal Overview"
+        content:
+          - "**Goal**: {{goal_name}}"
+          - "**Desired Outcome**: {{desired_outcome}}"
+          - "**Target Date**: {{target_date}}"
+          - "**Current Baseline**: {{baseline_status}}"
+          - "**Why Track**: {{tracking_importance}}"
+          
+      - header: "Success Metrics Dashboard"
+        subsections:
+          - title: "Key Performance Indicators (KPIs)"
+            content:
+              - "{{kpis|metric_table}}"
+              - "**Primary Metric**: {{primary_metric}}"
+              
+          - title: "Leading Indicators (Predictive)"
+            content:
+              - "{{leading_indicators|checklist}}"
+              - "Track: Daily/Weekly"
+              
+          - title: "Lagging Indicators (Results)"
+            content:
+              - "{{lagging_indicators|bullets}}"
+              - "Measure: {{review_frequency}}"
+              
+      - header: "Milestone Timeline"
+        content:
+          - "{{milestones|gantt_chart}}"
+          - ""
+          - "**Milestone Schedule**:"
+          - "{{milestones|milestone_cards}}"
+          
+      - header: "Tracking System"
+        subsections:
+          - title: "Data Capture"
+            content:
+              - "**Method**: {{data_capture_method|list}}"
+              - "**Tools**: {{tracking_tools|list}}"
+              - "**Time Required**: {{tracking_time}}"
+              - "**Trigger**: {{tracking_trigger}}"
+              
+          - title: "Review Process"
+            content:
+              - "**Frequency**: {{review_frequency}}"
+              - "**Review Questions**:"
+              - "{{review_questions|numbered}}"
+              
+          - title: "Progress Visualization"
+            content:
+              - "**Methods**: {{visualization_methods|list}}"
+              - "[Progress charts will be updated {{review_frequency}}]"
+              
+      - header: "Progress Analysis Framework"
+        content:
+          - "**Patterns to Track**:"
+          - "{{pattern_analysis|bullets}}"
+          - ""
+          - "**On-Track Indicators** ✅:"
+          - "{{on_track_indicators|bullets}}"
+          - ""
+          - "**Warning Signs** ⚠️:"
+          - "{{warning_signs|bullets}}"
+          
+      - header: "Accountability System"
+        content:
+          - "**Accountability Partners**: {{accountability_partners|list}}"
+          - "**Sharing Method**: {{sharing_method}}"
+          - ""
+          - "**Milestone Rewards**:"
+          - "{{milestone_rewards|reward_list}}"
+          - ""
+          - "**Motivation Strategy**: {{motivation_strategy}}"
+          - ""
+          - "**Recovery Protocol**: {{recovery_protocol}}"
+          
+      - header: "Adaptation Strategy"
+        content:
+          - "**Adjustment Triggers**:"
+          - "{{adjustment_triggers|numbered}}"
+          - ""
+          - "**Experimentation Approach**: {{experimentation_approach}}"
+          - ""
+          - "**Minimum Acceptable Progress**: {{minimum_progress_rate}}"
+          - ""
+          - "**Pivot Criteria**: {{pivot_criteria}}"
+          
+      - header: "Quick Reference Card"
+        content:
+          - "### Daily Actions"
+          - "- [ ] Track {{primary_metric}}"
+          - "- [ ] Log leading indicators"
+          - "- [ ] Note energy/mood"
+          - "- [ ] Record any obstacles"
+          - ""
+          - "### Weekly Actions"
+          - "- [ ] Calculate weekly metrics"
+          - "- [ ] Review progress vs. plan"
+          - "- [ ] Identify patterns"
+          - "- [ ] Adjust next week's approach"
+          - "- [ ] Share update with accountability partner"
+          - ""
+          - "### Monthly Actions"
+          - "- [ ] Deep progress analysis"
+          - "- [ ] Milestone assessment"
+          - "- [ ] Strategy optimization"
+          - "- [ ] Celebrate wins"
+          - "- [ ] Plan next month"
+          
+      - header: "Progress Tracking Template"
+        content:
+          - "```"
+          - "Date: _______"
+          - "Day #: _______"
+          - ""
+          - "Metrics:"
+          - "- {{primary_metric}}: _______"
+          - "- [Other KPIs]: _______"
+          - ""
+          - "Leading Indicators:"
+          - "- [ ] {{leading_indicators|first}}"
+          - "- [ ] [Others as listed]"
+          - ""
+          - "Energy Level: ⚡⚡⚡⚡⚡"
+          - "Motivation: 😊😊😊😊😊"
+          - ""
+          - "Wins Today:"
+          - "1. _______"
+          - ""
+          - "Challenges:"
+          - "1. _______"
+          - ""
+          - "Tomorrow's Focus:"
+          - "1. _______"
+          - "```"
+
+# Validation Rules
+validation:
+  required_fields:
+    - goal_name
+    - target_date
+    - kpis
+    - milestones
+    - review_frequency
+    - tracking_tools
+    
+  metric_validation:
+    rule: "All KPIs must have current and target values"
+    
+  milestone_validation:
+    rule: "Milestones must sum to approximately 100% completion"
+
+# Processing Instructions
+processing:
+  - step: create_tracking_spreadsheet
+    description: "Generate template spreadsheet if requested"
+    
+  - step: calculate_velocity
+    description: "Determine required progress rate"
+    
+  - step: setup_reminders
+    description: "Create reminder schedule for tracking"
+    
+  - step: generate_charts
+    description: "Create initial visualization templates"
+
+# Tracking Metrics
+metrics:
+  - consistency_rate: "Days tracked / Total days"
+  - progress_velocity: "Actual progress / Expected progress"
+  - milestone_hit_rate: "Milestones achieved on time / Total milestones"
+  - adjustment_frequency: "Number of strategy adjustments"
+
+# Follow-up Templates
+follow_up:
+  - template_id: weekly-review
+    trigger: "End of each week"
+    
+  - template_id: progress-analysis
+    trigger: "Monthly deep dive"
+    
+  - template_id: milestone-celebration
+    trigger: "When milestone achieved"
+
+# Research Foundation
+research_base:
+  - "4 Disciplines of Execution: McChesney, Covey & Huling"
+  - "Measure What Matters: John Doerr (OKRs)"
+  - "Lean Analytics: Croll & Yoskovitz"
+  - "The Progress Principle: Teresa Amabile"
+  - "Atomic Habits: James Clear (tracking systems)"

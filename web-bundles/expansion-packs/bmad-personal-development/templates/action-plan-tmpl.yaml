@@ -1,0 +1,186 @@
+template:
+  id: action-plan-template
+  name: Personal Action Plan
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/action-plan.md
+    title: "Personal Action Plan"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: plan-overview
+    title: Action Plan Overview
+    instruction: |
+      Create a compelling overview of this action plan including the main goal, timeframe, and why this plan matters to you personally.
+    template: |
+      **Primary Goal**: {{main_goal}}
+      **Timeframe**: {{timeline}}
+      **Success Vision**: {{success_description}}
+      **Personal Why**: {{motivation}}
+
+  - id: current-situation
+    title: Current Situation Assessment
+    instruction: |
+      Honestly assess where you are now in relation to your goal. Include strengths you can leverage and challenges you need to address.
+    elicit: true
+    template: |
+      **Current State**: {{current_status}}
+      **Strengths to Leverage**:
+      - {{strength_1}}
+      - {{strength_2}}
+      - {{strength_3}}
+      
+      **Challenges to Address**:
+      - {{challenge_1}}
+      - {{challenge_2}}
+      - {{challenge_3}}
+      
+      **Gap Analysis**: {{gap_description}}
+
+  - id: strategic-approach
+    title: Strategic Approach
+    instruction: |
+      Define your overall strategy for achieving this goal. What's your theory of change? What approach will you take?
+    elicit: true
+    template: |
+      **Core Strategy**: {{main_strategy}}
+      **Theory of Change**: {{change_theory}}
+      **Key Assumptions**: {{assumptions}}
+      **Success Factors**: {{critical_factors}}
+
+  - id: action-phases
+    title: Action Phases
+    instruction: |
+      Break your plan into logical phases, each building on the previous one. Typically 3-5 phases work best.
+    elicit: true
+    sections:
+      - id: phase
+        title: "Phase {{number}}: {{phase_name}}"
+        repeatable: true
+        template: |
+          **Duration**: {{phase_duration}}
+          **Objective**: {{phase_objective}}
+          
+          **Key Actions**:
+          - {{action_1}}
+          - {{action_2}}
+          - {{action_3}}
+          - {{action_4}}
+          
+          **Success Metrics**: {{phase_metrics}}
+          **Completion Criteria**: {{completion_criteria}}
+
+  - id: detailed-actions
+    title: Detailed Action Steps
+    instruction: |
+      For the first phase or immediate next steps, provide detailed, specific actions with timelines and accountability.
+    sections:
+      - id: action-step
+        title: "Action {{number}}: {{action_name}}"
+        repeatable: true
+        template: |
+          **What**: {{action_description}}
+          **When**: {{deadline}}
+          **Where**: {{location_context}}
+          **How**: {{methodology}}
+          **Resources Needed**: {{resources}}
+          **Time Required**: {{time_estimate}}
+          **Accountable To**: {{accountability}}
+
+  - id: support-systems
+    title: Support Systems
+    instruction: |
+      Identify the people, resources, and systems that will support your success.
+    template: |
+      **Accountability Partner**: {{accountability_partner}}
+      **Mentors/Advisors**: {{mentors}}
+      **Learning Resources**: {{educational_resources}}
+      **Tools/Technology**: {{tools_needed}}
+      **Financial Investment**: {{budget}}
+      **Time Commitment**: {{time_allocation}}
+
+  - id: obstacle-management
+    title: Obstacle Management
+    instruction: |
+      Anticipate the most likely obstacles and create specific strategies to overcome them.
+    elicit: true
+    sections:
+      - id: obstacle
+        title: "Obstacle {{number}}: {{obstacle_name}}"
+        repeatable: true
+        template: |
+          **Description**: {{obstacle_description}}
+          **Likelihood**: {{probability}}
+          **Impact**: {{potential_impact}}
+          **Prevention Strategy**: {{prevention}}
+          **Response Plan**: {{response_plan}}
+          **Backup Plan**: {{contingency}}
+
+  - id: tracking-measurement
+    title: Progress Tracking & Measurement
+    instruction: |
+      Define how you'll track progress and measure success throughout the execution of this plan.
+    template: |
+      **Primary Success Metric**: {{main_metric}}
+      **Leading Indicators**: 
+      - {{leading_1}}
+      - {{leading_2}}
+      - {{leading_3}}
+      
+      **Lagging Indicators**:
+      - {{lagging_1}}
+      - {{lagging_2}}
+      - {{lagging_3}}
+      
+      **Tracking Method**: {{tracking_system}}
+      **Review Frequency**: {{review_schedule}}
+      **Progress Check Questions**:
+      - {{question_1}}
+      - {{question_2}}
+      - {{question_3}}
+
+  - id: motivation-sustainability
+    title: Motivation & Sustainability
+    instruction: |
+      Plan for how you'll maintain motivation and energy throughout the journey, especially during difficult periods.
+    template: |
+      **Core Motivation Reminders**: {{motivation_anchors}}
+      **Energy Management Strategy**: {{energy_plan}}
+      **Celebration Milestones**: {{celebration_points}}
+      **Renewal Activities**: {{renewal_practices}}
+      **Support During Low Motivation**: {{low_motivation_plan}}
+      **Identity Reinforcement**: {{identity_support}}
+
+  - id: review-adjustment
+    title: Review & Adjustment Process
+    instruction: |
+      Define how and when you'll review and adjust this plan as you learn and grow.
+    template: |
+      **Weekly Review Process**: {{weekly_review}}
+      **Monthly Assessment**: {{monthly_assessment}}
+      **Quarterly Planning**: {{quarterly_planning}}
+      **Plan Modification Triggers**: {{modification_criteria}}
+      **Learning Integration**: {{learning_process}}
+
+  - id: commitment-statement
+    title: Commitment Statement
+    instruction: |
+      Write a personal commitment statement that captures your dedication to following through on this action plan.
+    template: |
+      I am committed to {{commitment_description}}
+      
+      I will hold myself accountable by {{accountability_method}}
+      
+      When challenges arise, I will {{challenge_response}}
+      
+      I will celebrate progress by {{celebration_method}}
+      
+      This plan matters because {{deeper_purpose}}
+      
+      **Signature**: {{signature}}
+      **Date**: {{date}}
+      **Review Date**: {{review_date}}

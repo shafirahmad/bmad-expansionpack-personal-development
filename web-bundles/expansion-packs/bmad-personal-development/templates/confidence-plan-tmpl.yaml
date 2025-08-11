@@ -1,0 +1,300 @@
+# Confidence Building Plan Template
+# Purpose: Create personalized confidence building plans with progressive challenges
+# Agent: Mindset Mentor
+
+template_id: confidence-plan
+template_name: "Confidence Building Plan Template"
+version: "1.0.0"
+description: "Structured template for developing authentic confidence through evidence-based practices and progressive challenges"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's create a personalized confidence building plan that will help you develop authentic, unshakeable confidence in your chosen area through proven techniques and progressive challenges."
+  
+  sections:
+    - name: confidence_assessment
+      title: "Current Confidence State"
+      questions:
+        - prompt: "In what specific area do you want to build confidence?"
+          field: target_area
+          type: text
+          validation: max_words:10
+          examples:
+            - "Public speaking"
+            - "Dating and relationships"
+            - "Professional leadership"
+            - "Creative expression"
+            
+        - prompt: "Rate your current confidence in this area (1-10)"
+          field: current_confidence
+          type: number
+          validation: min:1, max:10
+          
+        - prompt: "What specific situations trigger low confidence in this area?"
+          field: confidence_triggers
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "What does confident look like to you in this area? Describe the ideal."
+          field: confidence_vision
+          type: text_long
+          validation: min_words:20
+
+    - name: foundation_building
+      title: "Confidence Foundation"
+      questions:
+        - prompt: "What past successes (even small ones) have you had in this area?"
+          field: past_successes
+          type: list
+          min_items: 3
+          instruction: "Include any related achievements"
+          
+        - prompt: "What strengths do you have that support confidence in this area?"
+          field: supporting_strengths
+          type: list
+          min_items: 3
+          
+        - prompt: "What compliments or positive feedback have you received related to this?"
+          field: positive_feedback
+          type: list
+          min_items: 2
+          
+        - prompt: "Who do you know that exemplifies confidence in this area?"
+          field: confidence_models
+          type: list
+          min_items: 1
+          instruction: "Can be people you know or public figures"
+
+    - name: challenge_design
+      title: "Progressive Challenge Plan"
+      questions:
+        - prompt: "What's the smallest, least scary step you could take toward building confidence?"
+          field: smallest_step
+          type: text
+          
+        - prompt: "List 5-10 progressively challenging actions from easy to difficult"
+          field: challenge_ladder
+          type: progressive_list
+          min_items: 5
+          max_items: 10
+          instruction: "Start with very easy, end with your biggest challenge"
+          
+        - prompt: "What would be your ultimate confidence challenge in this area?"
+          field: ultimate_challenge
+          type: text
+          
+        - prompt: "How many weeks do you want to dedicate to this confidence building?"
+          field: program_duration
+          type: choice
+          options:
+            - "4 weeks (intensive)"
+            - "8 weeks (steady)"
+            - "12 weeks (gradual)"
+
+    - name: support_strategies
+      title: "Support & Strategies"
+      questions:
+        - prompt: "What daily practices will reinforce your confidence?"
+          field: daily_practices
+          type: multi_choice
+          options:
+            - "Power posing (2 min)"
+            - "Confidence affirmations"
+            - "Success visualization"
+            - "Gratitude for strengths"
+            - "Mirror work"
+            - "Confident dress/grooming"
+            - "Body language practice"
+            - "Voice training"
+            
+        - prompt: "What will be your confidence motto or mantra?"
+          field: confidence_mantra
+          type: text
+          validation: max_words:10
+          
+        - prompt: "Who can support your confidence building journey?"
+          field: support_people
+          type: list
+          min_items: 1
+          
+        - prompt: "How will you handle setbacks or confidence dips?"
+          field: setback_strategy
+          type: text_long
+
+    - name: measurement
+      title: "Progress Tracking"
+      questions:
+        - prompt: "What specific behaviors will show your confidence is growing?"
+          field: confidence_behaviors
+          type: list
+          min_items: 3
+          examples:
+            - "Speaking up in meetings"
+            - "Making eye contact"
+            - "Initiating conversations"
+            
+        - prompt: "How will you track your progress?"
+          field: tracking_method
+          type: multi_choice
+          options:
+            - "Daily confidence rating (1-10)"
+            - "Weekly challenge completion"
+            - "Comfort zone exits counted"
+            - "Anxiety level monitoring"
+            - "Success journal"
+            - "Video progress logs"
+            
+        - prompt: "How will you celebrate milestones?"
+          field: celebration_plan
+          type: text_long
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Confidence Building Plan: {{target_area}}"
+    sections:
+      - header: "Confidence Vision"
+        content:
+          - "**Target Area**: {{target_area}}"
+          - "**Current Level**: {{current_confidence}}/10"
+          - "**Goal Level**: 8+/10"
+          - ""
+          - "**Confident Me Vision**:"
+          - "{{confidence_vision}}"
+          
+      - header: "Confidence Foundation"
+        subsections:
+          - title: "Evidence of Capability"
+            content:
+              - "**Past Successes**:"
+              - "{{past_successes|numbered}}"
+              - ""
+              - "**Supporting Strengths**:"
+              - "{{supporting_strengths|bullets}}"
+              - ""
+              - "**Positive Feedback Received**:"
+              - "{{positive_feedback|quotes}}"
+              
+          - title: "Confidence Models"
+            content:
+              - "People who inspire confidence:"
+              - "{{confidence_models|bullets}}"
+              - "What I can learn from them:"
+              - "- Their posture and presence"
+              - "- Their communication style"
+              - "- Their mindset and beliefs"
+              
+      - header: "Progressive Challenge Plan"
+        content:
+          - "**Program Duration**: {{program_duration}}"
+          - ""
+          - "### Confidence Challenge Ladder"
+          - "Starting easy and building to ultimate challenge:"
+          - ""
+          - "**Level 1 (Week 1)**: {{smallest_step}}"
+          - "{{challenge_ladder|challenge_progression}}"
+          - "**Ultimate Challenge**: {{ultimate_challenge}}"
+          
+      - header: "Daily Confidence Rituals"
+        content:
+          - "**Morning Power-Up (10 min)**:"
+          - "{{daily_practices|morning_routine}}"
+          - ""
+          - "**Confidence Mantra**:"
+          - "*\"{{confidence_mantra}}\"*"
+          - ""
+          - "**Evening Review (5 min)**:"
+          - "- Confidence wins from today"
+          - "- Evidence of growth"
+          - "- Tomorrow's confidence intention"
+          
+      - header: "Weekly Action Plan"
+        content:
+          - "### Week 1-2: Foundation Building"
+          - "- Complete Level 1 challenges"
+          - "- Establish daily practices"
+          - "- Track baseline confidence"
+          - "- Identify and interrupt confidence blocks"
+          - ""
+          - "### Week 3-4: Expansion"
+          - "- Progress to Level 2-3 challenges"
+          - "- Increase exposure to trigger situations"
+          - "- Practice confidence behaviors daily"
+          - "- Seek feedback from support person"
+          - ""
+          - "### Week 5-6: Acceleration"
+          - "- Tackle Level 4-5 challenges"
+          - "- Take calculated risks"
+          - "- Lead or initiate in target area"
+          - "- Document transformation evidence"
+          - ""
+          - "### Week 7-8: Integration"
+          - "- Attempt ultimate challenge"
+          - "- Solidify new confidence identity"
+          - "- Share success story"
+          - "- Plan next level of growth"
+          
+      - header: "Confidence Triggers Management"
+        content:
+          - "**Identified Triggers**:"
+          - "{{confidence_triggers|numbered}}"
+          - ""
+          - "**Response Strategy**:"
+          - "When triggered:"
+          - "1. Pause and breathe deeply"
+          - "2. Power pose for 30 seconds"
+          - "3. Recall recent success"
+          - "4. Use mantra: '{{confidence_mantra}}'"
+          - "5. Take one small confident action"
+          
+      - header: "Support System"
+        content:
+          - "**Confidence Champions**:"
+          - "{{support_people|support_roles}}"
+          - ""
+          - "**Setback Recovery Protocol**:"
+          - "{{setback_strategy}}"
+          
+      - header: "Progress Tracking"
+        content:
+          - "**Success Metrics**:"
+          - "- Daily confidence rating average"
+          - "- Challenges completed: ___/{{challenge_ladder|count}}"
+          - "- Comfort zone exits per week"
+          - "- Trigger situations handled well"
+          - ""
+          - "**Tracking Method**: {{tracking_method|list}}"
+          - ""
+          - "**Confidence Behavior Checklist**:"
+          - "{{confidence_behaviors|checklist}}"
+          - ""
+          - "**Milestone Celebrations**:"
+          - "{{celebration_plan}}"
+          
+      - header: "Week 1 Quick Start"
+        content:
+          - "### Day 1-3: Foundation"
+          - "- [ ] Complete confidence assessment"
+          - "- [ ] Set up tracking system"
+          - "- [ ] Practice daily rituals"
+          - "- [ ] Complete first mini-challenge"
+          - ""
+          - "### Day 4-5: Building"
+          - "- [ ] Attempt Level 1 challenge"
+          - "- [ ] Practice power posing"
+          - "- [ ] Connect with support person"
+          - ""
+          - "### Day 6-7: Review"
+          - "- [ ] Assess week's progress"
+          - "- [ ] Celebrate wins"
+          - "- [ ] Plan Week 2 challenges"
+
+# Research Foundation
+research_base:
+  - "Amy Cuddy: Power posing research"
+  - "Albert Bandura: Self-efficacy theory"
+  - "Nathaniel Branden: Psychology of self-esteem"
+  - "Susan Jeffers: Feel the fear methodology"
+  - "Brené Brown: Courage and vulnerability"

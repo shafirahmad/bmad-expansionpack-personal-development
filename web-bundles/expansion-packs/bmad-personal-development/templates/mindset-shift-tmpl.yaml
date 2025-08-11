@@ -1,0 +1,269 @@
+# Mindset Shift Template
+# Purpose: Guide systematic transformation from limiting to empowering mindsets
+# Agent: Mindset Mentor
+
+template_id: mindset-shift
+template_name: "Mindset Transformation Template"
+version: "1.0.0"
+description: "Comprehensive template for identifying and transforming limiting mindsets into empowering beliefs"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "Let's work together to transform a limiting mindset that's holding you back into an empowering belief system that supports your growth and success."
+  
+  sections:
+    - name: mindset_identification
+      title: "Current Mindset Assessment"
+      questions:
+        - prompt: "What specific mindset or belief is limiting you right now?"
+          field: limiting_mindset
+          type: text_long
+          validation: min_words:10
+          examples:
+            - "I believe I'm not smart enough to succeed in this field"
+            - "I think successful people are just lucky"
+            - "I can't change; this is just who I am"
+            
+        - prompt: "In what situations does this mindset show up most strongly?"
+          field: trigger_situations
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "How long have you held this belief?"
+          field: belief_duration
+          type: choice
+          options:
+            - "Less than a year"
+            - "1-5 years"
+            - "5-10 years"
+            - "More than 10 years"
+            - "As long as I can remember"
+            
+        - prompt: "Where do you think this mindset came from? (experiences, people, culture)"
+          field: mindset_origin
+          type: text_long
+          validation: min_words:15
+
+    - name: impact_analysis
+      title: "Mindset Impact Assessment"
+      questions:
+        - prompt: "How does this mindset affect your daily life and decisions?"
+          field: daily_impact
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What opportunities have you missed or avoided because of this mindset?"
+          field: missed_opportunities
+          type: list
+          min_items: 2
+          
+        - prompt: "How does this mindset make you feel emotionally?"
+          field: emotional_impact
+          type: multi_choice
+          options:
+            - "Anxious or worried"
+            - "Sad or hopeless"
+            - "Angry or frustrated"
+            - "Stuck or trapped"
+            - "Inadequate or inferior"
+            - "Fearful or scared"
+            
+        - prompt: "What would be possible if you didn't have this limiting mindset?"
+          field: possibilities_without
+          type: text_long
+          validation: min_words:15
+
+    - name: evidence_examination
+      title: "Evidence Analysis"
+      questions:
+        - prompt: "What evidence seems to support this limiting mindset?"
+          field: supporting_evidence
+          type: list
+          min_items: 2
+          instruction: "Be specific about experiences or observations"
+          
+        - prompt: "What evidence contradicts this mindset? (even small examples count)"
+          field: contradicting_evidence
+          type: list
+          min_items: 3
+          instruction: "Think of exceptions, successes, or different perspectives"
+          
+        - prompt: "How might you be interpreting neutral events to support this mindset?"
+          field: interpretation_bias
+          type: text_long
+          
+        - prompt: "Who in your life or in history has overcome similar limiting beliefs?"
+          field: role_models
+          type: list
+          min_items: 2
+
+    - name: new_mindset_design
+      title: "Empowering Mindset Creation"
+      questions:
+        - prompt: "What would be a more empowering and truthful mindset to adopt?"
+          field: empowering_mindset
+          type: text_long
+          validation: min_words:10
+          instruction: "Make it positive, growth-oriented, and believable"
+          
+        - prompt: "Why is this new mindset more accurate or helpful?"
+          field: mindset_rationale
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What evidence already exists that supports this new mindset?"
+          field: new_mindset_evidence
+          type: list
+          min_items: 3
+          
+        - prompt: "How would someone with this empowering mindset think and act?"
+          field: mindset_behaviors
+          type: text_long
+          validation: min_words:20
+
+    - name: transformation_plan
+      title: "Implementation Strategy"
+      questions:
+        - prompt: "What daily practices will help reinforce this new mindset?"
+          field: daily_practices
+          type: list
+          min_items: 3
+          max_items: 5
+          examples:
+            - "Morning affirmation practice"
+            - "Evening evidence journal"
+            - "Mindset check-ins"
+            
+        - prompt: "What phrases or mantras will you use to counter the old mindset?"
+          field: counter_phrases
+          type: list
+          min_items: 3
+          instruction: "Short, memorable phrases you can use in the moment"
+          
+        - prompt: "What small actions can you take this week to embody the new mindset?"
+          field: embodiment_actions
+          type: list
+          min_items: 3
+          
+        - prompt: "Who can support you in this mindset transformation?"
+          field: support_system
+          type: list
+          min_items: 1
+
+    - name: commitment
+      title: "Transformation Commitment"
+      questions:
+        - prompt: "On a scale of 1-10, how committed are you to changing this mindset?"
+          field: commitment_level
+          type: number
+          validation: min:1, max:10
+          
+        - prompt: "What will you do when the old mindset tries to reassert itself?"
+          field: relapse_strategy
+          type: text_long
+          
+        - prompt: "How will you celebrate progress in developing this new mindset?"
+          field: celebration_plan
+          type: text
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Mindset Transformation Plan"
+    sections:
+      - header: "Current State Analysis"
+        content:
+          - "**Limiting Mindset**: {{limiting_mindset}}"
+          - "**Duration Held**: {{belief_duration}}"
+          - "**Origin Story**: {{mindset_origin}}"
+          - "**Trigger Situations**:"
+          - "{{trigger_situations|bullets}}"
+          
+      - header: "Impact Assessment"
+        content:
+          - "**Daily Life Impact**: {{daily_impact}}"
+          - "**Emotional Cost**: {{emotional_impact|list}}"
+          - "**Opportunities Missed**:"
+          - "{{missed_opportunities|bullets}}"
+          - "**Possibilities Without This Limit**: {{possibilities_without}}"
+          
+      - header: "Evidence Review"
+        subsections:
+          - title: "Supporting Evidence (Often Biased)"
+            content: "{{supporting_evidence|numbered}}"
+          - title: "Contradicting Evidence (Often Overlooked)"
+            content: "{{contradicting_evidence|numbered}}"
+          - title: "Interpretation Bias"
+            content: "{{interpretation_bias}}"
+          - title: "Success Models"
+            content: "{{role_models|bullets}}"
+            
+      - header: "New Empowering Mindset"
+        content:
+          - "## {{empowering_mindset}}"
+          - ""
+          - "**Why This Is More True**: {{mindset_rationale}}"
+          - ""
+          - "**Supporting Evidence**:"
+          - "{{new_mindset_evidence|numbered}}"
+          - ""
+          - "**Embodied Behaviors**: {{mindset_behaviors}}"
+          
+      - header: "Transformation Strategy"
+        subsections:
+          - title: "Daily Reinforcement Practices"
+            content: "{{daily_practices|checklist}}"
+          - title: "Counter-Programming Phrases"
+            content:
+              - "When old mindset says: '{{limiting_mindset|truncate:50}}'"
+              - "I will respond with:"
+              - "{{counter_phrases|numbered}}"
+          - title: "This Week's Action Steps"
+            content: "{{embodiment_actions|checklist}}"
+          - title: "Support System"
+            content: "{{support_system|bullets}}"
+            
+      - header: "Implementation Plan"
+        content:
+          - "**Week 1**: Awareness and interruption"
+          - "- Notice old mindset arising (track frequency)"
+          - "- Use counter phrases immediately"
+          - "- Complete first action step"
+          - ""
+          - "**Week 2**: Active replacement"
+          - "- Morning affirmation of new mindset"
+          - "- Collect evidence supporting new belief"
+          - "- Complete second action step"
+          - ""
+          - "**Week 3**: Embodiment"
+          - "- Act from new mindset daily"
+          - "- Share transformation with support person"
+          - "- Complete third action step"
+          - ""
+          - "**Week 4**: Integration"
+          - "- Review progress and adjust"
+          - "- Celebrate growth"
+          - "- Plan next level of expansion"
+          
+      - header: "Commitment & Accountability"
+        content:
+          - "**Commitment Level**: {{commitment_level}}/10"
+          - ""
+          - "**When Old Mindset Returns**: {{relapse_strategy}}"
+          - ""
+          - "**Progress Celebration**: {{celebration_plan}}"
+          - ""
+          - "**Check-in Schedule**:"
+          - "- Daily: Evening evidence collection"
+          - "- Weekly: Progress review with support person"
+          - "- Monthly: Full mindset assessment"
+
+# Research Foundation
+research_base:
+  - "Carol Dweck: Growth mindset research"
+  - "Cognitive Behavioral Therapy: Thought challenging"
+  - "Neuroplasticity: Brain's ability to form new patterns"
+  - "Albert Ellis: Rational Emotive Behavior Therapy"
+  - "Martin Seligman: Learned optimism"

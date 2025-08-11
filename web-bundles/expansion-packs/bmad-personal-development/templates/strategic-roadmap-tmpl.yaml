@@ -1,0 +1,314 @@
+# Strategic Roadmap Template
+# Purpose: Create comprehensive strategic roadmap for long-term goal achievement
+# Agent: Goal Strategist
+
+template_id: strategic-roadmap
+template_name: "Strategic Roadmap Template"
+version: "1.0.0"
+description: "Comprehensive template for creating strategic roadmaps with milestones, dependencies, and resource planning"
+
+# Interactive Elicitation Section
+elicitation:
+  introduction: "I'll help you create a strategic roadmap that transforms your vision into an actionable path with clear milestones and success metrics."
+  
+  sections:
+    - name: vision_definition
+      title: "Vision & Destination"
+      questions:
+        - prompt: "What is your ultimate vision or destination? Describe what success looks like in detail."
+          field: vision_statement
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What is the target timeframe for achieving this vision?"
+          field: timeframe
+          type: choice
+          options:
+            - "3 months"
+            - "6 months"
+            - "1 year"
+            - "2 years"
+            - "3-5 years"
+            - "5+ years"
+          
+        - prompt: "Why is this vision important to you? What will it enable or change?"
+          field: vision_importance
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What are the key success indicators that will show you've achieved this vision?"
+          field: success_indicators
+          type: list
+          min_items: 3
+          max_items: 7
+
+    - name: current_state
+      title: "Starting Point Assessment"
+      questions:
+        - prompt: "Describe your current situation related to this vision."
+          field: current_state
+          type: text_long
+          validation: min_words:15
+          
+        - prompt: "What resources do you currently have available? (skills, money, time, connections, etc.)"
+          field: available_resources
+          type: list
+          min_items: 3
+          
+        - prompt: "What are your key strengths that will help you achieve this vision?"
+          field: key_strengths
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "What gaps or challenges do you need to address?"
+          field: gaps_challenges
+          type: list
+          min_items: 2
+          max_items: 5
+
+    - name: milestone_planning
+      title: "Major Milestones"
+      questions:
+        - prompt: "Break down your journey into 4-8 major milestones. What needs to be achieved at each stage?"
+          field: major_milestones
+          type: milestone_list
+          min_items: 4
+          max_items: 8
+          structure:
+            - name: "Milestone name"
+            - description: "What will be accomplished"
+            - target_date: "Target completion date"
+            - success_criteria: "How you'll know it's complete"
+            
+        - prompt: "Which milestone is most critical to overall success?"
+          field: critical_milestone
+          type: text
+          
+        - prompt: "What dependencies exist between milestones? (Which must be completed before others can begin?)"
+          field: milestone_dependencies
+          type: text_long
+
+    - name: strategy_definition
+      title: "Strategic Approach"
+      questions:
+        - prompt: "What is your core strategy for achieving this vision? (How will you approach this?)"
+          field: core_strategy
+          type: text_long
+          validation: min_words:20
+          
+        - prompt: "What key initiatives or projects will drive progress?"
+          field: key_initiatives
+          type: list
+          min_items: 3
+          max_items: 7
+          
+        - prompt: "What habits or routines will you establish to ensure consistent progress?"
+          field: success_habits
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "What will you NOT do? (What distractions or non-essentials will you avoid?)"
+          field: not_doing_list
+          type: list
+          min_items: 2
+
+    - name: resource_planning
+      title: "Resource Requirements"
+      questions:
+        - prompt: "What new skills or knowledge will you need to develop?"
+          field: skills_needed
+          type: list
+          min_items: 2
+          
+        - prompt: "What financial investment will be required? (Estimate if unsure)"
+          field: financial_investment
+          type: text
+          
+        - prompt: "How many hours per week can you dedicate to this?"
+          field: time_commitment
+          type: choice
+          options:
+            - "1-5 hours"
+            - "6-10 hours"
+            - "11-20 hours"
+            - "21-30 hours"
+            - "31-40 hours"
+            - "40+ hours"
+            
+        - prompt: "What support or help will you need from others?"
+          field: support_needed
+          type: list
+          min_items: 2
+
+    - name: risk_management
+      title: "Risk & Contingency"
+      questions:
+        - prompt: "What are the biggest risks or potential obstacles?"
+          field: major_risks
+          type: list
+          min_items: 3
+          max_items: 5
+          
+        - prompt: "For your top risk, what's your mitigation strategy?"
+          field: risk_mitigation
+          type: text_long
+          
+        - prompt: "What early warning signs would indicate you're off track?"
+          field: warning_signs
+          type: list
+          min_items: 3
+          
+        - prompt: "What's your Plan B if the primary strategy isn't working?"
+          field: contingency_plan
+          type: text_long
+
+    - name: accountability
+      title: "Accountability & Review"
+      questions:
+        - prompt: "How often will you review and adjust your roadmap?"
+          field: review_frequency
+          type: choice
+          options:
+            - "Weekly"
+            - "Bi-weekly"
+            - "Monthly"
+            - "Quarterly"
+            
+        - prompt: "Who will you share this roadmap with for accountability?"
+          field: accountability_partners
+          type: list
+          min_items: 1
+          
+        - prompt: "How will you celebrate milestone achievements?"
+          field: celebration_plan
+          type: text_long
+          
+        - prompt: "What will keep you motivated during difficult periods?"
+          field: motivation_strategy
+          type: text_long
+
+# Output Structure
+output:
+  format: markdown
+  structure:
+    title: "Strategic Roadmap: {{vision_statement|truncate:50}}"
+    sections:
+      - header: "Vision & Destination"
+        content:
+          - "**Ultimate Vision**: {{vision_statement}}"
+          - "**Timeframe**: {{timeframe}}"
+          - "**Why This Matters**: {{vision_importance}}"
+          - "**Success Indicators**:"
+          - "{{success_indicators|bullets}}"
+          
+      - header: "Journey Overview"
+        content:
+          - "**Starting Point**: {{current_state}}"
+          - "**Destination**: {{vision_statement|truncate:100}}"
+          - "**Core Strategy**: {{core_strategy}}"
+          - "**Time Investment**: {{time_commitment}} per week"
+          
+      - header: "Milestone Map"
+        content:
+          - "{{major_milestones|milestone_timeline}}"
+          - "**Critical Path**: {{critical_milestone}}"
+          - "**Dependencies**: {{milestone_dependencies}}"
+          
+      - header: "Strategic Initiatives"
+        content:
+          - "**Key Projects**:"
+          - "{{key_initiatives|numbered}}"
+          - "**Success Habits**:"
+          - "{{success_habits|bullets}}"
+          - "**Not Doing List**:"
+          - "{{not_doing_list|bullets}}"
+          
+      - header: "Resource Plan"
+        content:
+          - "**Skills to Develop**:"
+          - "{{skills_needed|bullets}}"
+          - "**Financial Investment**: {{financial_investment}}"
+          - "**Support Required**:"
+          - "{{support_needed|bullets}}"
+          
+      - header: "Risk Management"
+        content:
+          - "**Major Risks**:"
+          - "{{major_risks|risk_matrix}}"
+          - "**Mitigation Strategy**: {{risk_mitigation}}"
+          - "**Warning Signs**:"
+          - "{{warning_signs|bullets}}"
+          - "**Plan B**: {{contingency_plan}}"
+          
+      - header: "Execution & Accountability"
+        content:
+          - "**Review Schedule**: {{review_frequency}}"
+          - "**Accountability Partners**: {{accountability_partners|list}}"
+          - "**Celebration Plan**: {{celebration_plan}}"
+          - "**Motivation Strategy**: {{motivation_strategy}}"
+          
+      - header: "Next Actions"
+        content:
+          - "1. Share this roadmap with accountability partners"
+          - "2. Schedule recurring review sessions"
+          - "3. Begin work on first milestone"
+          - "4. Set up progress tracking system"
+          - "5. Commit to daily/weekly success habits"
+
+# Validation Rules
+validation:
+  required_fields:
+    - vision_statement
+    - timeframe
+    - major_milestones
+    - core_strategy
+    - time_commitment
+    
+  field_rules:
+    vision_statement:
+      min_length: 50
+      max_length: 500
+    major_milestones:
+      min_count: 4
+      max_count: 8
+    success_indicators:
+      min_count: 3
+      max_count: 7
+
+# Processing Instructions
+processing:
+  - step: validate_timeline
+    description: "Ensure milestone dates are realistic and properly sequenced"
+    
+  - step: check_dependencies
+    description: "Verify milestone dependencies are logical"
+    
+  - step: resource_feasibility
+    description: "Assess if resource requirements match available capacity"
+    
+  - step: risk_assessment
+    description: "Evaluate if risks are adequately addressed"
+    
+  - step: generate_gantt
+    description: "Create visual timeline if requested"
+
+# Follow-up Templates
+follow_up:
+  - template_id: sprint-plan
+    trigger: "When ready to plan first execution sprint"
+    
+  - template_id: progress-tracker
+    trigger: "For ongoing progress monitoring"
+    
+  - template_id: pivot-analysis
+    trigger: "If strategy needs major adjustment"
+
+# Research Foundation
+research_base:
+  - "Strategic Planning: Michael Porter frameworks"
+  - "OKR Methodology: John Doerr"
+  - "Roadmapping: Product management best practices"
+  - "Goal Achievement: Locke & Latham goal-setting theory"
+  - "Project Management: PMI standards"
